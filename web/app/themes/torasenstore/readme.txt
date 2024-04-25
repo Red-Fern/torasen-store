@@ -1,4 +1,4 @@
-=== Torasen Essentials ===
+=== Torasen Store ===
 Contributors: Red Fern
 Requires at least: 6.0
 Tested up to: 6.5.2
@@ -8,7 +8,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Theme for Torasen Essentials
+Theme for Torasen Store
 
 == Changelog ==
 
@@ -17,8 +17,8 @@ Theme for Torasen Essentials
 
 == Copyright ==
 
-Torasen Essentials WordPress Theme, (C) 2024 Red Fern
-Torasen Essentials is distributed under the terms of the GNU GPL.
+Torasen Store WordPress Theme, (C) 2024 Red Fern
+Torasen Store is distributed under the terms of the GNU GPL.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
