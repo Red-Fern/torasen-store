@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "76d9d30651e8b8ea000b4e351e4a1e4d",
+    "content-hash": "c83866fe87be2b605996635cbe04a8a0",
     "packages": [
         {
             "name": "composer/installers",
@@ -1126,6 +1126,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/create-block-theme/"
+        },
+        {
+            "name": "wpackagist-plugin/woocommerce",
+            "version": "8.8.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/woocommerce/",
+                "reference": "tags/8.8.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/woocommerce.8.8.2.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/woocommerce/"
         },
         {
             "name": "wpackagist-theme/twentytwentyfour",
