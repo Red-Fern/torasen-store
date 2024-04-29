@@ -220,6 +220,12 @@
 					"fontSize": "var(--wp--preset--font-size--sm)"
 				}
 			},
+			"heading": {
+				"typography": {
+					"fontStyle": "normal",
+					"fontWeight": "500"
+				}
+			},
 			"link": {
 				"color": {
 					"text": "var(--wp--preset--color--custom-black)"
