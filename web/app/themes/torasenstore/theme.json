@@ -63,6 +63,38 @@
 			"wideSize": "1630px"
 		},
 		"spacing": {
+			"spacingSizes": [
+				{
+					"name": "X Small",
+					"size": "1.25rem",
+					"slug": "xs"
+				},
+				{
+					"name": "Small",
+					"size": "clamp(1.563rem, 1.484rem + 0.391vw, 1.875rem)",
+					"slug": "sm"
+				},
+				{
+					"name": "Medium",
+					"size": "clamp(1.875rem, 1.719rem + 0.781vw, 2.5rem)",
+					"slug": "md"
+				},
+				{
+					"name": "Large",
+					"size": "clamp(1.875rem, 1.563rem + 1.563vw, 3.125rem)",
+					"slug": "lg"
+				},
+				{
+					"name": "X Large",
+					"size": "clamp(2.5rem, 2.109rem + 1.953vw, 4.063rem)",
+					"slug": "xl"
+				},
+				{
+					"name": "2X Large",
+					"size": "clamp(3.125rem, 2.344rem + 3.906vw, 6.25rem)",
+					"slug": "xxl"
+				}
+			],
 			"units": [
 				"%",
 				"px",
