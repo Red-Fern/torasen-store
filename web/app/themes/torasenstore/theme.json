@@ -73,6 +73,13 @@
 			]
 		},
 		"typography": {
+			"customFontSize": false,
+			"dropCap": false,
+			"fluid": {
+				"maxViewportWidth": "1600px",
+				"minFontSize": "0.938rem",
+				"minViewportWidth": "320px"
+			},
 			"fontFamilies": [
 				{
 					"fontFace": [
@@ -110,6 +117,64 @@
 					"name": "Inconsolata",
 					"slug": "inconsolata"
 				}
+			],
+			"fontSizes": [
+				{
+					"name": "X Small",
+					"size": "0.625rem",
+					"slug": "xs"
+				},
+				{
+					"name": "Small",
+					"size": "0.75rem",
+					"slug": "sm"
+				},
+				{
+					"name": "Base",
+					"size": "0.938rem",
+					"slug": "base"
+				},
+				{
+					"name": "Medium",
+					"size": "1.125rem",
+					"slug": "md"
+				},
+				{
+					"fluid": {
+						"max": "1.563rem",
+						"min": "1.25rem"
+					},
+					"name": "Large",
+					"size": "1.25rem",
+					"slug": "lg"
+				},
+				{
+					"fluid": {
+						"max": "2rem",
+						"min": "1.563rem"
+					},
+					"name": "X Large",
+					"size": "1.563rem",
+					"slug": "xl"
+				},
+				{
+					"fluid": {
+						"max": "2.375rem",
+						"min": "1.563rem"
+					},
+					"name": "2X Large",
+					"size": "1.625rem",
+					"slug": "xxl"
+				},
+				{
+					"fluid": {
+						"max": "3.25rem",
+						"min": "2rem"
+					},
+					"name": "3X Large",
+					"size": "2rem",
+					"slug": "xxxl"
+				}
 			]
 		},
 		"useRootPaddingAwareAlignments": true
@@ -125,6 +190,36 @@
 					"text": "var(--wp--preset--color--white)"
 				}
 			},
+			"h1": {
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--xxl)"
+				}
+			},
+			"h2": {
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--xl)"
+				}
+			},
+			"h3": {
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--lg)"
+				}
+			},
+			"h4": {
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--md)"
+				}
+			},
+			"h5": {
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--base)"
+				}
+			},
+			"h6": {
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--sm)"
+				}
+			},
 			"link": {
 				"color": {
 					"text": "var(--wp--preset--color--custom-black)"
@@ -132,7 +227,8 @@
 			}
 		},
 		"typography": {
-			"fontFamily": "var(--wp--preset--font-family--sohne)"
+			"fontFamily": "var(--wp--preset--font-family--sohne)",
+			"fontSize": "var(--wp--preset--font-size--base)"
 		}
 	},
 	"templateParts": [
