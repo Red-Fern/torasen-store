@@ -45,7 +45,9 @@ class Gutenberg
         wp_enqueue_script(
             'gutenberg-scripts',
             get_template_directory_uri() . '/assets/js/gutenberg.js',
-            array('wp-blocks')
+            array('wp-blocks', 'wp-dom'),
+            time(),
+            true
         );
     }
 }

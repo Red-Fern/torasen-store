@@ -5,6 +5,20 @@
 /* Preflight */
 @import url("./preflight.css");
 
+/* Blocks - Button */
+.wp-block-button > .wp-block-button__link {
+    @apply transition duration-300 ease-in-out;
+}
+.wp-block-button.is-style-white-fill > .wp-block-button__link {
+    @apply border-white bg-white text-black;
+}
+.wp-block-button.is-style-black-outline > .wp-block-button__link {
+    @apply border-black bg-white text-black;
+}
+.wp-block-button > .wp-block-button__link:hover {
+    @apply border-dark-greige bg-dark-greige text-black;
+}
+
 /* Vue and Alpine */
 [v-cloak],
 [x-cloak] {
