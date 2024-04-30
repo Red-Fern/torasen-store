@@ -120,7 +120,7 @@
 							"fontStyle": "normal",
 							"fontWeight": "400",
 							"src": [
-								"file:./assets/fonts/sohne-regular.woff2"
+								"file:./resources/fonts/sohne-regular.woff2"
 							]
 						},
 						{
@@ -128,7 +128,7 @@
 							"fontStyle": "normal",
 							"fontWeight": "500",
 							"src": [
-								"file:./assets/fonts/sohne-medium.woff2"
+								"file:./resources/fonts/sohne-medium.woff2"
 							]
 						}
 					],
@@ -142,7 +142,7 @@
 							"fontFamily": "Inconsolata",
 							"fontStyle": "normal",
 							"fontWeight": "400",
-							"src": "file:./assets/fonts/QldgNThLqRwH-OJ1UHjlKENVzkWGVkL3GZQmAwLYxYWI2qfdm7Lpp4U8aR_8lleY2co.woff2"
+							"src": "file:./resources/fonts/QldgNThLqRwH-OJ1UHjlKENVzkWGVkL3GZQmAwLYxYWI2qfdm7Lpp4U8aR_8lleY2co.woff2"
 						}
 					],
 					"fontFamily": "Inconsolata, monospace",
