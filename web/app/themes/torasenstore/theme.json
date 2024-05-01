@@ -317,8 +317,8 @@
 		"spacing": {
 			"padding": {
 				"bottom": "0",
-				"left": "var(--wp--preset--spacing--lg)",
-				"right": "var(--wp--preset--spacing--lg)",
+				"left": "clamp(1.25rem, 0.781rem + 2.344vw, 3.125rem)",
+				"right": "clamp(1.25rem, 0.781rem + 2.344vw, 3.125rem)",
 				"top": "0"
 			}
 		},
