@@ -72,13 +72,11 @@
 				}
 			]
 		},
+		"layout": {
+			"contentSize": "1630px"
+		},
 		"shadow": {
 			"defaultPresets": false
-		},
-
-		"layout": {
-			"contentSize": "1260px",
-			"wideSize": "1630px"
 		},
 		"spacing": {
 			"spacingSizes": [
@@ -314,6 +312,14 @@
 				"color": {
 					"text": "var(--wp--preset--color--black)"
 				}
+			}
+		},
+		"spacing": {
+			"padding": {
+				"bottom": "0",
+				"left": "var(--wp--preset--spacing--lg)",
+				"right": "var(--wp--preset--spacing--lg)",
+				"top": "0"
 			}
 		},
 		"typography": {

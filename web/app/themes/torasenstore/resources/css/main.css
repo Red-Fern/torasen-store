@@ -5,6 +5,12 @@
 /* Preflight */
 @import url("./preflight.css");
 
+/* Containers */
+/* Ensure group blocks inherit global padding */
+.has-global-padding :where(.has-global-padding:not(.wp-block-block)) {
+    @apply px-[inherit];
+}
+
 /* Blocks - Button */
 .wp-block-button > .wp-block-button__link {
     @apply transition duration-300 ease-in-out;
