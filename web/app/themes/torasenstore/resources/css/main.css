@@ -5,11 +5,20 @@
 /* Preflight */
 @import url("./preflight.css");
 
+/* Vue and Alpine */
+[v-cloak],
+[x-cloak] {
+    @apply !hidden;
+}
+
 /* Containers */
+
 /* Ensure group blocks inherit global padding */
 .has-global-padding :where(.has-global-padding:not(.wp-block-block)) {
     @apply px-[inherit];
 }
+
+/* Blocks */
 
 /* Blocks - Button */
 .wp-block-button > .wp-block-button__link {
@@ -25,8 +34,9 @@
     @apply border-dark-greige bg-dark-greige text-black;
 }
 
-/* Vue and Alpine */
-[v-cloak],
-[x-cloak] {
-    @apply !hidden;
+/* WooCommerce */
+
+/* WooCommerce - Product */
+.wp-block-group.woocommerce.product {
+    @apply my-0;
 }
