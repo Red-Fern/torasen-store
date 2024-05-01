@@ -7,7 +7,7 @@ class Theme
     public static function init()
     {
         add_action('wp_enqueue_scripts', [__CLASS__, 'enqueueScripts']);
-        add_filter('wp_check_filetype_and_ext', [__CLASS__, 'enableSvgUploads']);
+        add_filter('wp_check_filetype_and_ext', [__CLASS__, 'enableSvgUploads'], 10, 4);
         add_filter('upload_mimes', [__CLASS__, 'addSvgMimeTypes']);
         add_action('wp_body_open', [__CLASS__, 'addGtmCode'], -1);
     }
@@ -42,6 +42,7 @@ class Theme
     public static function addSvgMimeTypes($mimes)
     {
         $mimes['svg'] = 'image/svg+xml';
+        
         return $mimes;
     }
 
