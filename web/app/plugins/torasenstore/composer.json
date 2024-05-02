@@ -1,0 +1,17 @@
+{
+    "name": "red-fern/torasenstore",
+    "description": "Custom functionality for Torasen Store.",
+    "type": "wordpress-plugin",
+    "autoload": {
+        "psr-4": {
+            "RedFern\\TorasenStore\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Elizabeth Cornforth",
+            "email": "elizabeth@red-fern.co.uk"
+        }
+    ],
+    "require": {}
+}
