@@ -5,6 +5,7 @@ module.exports = {
     "./patterns/**/*.php",
     "./templates/**/*.html",
     "./resources/js/**/*.js",
+    "./resources/gutenberg/**/*.js",
     "./acf/**/*.php",
   ],
   theme: {
