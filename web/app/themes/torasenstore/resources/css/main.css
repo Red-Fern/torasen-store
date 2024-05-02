@@ -34,6 +34,13 @@
     @apply border-dark-greige bg-dark-greige text-black;
 }
 
+/* Template Parts */
+
+/* Footer */
+footer.wp-block-template-part {
+    @apply my-0;
+}
+
 /* WooCommerce */
 
 /* WooCommerce - Product */
