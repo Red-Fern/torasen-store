@@ -30,6 +30,7 @@ wp-cli.local.yml
 .DS_Store
 
 # Plugins
+!web/app/plugins/torasenstore
 !web/app/plugins/search-filter-pro
 
 # Themes
