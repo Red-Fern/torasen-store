@@ -5,7 +5,7 @@ namespace RedFern\TorasenStore;
 class Blocks
 {
     protected static $blocks = [
-        'mega-menu'
+
     ];
 
     public static function init()

@@ -32,7 +32,7 @@ import './editor.scss';
 export default function Edit() {
 	return (
 		<p { ...useBlockProps() }>
-			{ __( 'Torasenstore – hello from the editor!', 'torasenstore' ) }
+			{ __( 'Mega Menu – hello from the editor!', 'mega-menu' ) }
 		</p>
 	);
 }

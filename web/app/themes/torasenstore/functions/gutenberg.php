@@ -5,12 +5,13 @@ namespace RFOrigin;
 class Gutenberg
 {
     protected static array $blocks = [
+        'rf-origin/mega-menu'
     ];
 
     public static function init()
     {
         add_action('init', [__CLASS__, 'registerBlockPatterns']);
-        add_action('init', [__CLASS__, 'registerCustomBlockTypes']);
+        add_action('init', [__CLASS__, 'registerCustomBlocks']);
         add_action('enqueue_block_editor_assets', [__CLASS__, 'enqueueEditorAssets']);
     }
 
@@ -26,12 +27,15 @@ class Gutenberg
         );
     }
 
-    public static function registerCustomBlockTypes(): void
+    public static function registerCustomBlocks()
     {
-        $path = get_template_directory() . '/assets/blocks/';
-        
-        foreach (self::$blocks as $block) {
-            register_block_type($path . $block);
+        $path = get_template_directory() . '/assets/gutenberg/blocks/';
+
+        foreach (self::getBlocks() as $block) {
+            // Retrieve the section after the forward slash from the $slug
+            $blockName = substr($block, strpos($block, '/') + 1);
+
+            register_block_type($path . $blockName);
         }
     }
 
@@ -49,6 +53,11 @@ class Gutenberg
             time(),
             true
         );
+    }
+
+    public static function getBlocks()
+    {
+        return apply_filters('rf_origin_gutenberg_blocks', self::$blocks);
     }
 }
 
