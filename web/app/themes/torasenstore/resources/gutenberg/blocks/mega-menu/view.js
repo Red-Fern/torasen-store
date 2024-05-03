@@ -20,6 +20,23 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-metadata/#view-script
  */
  
-/* eslint-disable no-console */
-console.log("Hello World! (from create-block-mega-menu block)");
-/* eslint-enable no-console */
+import { store, getContext } from '@wordpress/interactivity';
+
+const { actions } = store( 'rf-origin/mega-menu', {
+	actions: {
+		toggleMenu() {
+			const context = getContext();
+
+			if ( context.isMenuOpen ) {
+				actions.closeMenu();
+			} else {
+				context.isMenuOpen = true;
+			}
+		},
+		closeMenu() {
+            const context = getContext();
+            
+			context.isMenuOpen = false;
+		},
+	}
+} );

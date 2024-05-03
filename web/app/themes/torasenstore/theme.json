@@ -335,6 +335,10 @@
 		{
 			"area": "footer",
 			"name": "footer"
+		},
+		{
+			"area": "menu",
+			"name": "mega-menu-panel"
 		}
 	],
 	"version": 2,
