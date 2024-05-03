@@ -15,7 +15,7 @@
 
 /* Ensure group blocks inherit global padding */
 .has-global-padding :where(.has-global-padding:not(.wp-block-block)) {
-    @apply px-[inherit];
+    @apply pr-[var(--wp--style--root--padding-right)] pl-[var(--wp--style--root--padding-left)];
 }
 
 /* Blocks */
