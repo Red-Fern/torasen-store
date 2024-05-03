@@ -10,30 +10,26 @@ if ( ! $label || ! $menu_slug ) {
 }
 ?>
 
-<li 
-    <?php echo get_block_wrapper_attributes(); ?>
-    data-wp-interactive="rf-origin/mega-menu"
-    data-wp-context='{ "isMenuOpen": false }'
+<li
+	<?php echo get_block_wrapper_attributes(); ?>
+	data-wp-interactive='{ "namespace": "rf-origin/mega-menu" }'
+	data-wp-context='{ "menuOpenedBy": {} }'
+	data-wp-on--focusout="actions.handleMenuFocusout"
+	data-wp-on--keydown="actions.handleMenuKeydown"
+	data-wp-watch="callbacks.initMenu"
 >
 	<button
-        aria-label="Toggle menu" 
-        type="button" 
-        data-wp-on--click="actions.toggleMenu"
-        data-wp-bind--aria-expanded="context.isMenuOpen"
-    >
-        <?php echo $label; ?>
-    </button>
+		class="wp-block-rf-origin-mega-menu__toggle"
+		data-wp-on--click="actions.toggleMenuOnClick"
+		data-wp-bind--aria-expanded="state.isMenuOpen"
+	>
+		<?php echo $label; ?>
+	</button>
 
-	<div class="wp-block-rf-origin-mega-menu__menu-container">
+	<div
+		class="wp-block-rf-origin-mega-menu__menu-container"
+		tabindex="-1"
+	>
 		<?php echo block_template_part( $menu_slug ); ?>
-
-		<button 
-			aria-label="Close menu" 
-			class="menu-container__close-button" 
-			type="button" 
-            data-wp-on--click="actions.closeMenu"
-		>
-			<?php echo $close_icon; ?>
-		</button>
 	</div>
 </li>

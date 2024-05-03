@@ -18,7 +18,9 @@
 	},
 	"supports": {
 		"html": false,
-		"interactivity": true
+		"interactivity": true,
+		"renaming": false,
+		"reusable": false
 	},
 	"textdomain": "mega-menu",
 	"editorScript": "file:./index.js",
