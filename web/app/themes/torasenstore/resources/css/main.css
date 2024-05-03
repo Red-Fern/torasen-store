@@ -36,6 +36,21 @@
 
 /* Template Parts */
 
+/* Header */
+
+header.wp-block-template-part {
+    @apply relative;
+}
+header.wp-block-template-part .wp-block-navigation,
+header.wp-block-template-part .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open),
+header.wp-block-template-part .wp-block-navigation__responsive-dialog {
+	@apply static;
+}
+header.wp-block-template-part .wp-block-navigation .secondary-menu-link > a,
+header.wp-block-template-part .wp-block-navigation .secondary-menu-link > button {
+    @apply text-dark-grey text-sm;
+}
+
 /* Footer */
 footer.wp-block-template-part {
     @apply my-0;

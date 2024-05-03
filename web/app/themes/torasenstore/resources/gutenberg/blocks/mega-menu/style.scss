@@ -40,18 +40,3 @@
 		z-index: 2;
 	}
 }
-
-header {
-    position: relative;
-}
-
-header .wp-block-navigation,
-header .wp-block-navigation__responsive-dialog {
-	position: static;
-}
-
-@media (min-width:600px){
-  header .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
-    position: static;
-  }
-}

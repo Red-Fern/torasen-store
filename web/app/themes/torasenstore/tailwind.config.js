@@ -46,6 +46,9 @@ module.exports = {
       }
     },
   },
+  safelist: [
+    'ml-auto'
+  ],
   corePlugins: {
     preflight: false
   },
