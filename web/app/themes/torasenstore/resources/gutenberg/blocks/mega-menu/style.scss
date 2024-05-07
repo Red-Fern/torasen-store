@@ -40,3 +40,21 @@
 		z-index: 2;
 	}
 }
+
+/* Mobile menu */
+.wp-block-navigation__responsive-container.is-menu-open {
+	.wp-block-rf-origin-mega-menu { 
+		.wp-block-rf-origin-mega-menu__toggle {
+			&[aria-expanded=true] {
+				&~.wp-block-rf-origin-mega-menu__menu-container {
+					display: block;
+				}
+			}
+		}
+		
+		.wp-block-rf-origin-mega-menu__menu-container { 
+			position: relative;
+			display: none;
+		}
+	}
+}

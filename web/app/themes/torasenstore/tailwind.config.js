@@ -42,12 +42,15 @@ module.exports = {
         'md': 'var(--wp--preset--spacing--md)',
         'lg': 'var(--wp--preset--spacing--lg)',
         'xl': 'var(--wp--preset--spacing--xl)',
-        '2xl': 'var(--wp--preset--spacing--xxl)'
+        '2xl': 'var(--wp--preset--spacing--xxl)',
+        'root-left': 'var(--wp--style--root--padding-left)',
+        'root-right': 'var(--wp--style--root--padding-right)',
       }
     },
   },
   safelist: [
-    'ml-auto'
+    'ml-auto',
+    'text-dark-grey'
   ],
   corePlugins: {
     preflight: false
