@@ -31,7 +31,7 @@ class Acf
     {
         $apiKey = getenv('RF_GOOGLE_MAPS_API_KEY');
         if (!$apiKey) {
-            return $apiKey;
+            return $api;
         }
 
         $api['key'] = $apiKey;
@@ -40,8 +40,8 @@ class Acf
 
     public static function registerBlocks(): void
     {
-        foreach (self::$blocks as $card) {
-            register_block_type(get_template_directory() . "/acf/blocks/{$card}");
+        foreach (self::$blocks as $block) {
+            register_block_type(get_template_directory() . "/acf/blocks/{$block}");
         }
     }
 }
