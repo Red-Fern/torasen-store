@@ -335,16 +335,6 @@
 		{
 			"area": "footer",
 			"name": "footer"
-		},
-		{
-			"area": "menu",
-			"name": "products-mega-menu",
-			"title": "Products Mega Menu"
-		},
-		{
-			"area": "menu",
-			"name": "support-mega-menu",
-			"title": "Support Mega Menu"
 		}
 	],
 	"version": 2,

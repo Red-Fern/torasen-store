@@ -40,40 +40,6 @@
 header.wp-block-template-part {
     @apply relative;
 }
-.wp-block-navigation,
-.wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open),
-.wp-block-navigation__responsive-dialog {
-	@apply static;
-}
-.wp-block-navigation .wp-block-navigation-item.secondary-menu-link > a,
-.wp-block-navigation .secondary-menu-link > button {
-    @apply text-dark-grey text-base;
-}
-.wp-block-navigation__responsive-container.is-menu-open {
-    @apply pr-root-right pl-root-left py-xs; 
-}
-.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item.ml-auto {
-    @apply ml-0;
-}
-.wp-block-navigation__responsive-container-close {
-    @apply right-root-right top-xs h-[45px];
-}
-
-@media screen and (max-width: 1024px) {
-    .wp-block-navigation {
-        @apply order-last grow-0;
-    }
-    header.wp-block-template-part .wp-block-site-logo {
-        @apply mr-auto;
-    }
-    /* Override default mobile menu breakpoint */
-    .wp-block-navigation__responsive-container-open {
-        @apply !block
-    }
-    .wp-block-navigation__responsive-container:not(.is-menu-open.has-modal-open) {
-        @apply !hidden;
-    }
-}
 
 /* Footer */
 footer.wp-block-template-part {

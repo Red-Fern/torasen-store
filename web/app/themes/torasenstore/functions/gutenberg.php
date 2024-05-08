@@ -5,7 +5,6 @@ namespace RFOrigin;
 class Gutenberg
 {
     protected static array $blocks = [
-        'rf-origin/mega-menu'
     ];
 
     public static function init()
@@ -13,8 +12,6 @@ class Gutenberg
         add_action('init', [__CLASS__, 'registerBlockPatterns']);
         add_action('init', [__CLASS__, 'registerCustomBlocks']);
         add_action('enqueue_block_editor_assets', [__CLASS__, 'enqueueEditorAssets']);
-
-        add_filter( 'default_wp_template_part_areas', [__CLASS__, 'registerTemplatePartAreas'] );
     }
 
     public static function registerBlockPatterns()
@@ -60,18 +57,6 @@ class Gutenberg
     public static function getBlocks()
     {
         return apply_filters('rf_origin_gutenberg_blocks', self::$blocks);
-    }
-
-    public static function registerTemplatePartAreas(array $areas) {
-        $areas[] = array(
-            'area'        => 'menu',
-            'area_tag'    => 'div',
-            'label'       => 'Menu',
-            'description' => 'Menu templates are used to create sections of a mega menu.',
-            'icon'        => ''
-        );
-
-        return $areas;
     }
 }
 
