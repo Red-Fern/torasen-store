@@ -31,6 +31,7 @@ wp-cli.local.yml
 
 # Plugins
 !web/app/plugins/torasenstore
+!web/app/plugins/advanced-custom-fields-pro
 !web/app/plugins/search-filter-pro
 
 # Themes
