@@ -13,9 +13,18 @@
 
 /* Containers */
 
+/* Create root padding class */
+.px-root {
+    @apply pr-root-right pl-root-left;
+}
+/* Match tailwind and WordPress containers */
+.container {
+    @apply mx-auto px-root;
+    max-width: calc(var(--wp--style--global--content-size)+var(--wp--style--root--padding-left)+var(--wp--style--root--padding-right));
+}
 /* Ensure group blocks inherit global padding */
 .has-global-padding :where(.has-global-padding:not(.wp-block-block)) {
-    @apply pr-root-right pl-root-left;
+    @apply px-root;
 }
 
 /* Blocks */
