@@ -11,7 +11,7 @@ class Gutenberg
     {
         add_action('init', [__CLASS__, 'registerBlockPatterns']);
         add_action('init', [__CLASS__, 'registerCustomBlocks']);
-        add_action('enqueue_block_editor_assets', [__CLASS__, 'enqueueEditorAssets']);
+        add_action('enqueue_block_assets', [__CLASS__, 'enqueueEditorAssets']);
     }
 
     public static function registerBlockPatterns()
@@ -40,18 +40,28 @@ class Gutenberg
 
     public static function enqueueEditorAssets()
     {
-        wp_enqueue_style(
-            'theme-styles',
-            get_template_directory_uri() . '/assets/css/main.css'
-        );
+        if (is_admin()) {
+            wp_enqueue_style(
+                'theme-styles',
+                get_template_directory_uri() . '/assets/css/main.css'
+            );
 
-        wp_enqueue_script(
-            'gutenberg-scripts',
-            get_template_directory_uri() . '/assets/js/gutenberg.js',
-            array('wp-blocks', 'wp-dom'),
-            time(),
-            true
-        );
+            wp_enqueue_script(
+                'theme-scripts',
+                get_stylesheet_directory_uri() . '/assets/js/main.js',
+                [],
+                null,
+                true
+            );
+
+            wp_enqueue_script(
+                'gutenberg-scripts',
+                get_template_directory_uri() . '/assets/js/gutenberg.js',
+                array('wp-blocks', 'wp-dom'),
+                time(),
+                true
+            );
+        }
     }
 
     public static function getBlocks()
