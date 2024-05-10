@@ -1,0 +1,12 @@
+{
+    "name": "acf/navigation",
+    "title": "Navigation",
+    "description": "Build a navigation menu.",
+    "category": "theme",
+    "icon": "menu",
+    "keywords": ["navigation", "menu", "mega menu"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "navigation.php"
+    }
+}

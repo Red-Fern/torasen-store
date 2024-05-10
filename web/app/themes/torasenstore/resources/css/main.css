@@ -43,16 +43,55 @@
     @apply border-dark-greige bg-dark-greige text-black;
 }
 
+/* Blocks - Navigation */
+.navigation-block .primary-item > .link-item {
+    @apply lg:text-md lg:font-medium;
+}
+.navigation-block .secondary-item > .link-item {
+    @apply lg:text-dark-grey;
+}
+.navigation-block .primary-item + .secondary-item {
+    @apply lg:ml-auto;
+}
+.wp-block-acf-navigation {
+    @apply max-lg:order-last lg:grow;
+}
+
 /* Template Parts */
 
 /* Header */
 header.wp-block-template-part {
     @apply relative;
 }
+.wp-block-site-logo.header-logo {
+    @apply max-lg:mr-auto;
+}
 
 /* Footer */
 footer.wp-block-template-part {
     @apply my-0;
+}
+
+/* Editor */
+.block-editor .edit-post-sidebar,
+.block-editor-page .interface-complementary-area {
+    @apply md:w-[380px];
+}
+.block-editor .edit-post-sidebar .acf-table .acf-row-handle,
+.block-editor-page .interface-complementary-area .acf-table .acf-row-handle {
+    @apply p-0;
+}
+.block-editor .edit-post-sidebar .acf-fields > .acf-field,
+.block-editor-page .interface-complementary-area .acf-fields > .acf-field {
+    @apply p-2.5;
+}
+.block-editor .edit-post-sidebar .acf-table .acf-link .link-wrap,
+.block-editor-page .interface-complementary-area .acf-table .acf-link .link-wrap {
+    @apply leading-normal;
+}
+.block-editor .edit-post-sidebar .acf-table .acf-link .link-wrap .link-title, 
+.block-editor-page .interface-complementary-area .acf-table .acf-link .link-wrap .link-title {
+    @apply p-0;
 }
 
 /* WooCommerce */
