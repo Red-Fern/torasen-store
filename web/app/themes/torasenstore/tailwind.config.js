@@ -45,7 +45,10 @@ module.exports = {
         '2xl': 'var(--wp--preset--spacing--xxl)',
         'root-left': 'var(--wp--style--root--padding-left)',
         'root-right': 'var(--wp--style--root--padding-right)',
-      }
+      },
+      screens: {
+        'md': '782px',
+      },
     },
   },
   safelist: [
