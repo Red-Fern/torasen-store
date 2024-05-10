@@ -20,7 +20,11 @@ wp.blocks.registerBlockStyle('core/button', {
     isDefault: true,
 });
 
-// Unregister default styles
+// Unregister default blocks and styles
+
+wp.domReady( function() {
+    wp.blocks.unregisterBlockType('core/navigation');
+});
 
 wp.domReady( () => {
 	wp.blocks.unregisterBlockStyle('core/button', 'fill');
