@@ -43,6 +43,11 @@
     @apply border-dark-greige bg-dark-greige text-black;
 }
 
+/* Blocks - Separator */
+.wp-block-separator {
+    @apply border;
+}
+
 /* Blocks - Navigation */
 .navigation-block .primary-item > .link-item {
     @apply lg:text-md lg:font-medium;
@@ -70,6 +75,15 @@ header.wp-block-template-part {
 /* Footer */
 footer.wp-block-template-part {
     @apply my-0;
+}
+footer.wp-block-template-part :is(.has-text-align-center, .has-text-align-right) {
+    @apply max-md:text-left;
+}
+footer.wp-block-template-part .is-content-justification-right {
+    @apply max-md:justify-start;
+}
+footer.wp-block-template-part .aligncenter {
+    @apply max-md:!ml-0;
 }
 
 /* Editor */

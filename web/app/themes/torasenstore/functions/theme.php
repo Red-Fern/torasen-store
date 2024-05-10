@@ -10,6 +10,8 @@ class Theme
         add_filter('wp_check_filetype_and_ext', [__CLASS__, 'enableSvgUploads'], 10, 4);
         add_filter('upload_mimes', [__CLASS__, 'addSvgMimeTypes']);
         add_action('wp_body_open', [__CLASS__, 'addGtmCode'], -1);
+
+        add_shortcode ('year', [__CLASS__, 'addYearShortcode']);
     }
 
     public static function enqueueScripts(): void
@@ -44,6 +46,13 @@ class Theme
         $mimes['svg'] = 'image/svg+xml';
         
         return $mimes;
+    }
+
+    public static function addYearShortcode()
+    {
+        $year = date_i18n('Y');
+
+        return $year;
     }
 
     public static function addGtmCode()
