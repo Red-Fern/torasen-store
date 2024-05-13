@@ -5,7 +5,8 @@ namespace RFOrigin;
 class Acf
 {
     protected static $blocks = [
-        'navigation'
+        'navigation',
+        'copyright'
     ];
 
     public static function init()

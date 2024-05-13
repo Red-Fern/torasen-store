@@ -1,0 +1,12 @@
+{
+    "name": "acf/copyright",
+    "title": "Copyright",
+    "description": "Display a copyright notice.",
+    "category": "theme",
+    "icon": "info",
+    "keywords": ["copyright"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "copyright.php"
+    }
+}
