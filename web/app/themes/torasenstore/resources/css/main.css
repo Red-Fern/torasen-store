@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    b, strong {
+        @apply font-medium;
+    }
+}
+
 /******** Preflight ********/
 @import url("./preflight.css");
 
@@ -88,9 +94,31 @@ footer.wp-block-template-part .aligncenter {
 
 /******** WooCommerce ********/
 
+/* Archive */
+.wc-block-components-product-image {
+    @apply aspect-[392/480];
+}
+.wc-block-components-product-image > a {
+    @apply block h-full;
+}
+.wc-block-components-product-image > a > img {
+    @apply w-full h-full;
+}
+.wp-block-woocommerce-product-collection .wc-block-product-template {
+    @apply gap-y-sm max-lg:grid-cols-2;
+}
+.wp-block-woocommerce-product-collection .wp-block-query-pagination {
+    @apply mt-md;
+}
+
 /* Product */
 .wp-block-group.woocommerce.product {
     @apply my-0;
+}
+
+/******** Search and Filter ********/
+.searchandfilter ul {
+    @apply p-0;
 }
 
 /******** Editor ********/
