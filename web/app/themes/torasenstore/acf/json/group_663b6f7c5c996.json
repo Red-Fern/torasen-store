@@ -302,7 +302,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "all"
+                "value": "acf\/navigation"
             }
         ]
     ],
@@ -315,5 +315,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1715340779
+    "modified": 1715588808
 }
