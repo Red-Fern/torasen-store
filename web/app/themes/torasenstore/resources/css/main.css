@@ -94,6 +94,11 @@ footer.wp-block-template-part .aligncenter {
 
 /******** WooCommerce ********/
 
+/* General */
+.woocommerce .woocommerce-breadcrumb {
+    @apply mb-0;
+}
+
 /* Archive */
 .wc-block-components-product-image {
     @apply aspect-[392/480];
