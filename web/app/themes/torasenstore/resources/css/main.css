@@ -123,8 +123,33 @@ footer.wp-block-template-part .aligncenter {
 }
 
 /******** Search and Filter ********/
+.searchandfilter {
+    @apply border-t border-mid-grey;
+}
 .searchandfilter ul {
     @apply p-0;
+}
+.searchandfilter > ul > li {
+    @apply py-5 border-b border-mid-grey;
+}
+.searchandfilter > ul > li li {
+    @apply py-1;
+}
+.searchandfilter h4 {
+    @apply mb-3 p-0 text-base;
+}
+.searchandfilter li[data-sf-field-input-type=radio] input {
+    @apply absolute w-0 h-0 opacity-0;
+}
+.searchandfilter li[data-sf-field-input-type=radio] label {
+    @apply relative flex pl-5 bg-no-repeat bg-[length:12px_12px] bg-[left_top_0.25rem] cursor-pointer;
+    background-image: url("../images/icons/checkbox-unchecked.svg");
+}
+.searchandfilter li[data-sf-field-input-type=radio] input:checked + label {
+    background-image: url("../images/icons/checkbox-checked.svg");
+}
+.searchandfilter li[data-sf-field-input-type=radio] label .sf-count {
+    @apply flex-none ml-auto pl-2.5 font-mono;
 }
 
 /******** Editor ********/
