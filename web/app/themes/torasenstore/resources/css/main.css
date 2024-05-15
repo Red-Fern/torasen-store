@@ -109,7 +109,8 @@ footer.wp-block-template-part .aligncenter {
 .wc-block-components-product-image > a > img {
     @apply w-full h-full;
 }
-.wp-block-woocommerce-product-collection .wc-block-product-template {
+.wp-block-woocommerce-product-collection .wc-block-product-template,
+.wp-block-woocommerce-related-products .wp-block-query .products-block-post-template.wp-block-post-template-is-layout-grid {
     @apply gap-y-sm max-lg:grid-cols-2;
 }
 .wp-block-woocommerce-product-collection .wp-block-query-pagination {
