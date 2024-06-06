@@ -19,6 +19,5 @@ $unique_id = wp_unique_id('p-');
     data-wp-interactive="rfAccordion"
     <?php echo wp_interactivity_data_wp_context(['activeTab' => $attributes['activeTab']]); ?>
 >
-    <div data-wp-text="context.activeTab"></div>
     <?php echo $content; ?>
 </div>

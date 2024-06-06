@@ -1,12 +1,10 @@
-/**
- * The following styles get applied inside the editor only.
- *
- * Replace them with your own styles or remove the file completely.
- */
+.accordion-item__label {
+	padding: 20px;
+	border-bottom: 1px solid black;
+	cursor: pointer;
+}
 
-.wp-block-create-block-accordion-item input[type="text"] {
-	font-size: 1em;
-	color: inherit;
-	background: inherit;
-	border: 0;
+.accordion-item__content {
+	background: beige;
+	padding: 20px;
 }
