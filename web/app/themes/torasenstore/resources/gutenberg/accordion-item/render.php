@@ -14,7 +14,6 @@
 $unique_id = wp_unique_id('p-');
 $label = $attributes['label'] ?? 'Accordion Item';
 ?>
-<div class="rotate-90"></div>
 <div
     <?php echo get_block_wrapper_attributes(['class' => 'first:border-t first:border-black']); ?>
     data-wp-interactive="rfAccordionItem"
