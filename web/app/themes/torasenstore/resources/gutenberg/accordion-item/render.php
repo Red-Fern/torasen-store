@@ -13,6 +13,7 @@
 // Generate unique id for aria-controls.
 $unique_id = wp_unique_id('p-');
 $label = $attributes['label'] ?? 'Accordion Item';
+
 ?>
 <div
     <?php echo get_block_wrapper_attributes(['class' => 'first:border-t first:border-black']); ?>
