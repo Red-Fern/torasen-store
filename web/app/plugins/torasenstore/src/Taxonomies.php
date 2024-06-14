@@ -26,7 +26,7 @@ class Taxonomies
                 'menu_name'         => __('Product Family', 'torasenstore'),
             ],
             'description' => __('Group products by their respective family', 'torasenstore'),
-            'hierarchical' => false,
+            'hierarchical' => true,
             'public' => false,
             'publicly_queryable' => true,
             'show_ui' => true,
@@ -34,8 +34,8 @@ class Taxonomies
             'show_in_nav_menus' => true,
             'show_tagcloud' => true,
             'show_in_quick_edit' => true,
-            'show_admin_column' => false,
-            'show_in_rest' => true,
+            'show_admin_column' => true,
+            'show_in_rest' => true
         ]);
     }
 }
