@@ -5,6 +5,7 @@ namespace RFOrigin;
 class Gutenberg
 {
     protected static array $blocks = [
+        'torasen/family-products',
     ];
 
     public static function init()
