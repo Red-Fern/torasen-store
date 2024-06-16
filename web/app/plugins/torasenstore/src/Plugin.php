@@ -18,6 +18,7 @@ class Plugin
     protected function __construct()
     {
         Blocks::init();
+		Taxonomies::init();
     }
 
     public function pluginUrl()

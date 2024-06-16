@@ -1,0 +1,26 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "torasen/family-products",
+	"version": "0.1.0",
+	"title": "Family Products",
+	"category": "widgets",
+	"icon": "media-interactive",
+	"description": "Display list of products belonging to a given family",
+	"example": {},
+	"supports": {
+		"interactivity": true
+	},
+	"attributes": {
+		"family": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"textdomain": "family-products",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScriptModule": "file:./view.js"
+}

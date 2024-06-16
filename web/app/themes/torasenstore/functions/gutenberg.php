@@ -5,6 +5,7 @@ namespace RFOrigin;
 class Gutenberg
 {
     protected static array $blocks = [
+        'torasen/family-products',
         'rf-origin/accordion',
         'rf-origin/accordion-item',
     ];
@@ -30,7 +31,7 @@ class Gutenberg
 
     public static function registerCustomBlocks()
     {
-        $path = get_template_directory() . '/assets/gutenberg/';
+        $path = get_template_directory() . '/assets/gutenberg/blocks/';
 
         foreach (self::getBlocks() as $block) {
             // Retrieve the section after the forward slash from the $slug
