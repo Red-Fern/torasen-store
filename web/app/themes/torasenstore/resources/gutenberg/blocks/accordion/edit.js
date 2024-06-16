@@ -2,6 +2,11 @@ import { useBlockProps, InspectorControls, useInnerBlocksProps } from '@wordpres
 import { useSelect } from '@wordpress/data';
 import { PanelBody, TextControl, SelectControl } from '@wordpress/components';
 
+const TEMPLATE = [
+	[ 'red-fern/accordion-item', { label: "Accordion 1" } ],
+	[ 'red-fern/accordion-item', { label: "Accordion 2" } ],
+];
+
 export default function Edit({
 	attributes: {
 		activeTab
@@ -10,7 +15,13 @@ export default function Edit({
 	clientId
 }) {
 	const blockProps = useBlockProps();
-	const innerBlocksProps = useInnerBlocksProps(blockProps);
+	const innerBlocksProps = useInnerBlocksProps(
+		blockProps,
+		{
+			template: TEMPLATE,
+			templateLock: false
+		}
+	);
 
 	const innerBlocks = useSelect((select) => {
 		return select('core/block-editor').getBlock(clientId).innerBlocks;
