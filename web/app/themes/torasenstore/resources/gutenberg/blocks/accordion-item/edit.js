@@ -1,10 +1,12 @@
 import { __ } from '@wordpress/i18n';
-import { useBlockProps, RichText, InnerBlocks } from '@wordpress/block-editor';
+import { useBlockProps, RichText, InnerBlocks, InspectorControls } from '@wordpress/block-editor';
+import { PanelBody, TextControl } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 
 export default function Edit({
 	attributes: {
-		label
+		label,
+		slug
 	},
 	setAttributes,
 	isSelected,
@@ -18,6 +20,16 @@ export default function Edit({
 	
 	return (
 		<div { ...blockProps }>
+			<InspectorControls>
+				<PanelBody title={ __( 'Accordion Item Settings', 'accordion-item' ) }>
+					<TextControl
+						label={ __( 'Slug', 'red-fern' ) }
+						value={ slug }
+						onChange={(value) => setAttributes({ slug: value })}
+						help={ __( 'Unique identifier for accordion item to allow setting as active tab.', 'red-fern' )}
+					/>
+				</PanelBody>
+			</InspectorControls>
 			<RichText
 				tagName="div"
 				value={label}

@@ -13,20 +13,21 @@
 // Generate unique id for aria-controls.
 $unique_id = wp_unique_id('p-');
 $label = $attributes['label'] ?? 'Accordion Item';
-
+$slug = $attributes['slug'] ?? '';
 ?>
 <div
-    <?php echo get_block_wrapper_attributes(['class' => 'first:border-t first:border-black']); ?>
+    <?php echo get_block_wrapper_attributes(['class' => 'first:border-t border-b border-black']); ?>
     data-wp-interactive="rfAccordionItem"
     <?php echo wp_interactivity_data_wp_context([
-        'uniqueId' => $unique_id,
+        'uniqueId' => $slug ?: $unique_id,
     ]); ?>
+    data-wp-class--bg-white="callbacks.isOpen"
 >
     <button
         data-wp-on--click="actions.selectTab"
         data-wp-bind--aria-expanded="context.isOpen"
         aria-controls="<?php echo esc_attr($unique_id); ?>"
-        class="flex justify-between items-center w-full py-6 px-4 bg-transparent border-b border-black"
+        class="flex justify-between items-center w-full py-6 px-4 bg-transparent"
     >
         <?php esc_html_e($label, 'accordion-item'); ?>
         <div class="transition" data-wp-class--rotate-90="callbacks.isOpen">
@@ -39,7 +40,7 @@ $label = $attributes['label'] ?? 'Accordion Item';
     <div
         id="<?php echo esc_attr($unique_id); ?>"
         data-wp-bind--hidden="!callbacks.isOpen"
-        class="py-3 border-b border-black"
+        class="p-3"
     >
         <?php echo $content; ?>
     </div>

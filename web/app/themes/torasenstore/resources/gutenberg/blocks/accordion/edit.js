@@ -22,9 +22,11 @@ export default function Edit({
 			label: '- None Selected -'
 		}
 	];
-	innerBlocks?.map((block, index) => {
+	innerBlocks?.filter(block => {
+		return !! block.attributes.slug
+	}).map((block, index) => {
 		tabOptions.push({
-			value: block.clientId,
+			value: block.attributes.slug,
 			label: block.attributes.label
 		})
 	})
