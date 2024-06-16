@@ -13,41 +13,36 @@
 // Generate unique id for aria-controls.
 $unique_id = wp_unique_id( 'p-' );
 
+$family = \RFOrigin\Products::parseProductFamily($attributes['family']);
+if (!$family) {
+    echo '<div>No Product Family available</div>';
+    return;
+}
+
 $query = [
     'post_type' => 'product',
     'posts_per_page' => -1,
     'post_status' => 'publish',
+    'tax_query' => [
+        [
+            'taxonomy' => 'productfamily',
+            'field' => 'term_id',
+            'terms' => $family->term_id
+        ]
+    ]
 ];
-$family = $attributes['family'] ? $attributes['family'] : '';
-if ($family) {
-    $query['tax_query'] = [
-        [
-            'taxonomy' => 'productfamily',
-            'field' => 'term_id',
-            'terms' => $family
-        ]
-    ];
-} else {
-    $termIds = wp_get_object_terms($GLOBALS['post']->ID, 'productfamily');
-    $query['tax_query'] = [
-        [
-            'taxonomy' => 'productfamily',
-            'field' => 'term_id',
-            'terms' => $termIds[0]->term_id
-        ]
-    ];
-}
-
 $products = get_posts($query);
 ?>
 
 <div
-	<?php echo get_block_wrapper_attributes(); ?>
+	<?php echo get_block_wrapper_attributes([
+        'class' => 'flex flex-col gap-8'
+    ]); ?>
 	data-wp-interactive="torasen-family-products"
 >
-    <div class="flex justify-between items-start">
-        <div class="text-xl">The Saturn Family</div>
-        <div><?php echo 'saturn text'; ?></div>
+    <div class="flex flex-col gap-5 | md:flex-row md:justify-between md:items-start md:gap-24">
+        <div class="text-xl font-bold | md:text-xl md:w-1/4">The <?php echo $family->name; ?> Family</div>
+        <div class="text-md md:text-2xl md:w-3/4"><?php echo $family->description; ?></div>
     </div>
     <div>
         <?php foreach($products as $product): ?>
