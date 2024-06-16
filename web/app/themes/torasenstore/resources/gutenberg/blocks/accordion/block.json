@@ -1,0 +1,26 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "red-fern/accordion",
+	"version": "0.1.0",
+	"title": "Accordion",
+	"allowedBlocks": ["red-fern/accordion-item"],
+	"category": "widgets",
+	"icon": "media-interactive",
+	"description": "An interactive block with the Interactivity API",
+	"example": {},
+	"supports": {
+		"interactivity": true
+	},
+	"attributes": {
+		"activeTab": {
+			"type": "string"
+		}
+	},
+	"textdomain": "accordion",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScriptModule": "file:./view.js"
+}

@@ -6,6 +6,8 @@ class Gutenberg
 {
     protected static array $blocks = [
         'torasen/family-products',
+        'red-fern/accordion',
+        'red-fern/accordion-item',
     ];
 
     public static function init()
