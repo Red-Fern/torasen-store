@@ -4,6 +4,7 @@
 	"name": "red-fern/accordion-item",
 	"version": "0.1.0",
 	"title": "Accordion Item",
+	"parent": ["red-fern/accordion"],
 	"category": "widgets",
 	"icon": "media-interactive",
 	"description": "An interactive block with the Interactivity API",
