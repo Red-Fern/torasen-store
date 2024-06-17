@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "torasen/product-data",
+	"version": "0.1.0",
+	"title": "Product Data",
+	"category": "widgets",
+	"icon": "info",
+	"description": "Display product data using a list of links and off-canvas modals",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "product-data",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}
