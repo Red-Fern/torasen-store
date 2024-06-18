@@ -68,33 +68,53 @@ $productID = $product->get_id();
             x-transition:leave="transition ease-in duration-300"
             x-transition:leave-start="transform translate-x-0"
             x-transition:leave-end="transform translate-x-full"
-            class="fixed top-0 right-0 p-xs w-[480px] h-full max-w-full bg-white overflow-y-scroll"
+            class="fixed top-0 right-0 w-[480px] h-full max-w-full bg-white overflow-y-scroll"
         >
-            <button x-on:click="hide">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 19 18" fill="none">
-                    <path d="M7.43532 9.26345L1.07136 15.6274L3.19268 17.7487L9.55664 11.3848L15.9206 17.7487L18.0419 15.6274L11.678 9.26346L18.749 2.19239L16.6277 0.0710677L9.55664 7.14213L2.48557 0.0710663L0.364254 2.19239L7.43532 9.26345Z" fill="currentColor" />
-                </svg>
-            </button>
+            <div class="flex items-center jusify-between gap-md px-lg py-xs border-b border-mid-grey">
+                <div class="grow font-medium">
+                    <span x-show="currentContent == 'dimensions'">Dimensions</span>
+                    <span x-show="currentContent == 'downloads'">Downloads & CAD</span>
+                    <span x-show="currentContent == 'environmental'">Environmental</span>
+                </div>
 
-            <div x-show="currentContent == 'dimensions'">
-                <?php if (!empty(get_field('dimensions_image', $productID))): ?>
-                    <img src="<?php echo esc_url(get_field('dimensions_image', $productID)['url']); ?>" alt="<?php echo esc_attr(get_field('dimensions_image', $productID)['alt']); ?>" />
-                <?php endif; ?>
-                <?php echo get_field('dimensions_text', $productID); ?>
+                <button 
+                    class="flex items-center justify-center w-[46px] h-[46px] bg-black"
+                    x-on:click="hide"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+                        <path fill="#fff" d="m8.046 7.294-4.14-4.14-.707.705L7.34 8 3.2 12.14l.706.707 4.141-4.14 4.14 4.14.707-.706L8.753 8l4.14-4.14-.706-.707-4.14 4.14Z"/>
+                    </svg>
+                </button>
             </div>
 
-            <div x-show="currentContent == 'downloads'">
-                <?php if (get_field('downloads_files', $productID)): ?>
-                    <?php foreach (get_field('downloads_files', $productID) as $download): ?>
-                        <?php if ($download['file']): ?>
-                            <a href="<?php echo $download['file']['url']; ?>"><?php echo $download['file']['filename']; ?></a>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </div>
+            <div class="px-lg py-sm">
+                <div x-show="currentContent == 'dimensions'">
+                    <?php if (!empty(get_field('dimensions_image', $productID))): ?>
+                        <img src="<?php echo esc_url(get_field('dimensions_image', $productID)['url']); ?>" class="mb-sm" alt="<?php echo esc_attr(get_field('dimensions_image', $productID)['alt']); ?>" />
+                    <?php endif; ?>
 
-            <div x-show="currentContent == 'environmental'">
-                <?php echo get_field('environmental_text', $productID); ?>
+                    <?php echo get_field('dimensions_text', $productID); ?>
+                </div>
+
+                <div x-show="currentContent == 'downloads'">
+                    <?php if (get_field('downloads_files', $productID)): ?>
+                        <?php foreach (get_field('downloads_files', $productID) as $download): ?>
+                            <?php if ($download['file']): ?>
+                                <a href="<?php echo $download['file']['url']; ?>" class="flex justify-between items-center gap-4 py-4 px-0 w-full border-b border-mid-grey" target="_blank">
+                                    <?php echo $download['title'] ?: $download['file']['filename']; ?>
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
+                                        <path fill="currentColor" d="M2.625 18.75H2V17.5h15v1.25H2.625Zm7.316-3.934-.441.442-.441-.442-5-5-.442-.441.883-.883.441.442 3.934 3.933V1.25h1.25v11.617l3.934-3.933.441-.442.883.883-.442.441-5 5Z"/>
+                                    </svg>
+                                </a>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </div>
+
+                <div x-show="currentContent == 'environmental'">
+                    <?php echo get_field('environmental_text', $productID); ?>
+                </div>
             </div>
         </div>
     </div>
