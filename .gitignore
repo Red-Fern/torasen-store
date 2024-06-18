@@ -32,6 +32,8 @@ wp-cli.local.yml
 # Plugins
 !web/app/plugins/torasenstore
 !web/app/plugins/search-filter-pro
+!web/app/plugins/wp-all-export-pro
+!web/app/plugins/wpae-woocommerce-add-on
 
 # Themes
 /wp-content/themes/twenty*/
