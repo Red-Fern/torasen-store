@@ -21,5 +21,5 @@
  */
  
 /* eslint-disable no-console */
-console.log("Hello World! (from create-block-product-data block)");
+console.log("Hello World! (from create-block-product-specification block)");
 /* eslint-enable no-console */

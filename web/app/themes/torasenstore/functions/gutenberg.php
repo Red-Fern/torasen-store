@@ -8,7 +8,7 @@ class Gutenberg
         'red-fern/accordion',
         'red-fern/accordion-item',
         'torasen/family-products',
-        'torasen/product-data',
+        'torasen/product-specification',
         'torasen/copyright-notice',
     ];
 

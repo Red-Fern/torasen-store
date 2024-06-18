@@ -1,17 +1,17 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "torasen/product-data",
+	"name": "torasen/product-specification",
 	"version": "0.1.0",
-	"title": "Product Data",
+	"title": "Product Specification",
 	"category": "widgets",
 	"icon": "info",
-	"description": "Display product data using a list of links and off-canvas modals",
+	"description": "Display product data using a list of links and off-canvas modals.",
 	"example": {},
 	"supports": {
 		"html": false
 	},
-	"textdomain": "product-data",
+	"textdomain": "product-specification",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
