@@ -35,7 +35,7 @@
                         <source media="(min-width: 1024px)" srcset="<?php echo $bg_image['url'] ?>">
                     <?php endif; ?>
 
-                    <img src="<?php echo $bg_image['url'] ?>" alt="<?php echo $bg_image['alt'] ?>">
+                    <img src="<?php echo $bg_image['url'] ?>" class="w-full" alt="<?php echo $bg_image['alt'] ?>">
                 </picture>
             <?php if ($link): ?>
                 </a>
