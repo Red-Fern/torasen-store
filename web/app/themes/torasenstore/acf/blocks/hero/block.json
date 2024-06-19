@@ -1,0 +1,22 @@
+{
+    "name": "acf/hero",
+    "title": "Hero",
+    "description": "Insert a hero section.",
+    "category": "theme",
+    "icon": "cover-image",
+    "keywords": ["hero", "header"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "hero.php"
+    },
+    "attributes": {
+        "align": {
+            "type": "string",
+            "default": "full"
+        }
+    },
+    "supports": {
+        "align": ["full"],
+        "mode": true
+    }
+}
