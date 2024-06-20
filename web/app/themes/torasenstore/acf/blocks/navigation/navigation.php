@@ -17,10 +17,16 @@
                         <!-- Menu item -->
                         <a 
                             href="<?php echo ($menu_item['link'] ? $menu_item['link']['url'] : '#'); ?>" 
-                            class="link-item block px-root py-5 font-medium | lg:px-3 lg:font-normal" 
+                            class="link-item flex justify-between items-center px-root py-5 font-medium | lg:px-3 lg:font-normal" 
                             x-on:click="toggle"
                         >
                             <?php echo $menu_item['label']; ?>
+
+                            <?php if ($menu_item['columns']): ?>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="lg:hidden" width="16" height="16" fill="none">
+                                    <path fill="#000" d="M11.06 5.727 8 8.78 4.94 5.727l-.94.94 4 4 4-4-.94-.94Z" opacity=".5"/>
+                                </svg>
+                            <?php endif; ?>
                         </a>
 
                         <!-- Mega menu -->
@@ -28,7 +34,7 @@
                             <div
                                 x-cloak
                                 x-show="showing"
-                                class="w-full bg-light-grey text-md overflow-x-clip z-10 transition duration-500 | lg:absolute lg:top-full lg:left-0 lg:py-lg lg:bg-lightest-grey lg:invisible lg:opacity-0 lg:hover:visible lg:hover:opacity-100 lg:group-hover:visible lg:group-hover:opacity-100"
+                                class="w-full bg-light-grey text-md overflow-x-clip z-10 transition duration-500 | lg:absolute lg:top-full lg:left-0 lg:py-lg lg:bg-lightest-grey lg:shadow-lg lg:invisible lg:opacity-0 lg:hover:visible lg:hover:opacity-100 lg:group-hover:visible lg:group-hover:opacity-100"
                             >
                                 <div class="container | max-lg:p-0">
                                     <div class="lg:flex lg:gap-[10%]">
@@ -38,13 +44,34 @@
                                                 class="flex flex-col border-t border-mid-grey | lg:border-0 <?php echo count($menu_item['columns']) > 1 ? 'lg:flex-1' : 'lg:w-[250px]'; ?>"
                                                 x-data="menuDropdown(<?php echo $column['sub_columns'] ? 'true' : 'false'; ?>)"
                                             >
+                                                <!-- Column heading -->
                                                 <?php if ($column['title']): ?>
                                                     <div 
-                                                        class="py-5 px-root font-medium | lg:mb-7 lg:p-0 lg:pb-6 lg:border-b lg:border-dark-grey <?php echo (count($column['sub_columns']) > 1 ? '' : 'hidden lg:block') ?>"
+                                                        class="py-5 flex flex-wrap justify-between items-center gap-xs px-root | lg:mb-7 lg:p-0 lg:pb-6 lg:border-b lg:border-dark-grey <?php echo (count($column['sub_columns']) > 1 ? '' : 'hidden lg:block') ?>"
                                                         x-on:click="toggle"
                                                         :class="showing ? 'pb-0' : ''"
                                                     >
-                                                        <?php echo $column['title']; ?>
+                                                        <!-- Column title -->
+                                                         <div class="flex justify-between w-full font-medium | lg:w-auto">
+                                                            <?php echo $column['title']; ?>
+
+                                                            <?php if ($column['sub_columns']): ?>
+                                                                <svg xmlns="http://www.w3.org/2000/svg" class="lg:hidden" width="16" height="16" fill="none">
+                                                                    <path fill="#000" d="M11.06 5.727 8 8.78 4.94 5.727l-.94.94 4 4 4-4-.94-.94Z" opacity=".5"/>
+                                                                </svg>
+                                                            <?php endif; ?>
+                                                        </div>
+
+                                                        <!-- Column 'view all' link/s -->
+                                                        <?php if ($column['heading_links']): ?>
+                                                            <div class="hidden flex-wrap gap-xs | lg:flex">
+                                                                <?php foreach ($column['heading_links'] as $link): ?>
+                                                                    <a href="<?php echo $link['link']['url']; ?>" class="block text-dark-grey" target="<?php echo $link['link']['target']; ?>">
+                                                                        <?php echo $link['link']['title']; ?>
+                                                                    </a>
+                                                                <?php endforeach; ?>
+                                                            </div>
+                                                        <?php endif; ?>
                                                     </div>
                                                 <?php endif; ?>
 
@@ -68,15 +95,32 @@
                                                                 <ul class="m-0 p-0 px-0 | lg:space-y-3">
                                                                     <?php foreach ($sub_column['links'] as $link): ?>
                                                                         <li class="flex flex-wrap items-center gap-2">
-                                                                            <a href="<?php echo $link['link']['url']; ?>" class="block px-root py-2.5 w-full | lg:p-0" target="<?php echo $link['link']['target']; ?>">
+                                                                            <a href="<?php echo $link['link']['url']; ?>" class="block px-root py-2.5 w-full text-dark-grey | lg:p-0 lg:text-black" target="<?php echo $link['link']['target']; ?>">
                                                                                 <?php echo $link['link']['title']; ?>
                                                                             </a>
                                                                         </li>
                                                                     <?php endforeach; ?>
+
+                                                                    <!-- 'View all' link -->
+                                                                    <?php if ($sub_column['view_all_link']): ?>
+                                                                        <li class="hidden flex-wrap items-center gap-2 | lg:flex">
+                                                                            <a href="<?php echo $sub_column['view_all_link']['url']; ?>" class="block px-root py-2.5 w-full text-dark-grey | lg:p-0" target="<?php echo $sub_column['view_all_link']['target']; ?>">
+                                                                                <?php echo $sub_column['view_all_link']['title']; ?>
+                                                                            </a>
+                                                                        </li>
+                                                                    <?php endif; ?>
                                                                 </ul>
                                                             <?php endif; ?>
                                                         </div>
                                                     <?php endforeach; ?>
+
+                                                    <?php if ($column['heading_links']): ?>
+                                                        <?php foreach ($column['heading_links'] as $link): ?>
+                                                            <a href="<?php echo $link['link']['url']; ?>" class="block px-root py-2.5 w-full | lg:hidden" target="<?php echo $link['link']['target']; ?>">
+                                                                <?php echo $link['link']['title']; ?>
+                                                            </a>
+                                                        <?php endforeach; ?>
+                                                    <?php endif; ?>
                                                 </div>
                                             </div>
                                         <?php endforeach; ?>

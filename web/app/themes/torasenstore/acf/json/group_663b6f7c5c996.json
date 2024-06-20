@@ -287,6 +287,23 @@
                                         }
                                     ],
                                     "parent_repeater": "field_663b744f068db"
+                                },
+                                {
+                                    "key": "field_6674136769452",
+                                    "label": "'View All' Link",
+                                    "name": "view_all_link",
+                                    "aria-label": "",
+                                    "type": "link",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "parent_repeater": "field_663b744f068db"
                                 }
                             ],
                             "parent_repeater": "field_663b72cb068d8"
@@ -315,5 +332,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1715588808
+    "modified": 1718883208
 }

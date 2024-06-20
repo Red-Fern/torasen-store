@@ -1,6 +1,6 @@
 {
     "key": "group_66729809e65c2",
-    "title": "Hero",
+    "title": "Hero Block",
     "fields": [
         {
             "key": "field_6672980a43944",
@@ -137,5 +137,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1718790805
+    "modified": 1718882317
 }
