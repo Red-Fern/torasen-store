@@ -31,10 +31,26 @@
 
                         <!-- Mega menu -->
                         <?php if ($menu_item['columns']): ?>
+                            <template x-teleport="body">
+                                <div
+                                    class="fixed inset-0 w-full h-full bg-[rgba(95,95,95,.35)]"
+                                    x-on:click="showing = !showing"
+                                    x-show="showing"
+                                    x-cloak
+                                    x-transition:enter="transition ease-out duration-300"
+                                    x-transition:enter-start="opacity-0"
+                                    x-transition:enter-end="opacity-100"
+                                    x-transition:leave="transition ease-in duration-300"
+                                    x-transition:leave-start="opacity-100"
+                                    x-transition:leave-end="opacity-0"
+                                >
+                                </div>
+                            </template>
+
                             <div
+                                class="w-full bg-light-grey text-md overflow-x-clip z-10 transition duration-500 | lg:absolute lg:top-full lg:left-0 lg:py-lg lg:bg-lightest-grey lg:shadow-lg"
                                 x-cloak
                                 x-show="showing"
-                                class="w-full bg-light-grey text-md overflow-x-clip z-10 transition duration-500 | lg:absolute lg:top-full lg:left-0 lg:py-lg lg:bg-lightest-grey lg:shadow-lg"
                                 @click.away="showing = false"
                             >
                                 <div class="container | max-lg:p-0">
