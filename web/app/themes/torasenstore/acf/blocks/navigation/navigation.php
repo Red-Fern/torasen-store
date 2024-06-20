@@ -66,9 +66,11 @@
                                                         <?php if ($column['heading_links']): ?>
                                                             <div class="hidden flex-wrap gap-xs | lg:flex">
                                                                 <?php foreach ($column['heading_links'] as $link): ?>
-                                                                    <a href="<?php echo $link['link']['url']; ?>" class="block text-dark-grey" target="<?php echo $link['link']['target']; ?>">
-                                                                        <?php echo $link['link']['title']; ?>
-                                                                    </a>
+                                                                    <?php if ($link['link']): ?>
+                                                                        <a href="<?php echo $link['link']['url']; ?>" class="block text-dark-grey" target="<?php echo $link['link']['target']; ?>">
+                                                                            <?php echo $link['link']['title']; ?>
+                                                                        </a>
+                                                                    <?php endif; ?>
                                                                 <?php endforeach; ?>
                                                             </div>
                                                         <?php endif; ?>
@@ -95,20 +97,22 @@
                                                                 <ul class="m-0 p-0 px-0 | lg:space-y-3">
                                                                     <?php foreach ($sub_column['links'] as $link): ?>
                                                                         <li class="flex flex-wrap items-center gap-2">
-                                                                            <a href="<?php echo $link['link']['url']; ?>" class="block px-root py-2.5 w-full text-dark-grey | lg:p-0 lg:text-black" target="<?php echo $link['link']['target']; ?>">
-                                                                                <?php echo $link['link']['title']; ?>
-                                                                            </a>
+                                                                            <?php if ($link['link']): ?>
+                                                                                <a href="<?php echo $link['link']['url']; ?>" class="block px-root py-2.5 w-full text-dark-grey | lg:p-0 lg:text-black" target="<?php echo $link['link']['target']; ?>">
+                                                                                    <?php echo $link['link']['title']; ?>
+                                                                                </a>
+                                                                            <?php endif; ?>
                                                                         </li>
                                                                     <?php endforeach; ?>
 
                                                                     <!-- 'View all' link -->
-                                                                    <!-- <?php if ($sub_column['view_all_link']): ?>
+                                                                    <?php if ($sub_column['view_all_link']): ?>
                                                                         <li class="hidden flex-wrap items-center gap-2 | lg:flex">
                                                                             <a href="<?php echo $sub_column['view_all_link']['url']; ?>" class="block px-root py-2.5 w-full text-dark-grey | lg:p-0" target="<?php echo $sub_column['view_all_link']['target']; ?>">
                                                                                 <?php echo $sub_column['view_all_link']['title']; ?>
                                                                             </a>
                                                                         </li>
-                                                                    <?php endif; ?> -->
+                                                                    <?php endif; ?>
                                                                 </ul>
                                                             <?php endif; ?>
                                                         </div>
@@ -116,9 +120,11 @@
 
                                                     <?php if ($column['heading_links']): ?>
                                                         <?php foreach ($column['heading_links'] as $link): ?>
-                                                            <a href="<?php echo $link['link']['url']; ?>" class="block px-root py-2.5 w-full | lg:hidden" target="<?php echo $link['link']['target']; ?>">
-                                                                <?php echo $link['link']['title']; ?>
-                                                            </a>
+                                                            <?php if ($link['link']): ?>
+                                                                <a href="<?php echo $link['link']['url']; ?>" class="block px-root py-2.5 w-full | lg:hidden" target="<?php echo $link['link']['target']; ?>">
+                                                                    <?php echo $link['link']['title']; ?>
+                                                                </a>
+                                                            <?php endif; ?>
                                                         <?php endforeach; ?>
                                                     <?php endif; ?>
                                                 </div>
