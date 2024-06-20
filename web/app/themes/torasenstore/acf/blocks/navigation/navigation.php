@@ -102,13 +102,13 @@
                                                                     <?php endforeach; ?>
 
                                                                     <!-- 'View all' link -->
-                                                                    <?php if ($sub_column['view_all_link']): ?>
+                                                                    <!-- <?php if ($sub_column['view_all_link']): ?>
                                                                         <li class="hidden flex-wrap items-center gap-2 | lg:flex">
                                                                             <a href="<?php echo $sub_column['view_all_link']['url']; ?>" class="block px-root py-2.5 w-full text-dark-grey | lg:p-0" target="<?php echo $sub_column['view_all_link']['target']; ?>">
                                                                                 <?php echo $sub_column['view_all_link']['title']; ?>
                                                                             </a>
                                                                         </li>
-                                                                    <?php endif; ?>
+                                                                    <?php endif; ?> -->
                                                                 </ul>
                                                             <?php endif; ?>
                                                         </div>
