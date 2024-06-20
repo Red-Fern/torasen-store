@@ -96,13 +96,13 @@
                                                             <?php if ($sub_column['links']): ?>
                                                                 <ul class="m-0 p-0 px-0 | lg:space-y-3">
                                                                     <?php foreach ($sub_column['links'] as $link): ?>
-                                                                        <li class="flex flex-wrap items-center gap-2">
-                                                                            <?php if ($link['link']): ?>
+                                                                        <?php if ($link['link']): ?>
+                                                                            <li class="flex flex-wrap items-center gap-2">
                                                                                 <a href="<?php echo $link['link']['url']; ?>" class="block px-root py-2.5 w-full text-dark-grey | lg:p-0 lg:text-black" target="<?php echo $link['link']['target']; ?>">
                                                                                     <?php echo $link['link']['title']; ?>
                                                                                 </a>
-                                                                            <?php endif; ?>
-                                                                        </li>
+                                                                            </li>
+                                                                        <?php endif; ?>
                                                                     <?php endforeach; ?>
 
                                                                     <!-- 'View all' link -->
