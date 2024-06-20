@@ -11,7 +11,7 @@
             <?php foreach (get_field('menu_items') as $menu_item): ?>
                 <li 
                     class="group <?php echo str_replace(' ', '-', strtolower($menu_item['label'])); ?> <?php echo $menu_item['link_type'] . '-item' ; ?> border-b border-mid-grey | lg:border-0" 
-                    x-data="menuDropdown(<?php echo $menu_item['columns'] ? 'true' : 'false'; ?>)"
+                    x-data="menuDropdown(<?php echo $menu_item['columns'] ? 'true' : 'false'; ?>, false)"
                 >
                     <?php if (!is_admin()) : ?>
                         <!-- Menu item -->
@@ -34,7 +34,8 @@
                             <div
                                 x-cloak
                                 x-show="showing"
-                                class="w-full bg-light-grey text-md overflow-x-clip z-10 transition duration-500 | lg:absolute lg:top-full lg:left-0 lg:py-lg lg:bg-lightest-grey lg:shadow-lg lg:invisible lg:opacity-0 lg:hover:visible lg:hover:opacity-100 lg:group-hover:visible lg:group-hover:opacity-100"
+                                class="w-full bg-light-grey text-md overflow-x-clip z-10 transition duration-500 | lg:absolute lg:top-full lg:left-0 lg:py-lg lg:bg-lightest-grey lg:shadow-lg"
+                                @click.away="showing = false"
                             >
                                 <div class="container | max-lg:p-0">
                                     <div class="lg:flex lg:gap-[10%]">
@@ -42,7 +43,7 @@
                                         <?php foreach ($menu_item['columns'] as $column): ?>
                                             <div 
                                                 class="flex flex-col border-t border-mid-grey | lg:border-0 <?php echo count($menu_item['columns']) > 1 ? 'lg:flex-1' : 'lg:w-[250px]'; ?>"
-                                                x-data="menuDropdown(<?php echo $column['sub_columns'] ? 'true' : 'false'; ?>)"
+                                                x-data="menuDropdown(<?php echo $column['sub_columns'] ? 'true' : 'false'; ?>, true)"
                                             >
                                                 <!-- Column heading -->
                                                 <?php if ($column['title']): ?>
@@ -52,7 +53,7 @@
                                                         :class="showing ? 'pb-0' : ''"
                                                     >
                                                         <!-- Column title -->
-                                                         <div class="flex justify-between w-full font-medium | lg:w-auto">
+                                                        <div class="flex justify-between w-full font-medium | lg:w-auto">
                                                             <?php echo $column['title']; ?>
 
                                                             <?php if ($column['sub_columns']): ?>
@@ -62,9 +63,9 @@
                                                             <?php endif; ?>
                                                         </div>
 
-                                                        <!-- Column 'view all' link/s -->
+                                                        <!-- Column 'view all' link/s (desktop) -->
                                                         <?php if ($column['heading_links']): ?>
-                                                            <div class="hidden flex-wrap gap-xs | lg:flex">
+                                                            <div class="hidden flex-wrap gap-x-sm gap-y-xs | lg:flex">
                                                                 <?php foreach ($column['heading_links'] as $link): ?>
                                                                     <a href="<?php echo $link['link']['url']; ?>" class="block text-dark-grey" target="<?php echo $link['link']['target']; ?>">
                                                                         <?php echo $link['link']['title']; ?>
@@ -114,6 +115,7 @@
                                                         </div>
                                                     <?php endforeach; ?>
 
+                                                    <!-- Column 'view all' link/s (mobile) -->
                                                     <?php if ($column['heading_links']): ?>
                                                         <?php foreach ($column['heading_links'] as $link): ?>
                                                             <a href="<?php echo $link['link']['url']; ?>" class="block px-root py-2.5 w-full | lg:hidden" target="<?php echo $link['link']['target']; ?>">
