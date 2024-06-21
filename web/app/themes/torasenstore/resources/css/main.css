@@ -22,6 +22,9 @@
 [x-cloak] {
     @apply !hidden;
 }
+[x-cloak="mobile"] {
+    @apply !hidden lg:!block;
+}
 
 /******** Containers ********/
 

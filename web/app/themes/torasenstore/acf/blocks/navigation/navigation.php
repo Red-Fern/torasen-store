@@ -5,7 +5,7 @@
     <nav 
         class="w-full"
         :class="menuOpen ? 'visible opacity-100' : 'invisible opacity-0'"
-        x-cloak
+        x-cloak="mobile"
     >
         <ul class="absolute top-full left-0 flex flex-col m-0 p-0 h-[calc(100vh-100%)] w-full bg-lightest-grey list-none z-10 overflow-auto | lg:static lg:flex-row lg:h-auto lg:bg-transparent">
             <?php foreach (get_field('menu_items') as $menu_item): ?>
@@ -37,12 +37,6 @@
                                     x-on:click="showing = !showing"
                                     x-show="showing"
                                     x-cloak
-                                    x-transition:enter="transition ease-out duration-300"
-                                    x-transition:enter-start="opacity-0"
-                                    x-transition:enter-end="opacity-100"
-                                    x-transition:leave="transition ease-in duration-300"
-                                    x-transition:leave-start="opacity-100"
-                                    x-transition:leave-end="opacity-0"
                                 >
                                 </div>
                             </template>
