@@ -19,6 +19,11 @@
     "supports": {
         "align": ["full"],
         "mode": true,
-        "jsx": true
+        "jsx": true,
+        "spacing": {
+            "margin": true,
+            "padding": true
+        },
+        "color": true
     }
 }
