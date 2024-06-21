@@ -1,0 +1,24 @@
+{
+    "name": "acf/text-media",
+    "title": "50/50",
+    "description": "Insert a 50/50 section with an image and text.",
+    "category": "media",
+    "icon": "align-pull-right",
+    "apiVersion": 2,
+    "keywords": ["50/50", "half", "split", "text", "media", "image", "video"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "text-media.php"
+    },
+    "attributes": {
+        "align": {
+            "type": "string",
+            "default": "full"
+        }
+    },
+    "supports": {
+        "align": ["full"],
+        "mode": true,
+        "jsx": true
+    }
+}
