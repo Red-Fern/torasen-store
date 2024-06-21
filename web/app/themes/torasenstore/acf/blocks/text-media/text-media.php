@@ -15,12 +15,13 @@
     // Create class attribute allowing for custom "className" and "align" values
     $class_name = 'text-media-block';
 
-    if (!empty( $block['className'])) {
+    if (!empty($block['className'])) {
         $class_name .= ' ' . $block['className'];
     }
-    if (!empty( $block['align'])) {
+    if (!empty($block['align'])) {
         $class_name .= ' align' . $block['align'];
     }
+    $wrapper_attributes = get_block_wrapper_attributes(['class' => $class_name]); 
 
     $template = [
         [ 
@@ -54,7 +55,7 @@
     ];
 ?>
 
-<div <?php echo esc_attr($anchor); ?> class="<?php echo esc_attr($class_name); ?>">
+<div <?php echo esc_attr($anchor); ?> <?php echo $wrapper_attributes; ?>>
     <div class="container flex flex-wrap gap-lg | lg:flex-nowrap lg:justify-between lg:gap-0 <?php echo ($layout == 'media-right' ? 'lg:flex-row-reverse' : ''); ?>">
         <div class="w-full | lg:w-1/2">
             <div class="aspect-[1/0.8]">
