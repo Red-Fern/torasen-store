@@ -6,7 +6,8 @@ class Acf
 {
     protected static $blocks = [
         'navigation',
-        'hero'
+        'hero',
+        'text-media'
     ];
 
     public static function init()
