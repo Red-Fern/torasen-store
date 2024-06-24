@@ -12,7 +12,7 @@
 
 $term = get_queried_object();
 
-if (!$term) {
+if (!isset($term->taxonomy)) {
     echo '<div>No Term available</div>';
     return;
 }
