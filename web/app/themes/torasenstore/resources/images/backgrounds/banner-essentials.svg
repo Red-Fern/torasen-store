@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1630"
+   height="755"
+   viewBox="0 0 1630 755"
+   fill="none"
+   version="1.1"
+   id="svg5"
+   sodipodi:docname="essentials-banner.svg"
+   inkscape:version="1.3 (0e150ed, 2023-07-21)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview5"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.8359833"
+     inkscape:cx="421.06104"
+     inkscape:cy="450.96595"
+     inkscape:window-width="1952"
+     inkscape:window-height="1339"
+     inkscape:window-x="710"
+     inkscape:window-y="271"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g5" />
+  <g
+     clip-path="url(#clip0_0_3)"
+     id="g5">
+    <path
+       d="M 366.626,314.938 H 607.408 V 754.12 H 366.626 Z"
+       stroke="#231f20"
+       stroke-width="0.5"
+       stroke-miterlimit="10"
+       id="path1" />
+    <path
+       d="m 778.6,-13 v 595.666 c 0,94.692 -76.763,171.453 -171.454,171.453 V -13 Z"
+       stroke="#231f20"
+       stroke-width="0.5"
+       stroke-miterlimit="10"
+       id="path3" />
+    <path
+       d="M 366.626,314.938 V 753.992 C 245.385,753.992 147.1,655.705 147.1,534.464 147.1,413.222 245.385,314.938 366.626,314.938 Z"
+       stroke="#231f20"
+       stroke-width="0.5"
+       stroke-miterlimit="10"
+       id="path4" />
+    <path
+       d="m 913.432,425.793 c -74.321,0 -134.57,-60.249 -134.57,-134.57 0,-74.321 60.249,-134.57 134.57,-134.57 74.321,0 134.568,60.249 134.568,134.57 0,74.321 -60.247,134.57 -134.568,134.57 z"
+       stroke="#231f20"
+       stroke-width="0.5"
+       stroke-miterlimit="10"
+       id="path5" />
+  </g>
+  <defs
+     id="defs5">
+    <clipPath
+       id="clip0_0_3">
+      <rect
+         width="1087"
+         height="768"
+         fill="#ffffff"
+         transform="matrix(-1,0,0,1,1087,0)"
+         id="rect5"
+         x="0"
+         y="0" />
+    </clipPath>
+  </defs>
+</svg>

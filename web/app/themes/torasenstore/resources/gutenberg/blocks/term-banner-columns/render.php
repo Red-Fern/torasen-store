@@ -19,10 +19,10 @@ if (!$term) {
 
 ?>
 
-<?php if (have_rows('columns', $term)): ?>
+<?php if (have_rows('banner_columns', $term)): ?>
     <div <?php echo get_block_wrapper_attributes(); ?>>
         <div class="flex flex-wrap justify-end gap-md mt-2xl | md:flex-nowrap | lg:mt-[calc(var(--wp--preset--spacing--xxl)*2)]">
-            <?php foreach (get_field('columns', $term) as $column): ?>
+            <?php foreach (get_field('banner_columns', $term) as $column): ?>
                 <div class="w-full space-y-sm | md:w-1/3 | lg:w-[195px]">
                     <?php if ($column['image']): ?>
                         <img src="<?php echo $column['image']['url']; ?>" alt="<?php echo $column['image']['alt']; ?>">

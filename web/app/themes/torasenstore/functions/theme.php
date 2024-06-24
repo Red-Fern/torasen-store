@@ -10,6 +10,7 @@ class Theme
         add_filter('wp_check_filetype_and_ext', [__CLASS__, 'enableSvgUploads'], 10, 4);
         add_filter('upload_mimes', [__CLASS__, 'addSvgMimeTypes']);
         add_action('wp_body_open', [__CLASS__, 'addGtmCode'], -1);
+        add_filter('body_class', [__CLASS__, 'addTermBannerClass']);
     }
 
     public static function enqueueScripts(): void
@@ -57,6 +58,32 @@ class Theme
         }
 
         gtm4wp_the_gtm_tag();
+    }
+
+    public static function addTermBannerClass($classes) {
+        $term = get_queried_object();
+
+        if (!$term) {
+            return;
+        }
+
+        $banner_bg = get_field('banner_bg_image', $term);
+
+        // If no banner image is selected, get parent selection
+        if (!$banner_bg) {
+            // Get top-most parent
+            $parent  = get_term_by('id', $term->term_id, $term->taxonomy);
+            
+            while ($parent->parent != 0) {
+                $parent = get_term_by('id', $parent->parent, $term->taxonomy);
+            }
+
+            $banner_bg = get_field('banner_bg_image', $parent);
+        }
+
+        $classes[] = $banner_bg;
+
+        return $classes;
     }
 }
 

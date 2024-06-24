@@ -3,9 +3,35 @@
     "title": "Term Banner",
     "fields": [
         {
+            "key": "field_667976d321eeb",
+            "label": "Background Image",
+            "name": "banner_bg_image",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "If no image is selected, the parent category's selection will be used.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "banner-essentials": "Essentials",
+                "banner-essentials-home": "Essentials Home"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 1,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_66792ccf5f24b",
             "label": "Sidebar",
-            "name": "sidebar",
+            "name": "banner_sidebar",
             "aria-label": "",
             "type": "group",
             "instructions": "",
@@ -68,7 +94,7 @@
         {
             "key": "field_66792dacf9cc7",
             "label": "Columns",
-            "name": "columns",
+            "name": "banner_columns",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
@@ -155,5 +181,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1719218836
+    "modified": 1719238172
 }
