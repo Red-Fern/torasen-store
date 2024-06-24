@@ -32,7 +32,7 @@ import './editor.scss';
 export default function Edit() {
 	return (
 		<div { ...useBlockProps() }>
-			<button class="flex justify-between items-center gap-4 py-4 px-0 w-full border-t border-mid-grey bg-transparent text-left font-medium">
+			<button className="flex justify-between items-center gap-4 py-4 px-0 w-full border-t border-mid-grey bg-transparent text-left font-medium">
 				Dimensions 
 
 				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
@@ -40,7 +40,7 @@ export default function Edit() {
 				</svg>
 			</button>
 
-			<button class="flex justify-between items-center gap-4 py-4 px-0 w-full border-t border-mid-grey bg-transparent text-left font-medium">
+			<button className="flex justify-between items-center gap-4 py-4 px-0 w-full border-t border-mid-grey bg-transparent text-left font-medium">
 				Downloads & CAD
 
 				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
@@ -48,7 +48,7 @@ export default function Edit() {
 				</svg>
 			</button>
 
-			<button class="flex justify-between items-center gap-4 py-4 px-0 w-full border-y border-mid-grey bg-transparent text-left font-medium">
+			<button className="flex justify-between items-center gap-4 py-4 px-0 w-full border-y border-mid-grey bg-transparent text-left font-medium">
 				Environmental
 
 				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
