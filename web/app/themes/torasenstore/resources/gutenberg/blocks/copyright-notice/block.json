@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "create-block/copyright-notice",
+	"version": "0.1.0",
+	"title": "Copyright Notice",
+	"category": "widgets",
+	"icon": "info",
+	"description": "Display a copyright notice with the current year.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"label": {
+			"type": "string",
+			"default": "Copyright notice"
+		}
+	},
+	"textdomain": "copyright-notice",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"editorStyle": "file:./index.css",
+	"viewScript": "file:./view.js"
+}

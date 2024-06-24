@@ -5,6 +5,11 @@ namespace RFOrigin;
 class Gutenberg
 {
     protected static array $blocks = [
+        'red-fern/accordion',
+        'red-fern/accordion-item',
+        'torasen/family-products',
+        'torasen/product-specification',
+        'torasen/copyright-notice',
     ];
 
     public static function init()

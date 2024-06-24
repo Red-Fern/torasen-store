@@ -5,7 +5,7 @@ module.exports = {
     "./patterns/**/*.php",
     "./templates/**/*.html",
     "./resources/js/**/*.js",
-    "./resources/gutenberg/**/*.js",
+    "./resources/gutenberg/**/*.{js,php}",
     "./acf/**/*.php",
   ],
   theme: {
@@ -52,6 +52,7 @@ module.exports = {
     },
   },
   safelist: [
+      'bg-white',
   ],
   corePlugins: {
     preflight: false

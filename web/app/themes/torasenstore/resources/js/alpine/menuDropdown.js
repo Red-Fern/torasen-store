@@ -1,28 +1,31 @@
-export default (hasItems = false) => ({
-    showing: true,
+export default (hasItems = false, showOnDesktop = false) => ({
+    showing: false,
     hasItems: hasItems,
+    showOnDesktop: showOnDesktop,
     init() {
-        this.showing = this.isDesktop();
+        if (this.isDesktop()) {
+            return this.showing = showOnDesktop;
+        }
 
         window.addEventListener('resize', () => {
             this.checkVisible();
         })
     },
     toggle(e) {
-        if (!this.isDesktop()) {
-            if (this.hasItems) {
-                e.preventDefault();
-            }
+        if (this.isDesktop() && this.showOnDesktop) {
+            return;
+        }
+
+        if (this.hasItems) {
+            e.preventDefault();
 
             this.showing = !this.showing;
         }
     },
     checkVisible() {
         if (this.isDesktop()) {
-            return this.showing = true;
+            return this.showing = showOnDesktop;
         }
-
-        this.showing = false;
     },
     isDesktop() {
         return window.innerWidth > 1023;

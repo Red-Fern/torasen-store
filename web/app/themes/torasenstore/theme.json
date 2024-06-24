@@ -320,7 +320,8 @@
 				"left": "clamp(1.25rem, 0.781rem + 2.344vw, 3.125rem)",
 				"right": "clamp(1.25rem, 0.781rem + 2.344vw, 3.125rem)",
 				"top": "0"
-			}
+			},
+			"blockGap": "var(--wp--preset--spacing--sm)"
 		},
 		"typography": {
 			"fontFamily": "var(--wp--preset--font-family--sohne)",

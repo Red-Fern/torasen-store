@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+    p:first-child {
+		@apply mt-0;
+	}
+	p:last-child {
+		@apply mb-0;
+	}
     b, strong {
         @apply font-medium;
     }
@@ -16,6 +22,9 @@
 [x-cloak] {
     @apply !hidden;
 }
+[x-cloak="mobile"] {
+    @apply !hidden lg:!block;
+}
 
 /******** Containers ********/
 
@@ -27,10 +36,6 @@
 .container {
     @apply mx-auto px-root;
     max-width: calc(var(--wp--style--global--content-size) + var(--wp--style--root--padding-left) + var(--wp--style--root--padding-right));
-}
-/* Ensure group blocks inherit global padding */
-.has-global-padding :where(.has-global-padding:not(.wp-block-block)) {
-    @apply px-root;
 }
 
 /******** Blocks *********/
@@ -73,6 +78,9 @@
 /* Header */
 header.wp-block-template-part {
     @apply relative;
+}
+header.wp-block-template-part > .wp-block-group {
+    @apply relative z-10;
 }
 .wp-block-site-logo.header-logo {
     @apply max-lg:mr-auto;
