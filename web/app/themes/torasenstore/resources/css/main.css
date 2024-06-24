@@ -128,21 +128,17 @@ footer.wp-block-template-part .aligncenter {
     @apply relative overflow-hidden;
 }
 .term-banner::before {
-    @apply content-[''] hidden absolute inset-0 min-h-[710px] bg-no-repeat bg-[center_top] bg-[length:auto_100%] lg:block;
+    @apply content-[''] absolute inset-0 min-h-[710px] bg-no-repeat bg-[center_top] bg-[length:auto_100%] z-[-1] max-lg:!bg-none;
 }
 .term-banner .wp-block-term-description {
-    @apply max-w-[475px];
-}
-.banner-essentials .term-banner {
-    @apply bg-light-greige;
+    @apply md:max-w-[475px];
 }
 .banner-essentials .term-banner::before {
+    @apply bg-light-greige;
     background-image: url("../images/backgrounds/banner-essentials.svg");
 }
-.banner-essentials-home .term-banner {
-    @apply bg-light-blue;
-}
 .banner-essentials-home .term-banner::before {
+    @apply bg-light-blue;
     background-image: url("../images/backgrounds/banner-essentials-home.svg");
 }
 
