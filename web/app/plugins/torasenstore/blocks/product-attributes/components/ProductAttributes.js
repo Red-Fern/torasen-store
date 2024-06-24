@@ -1,17 +1,24 @@
-import { useEffect } from '@wordpress/element';
+import { useState, useEffect } from '@wordpress/element';
 
-export default function ProductAttributes() {
+export default function ProductAttributes({
+	productId
+}) {
+	const [productAttributes, setProductAttributes] = useState([]);
 
-	// useEffect(() => {
-	// 	fetch('https://torasenstore.com/wp-json/wp/v2/product-attributes')
-	// 		.then(response => response.json())
-	// 		.then(data => console.log(data));
-	// })
+	useEffect(() => {
+		loadProductAttributes();
+	}, [])
 
+	async function loadProductAttributes() {
+		const response = await fetch(`https://torasen-essentials.test/wp-json/torasen/v1/attributes/${productId}`);
+		const data = await response.json();
+
+		setProductAttributes(data.attributes);
+	}
 
 	return (
 		<div>
-			{ __( 'Product Attributes – hello from the editor!', 'product-attributes' ) }
+			{'Product Attributes – hello from the editor!'}
 		</div>
 	)
 }

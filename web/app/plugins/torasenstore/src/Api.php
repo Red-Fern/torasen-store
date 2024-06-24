@@ -2,6 +2,8 @@
 
 namespace RedFern\TorasenStore;
 
+use RedFern\TorasenStore\Resources\ProductAttributeResource;
+
 class Api
 {
     public static function init()
@@ -26,15 +28,7 @@ class Api
 
         $attributes = [];
         foreach ($product->get_variation_attributes() as $attribute => $options) {
-            $terms = wc_get_product_terms(
-                $product->get_id(),
-                $attribute,
-                array(
-                    'fields' => 'all',
-                )
-            );
-
-            $attributes[$attribute] = $terms;
+            $attributes[$attribute] = (new ProductAttributeResource($product, $attribute))->toArray();
         }
 
         $variations = $product->get_available_variations();
