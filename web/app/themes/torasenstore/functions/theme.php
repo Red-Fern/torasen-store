@@ -62,27 +62,27 @@ class Theme
 
     public static function addTermBannerClass($classes) {
         $term = get_queried_object();
-
-        if (!$term) {
-            return;
+    
+        if (!isset($term->taxonomy)) {
+            return $classes;
         }
-
+    
         $banner_bg = get_field('banner_bg_image', $term);
-
+    
         // If no banner image is selected, get parent selection
         if (!$banner_bg) {
             // Get top-most parent
-            $parent  = get_term_by('id', $term->term_id, $term->taxonomy);
+            $parent = get_term_by('id', $term->term_id, $term->taxonomy);
             
             while ($parent->parent != 0) {
                 $parent = get_term_by('id', $parent->parent, $term->taxonomy);
             }
-
+    
             $banner_bg = get_field('banner_bg_image', $parent);
         }
-
+    
         $classes[] = $banner_bg;
-
+    
         return $classes;
     }
 }
