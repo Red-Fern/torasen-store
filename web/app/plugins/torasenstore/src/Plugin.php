@@ -19,6 +19,7 @@ class Plugin
     {
         Blocks::init();
 		Taxonomies::init();
+		Api::init();
     }
 
     public function pluginUrl()
