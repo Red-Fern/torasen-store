@@ -23,7 +23,7 @@
     }
 ?>
 
-<div <?php echo esc_attr($anchor); ?> class="<?php echo esc_attr( $class_name ); ?>">
+<div <?php echo esc_attr($anchor); ?> class="<?php echo esc_attr($class_name); ?>">
     <?php if ($layout == 'image'): ?>
         <?php if ($bg_image): ?>
             <?php if ($link): ?>

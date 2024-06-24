@@ -22,6 +22,9 @@
 [x-cloak] {
     @apply !hidden;
 }
+[x-cloak="mobile"] {
+    @apply !hidden lg:!block;
+}
 
 /******** Containers ********/
 
@@ -75,6 +78,9 @@
 /* Header */
 header.wp-block-template-part {
     @apply relative;
+}
+header.wp-block-template-part > .wp-block-group {
+    @apply relative z-10;
 }
 .wp-block-site-logo.header-logo {
     @apply max-lg:mr-auto;
