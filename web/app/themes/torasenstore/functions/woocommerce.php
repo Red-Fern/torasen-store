@@ -8,6 +8,10 @@ class WooCommerce
     {
         add_action('after_setup_theme', [__CLASS__, 'registerImageSizes']);
         add_filter('use_block_editor_for_post_type', [__CLASS__, 'enableBlockEditor'], 10, 2);
+        
+        add_filter('woocommerce_resize_images', static function() {
+            return false;
+        });
     }
 
     public static function registerImageSizes()

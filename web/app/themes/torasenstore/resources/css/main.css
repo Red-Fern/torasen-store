@@ -124,6 +124,16 @@ footer.wp-block-template-part .aligncenter {
 .wp-block-woocommerce-product-collection .wp-block-query-pagination {
     @apply mt-md;
 }
+.term-banner {
+    @apply relative overflow-hidden;
+}
+.term-banner::before {
+    @apply content-[''] hidden absolute inset-0 min-h-[710px] bg-no-repeat bg-[center_top] bg-[length:auto_100%] lg:block;
+    background-image: url("../images/vectors/banner-bg.svg");
+}
+.term-banner .wp-block-term-description {
+    @apply max-w-[475px];
+}
 
 /* Product */
 .wp-block-group.woocommerce.product {

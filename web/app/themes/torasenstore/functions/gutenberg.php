@@ -10,6 +10,8 @@ class Gutenberg
         'torasen/family-products',
         'torasen/product-specification',
         'torasen/copyright-notice',
+        'torasen/term-banner-sidebar',
+        'torasen/term-banner-columns',
     ];
 
     public static function init()
