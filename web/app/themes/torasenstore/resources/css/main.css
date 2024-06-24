@@ -124,6 +124,9 @@ footer.wp-block-template-part .aligncenter {
 .wp-block-woocommerce-product-collection .wp-block-query-pagination {
     @apply mt-md;
 }
+.term-banner .wp-block-term-description {
+    @apply max-w-[475px];
+}
 
 /* Product */
 .wp-block-group.woocommerce.product {
