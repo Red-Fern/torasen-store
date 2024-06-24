@@ -128,7 +128,7 @@ footer.wp-block-template-part .aligncenter {
     @apply relative overflow-hidden;
 }
 .term-banner::before {
-    @apply content-[''] absolute inset-0 min-h-[710px] bg-no-repeat bg-[center_top] bg-[length:auto_100%] z-[-1] max-lg:!bg-none;
+    @apply content-[''] absolute inset-0 min-h-[710px] bg-lightest-grey bg-no-repeat bg-[center_top] bg-[length:auto_100%] z-[-1] max-lg:!bg-none;
 }
 .term-banner .wp-block-term-description {
     @apply md:max-w-[475px];
