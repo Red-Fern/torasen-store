@@ -2,6 +2,8 @@
 
 namespace RedFern\TorasenStore;
 
+use RedFern\TorasenStore\Admin\AttributeForm;
+
 class Plugin
 {
     protected static $instance = null;
@@ -20,6 +22,8 @@ class Plugin
         Blocks::init();
 		Taxonomies::init();
 		Api::init();
+
+		AttributeForm::init();
     }
 
     public function pluginUrl()
