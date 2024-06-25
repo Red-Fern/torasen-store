@@ -1,4 +1,5 @@
 import './alpine';
+import './swiper';
 
 document.querySelectorAll('.modal-button').forEach(button => {
     button.addEventListener('click', (e) => {

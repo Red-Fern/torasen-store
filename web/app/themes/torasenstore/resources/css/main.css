@@ -100,6 +100,12 @@ footer.wp-block-template-part .aligncenter {
     @apply max-md:!ml-0;
 }
 
+/******** Swiper ********/
+
+.editor-styles-wrapper .swiper .swiper-wrapper {
+    @apply overflow-x-auto;
+}
+
 /******** WooCommerce ********/
 
 /* General */
