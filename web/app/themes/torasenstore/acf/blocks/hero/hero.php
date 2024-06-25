@@ -1,10 +1,4 @@
 <?php 
-    // Load values and assign defaults
-    $layout = get_field('layout');
-    $bg_image = get_field('bg_image');
-    $mob_bg_image = get_field('mob_bg_image');
-    $link = get_field('link');
-
     // Support custom "anchor" values
     $anchor = '';
 
@@ -23,23 +17,31 @@
     }
 ?>
 
-<div <?php echo esc_attr($anchor); ?> class="<?php echo esc_attr($class_name); ?>">
-    <?php if ($layout == 'image'): ?>
-        <?php if ($bg_image): ?>
-            <?php if ($link): ?>
-                <a href="<?php echo $link['url']; ?>">
-            <?php endif; ?>
-                <picture>
-                    <?php if ($mob_bg_image): ?>
-                        <source media="(max-width: 1023px)" srcset="<?php echo $mob_bg_image['url'] ?>">
-                        <source media="(min-width: 1024px)" srcset="<?php echo $bg_image['url'] ?>">
-                    <?php endif; ?>
+<?php if (have_rows('slides')): ?>
+    <div <?php echo esc_attr($anchor); ?> class="<?php echo esc_attr($class_name); ?>">
+        <div class="swiper-container">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <?php foreach(get_field('slides') as $slide): ?>
+                        <?php if ($slide['bg_image']): ?>
+                            <div class="swiper-slide">
+                                <a href="<?php echo $slide['link'] ? $slide['link']['url'] : '#'; ?>" class="block w-full aspect-[393/596] | md:aspect-[1739/837]">
+                                    <picture>
+                                        <?php if ($slide['mob_bg_image']): ?>
+                                            <source media="(max-width: 781px)" srcset="<?php echo $slide['mob_bg_image']['url'] ?>">
+                                            <source media="(min-width: 782px)" srcset="<?php echo $slide['bg_image']['url'] ?>">
+                                        <?php endif; ?>
 
-                    <img src="<?php echo $bg_image['url'] ?>" class="w-full" alt="<?php echo $bg_image['alt'] ?>">
-                </picture>
-            <?php if ($link): ?>
-                </a>
-            <?php endif; ?>
-        <?php endif; ?>
-    <?php endif; ?>
-</div>
+                                        <img src="<?php echo $slide['bg_image']['url'] ?>" class="w-full h-full object-cover" alt="<?php echo $slide['bg_image']['alt'] ?>">
+                                    </picture>
+                                </a>
+                            </div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php elseif ($is_preview): ?>
+    Editor
+<?php endif; ?>
