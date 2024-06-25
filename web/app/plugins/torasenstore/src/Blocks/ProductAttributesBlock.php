@@ -6,7 +6,7 @@ class ProductAttributesBlock
 {
     public static function register()
     {
-        register_block_type(TORASENSTORE_PLUGIN_DIR . "/build/product-attributes", [
+        register_block_type(TORASENSTORE_PLUGIN_DIR . "/build/blocks/product-attributes", [
             'render_callback' => [__CLASS__, 'render'],
         ]);
     }

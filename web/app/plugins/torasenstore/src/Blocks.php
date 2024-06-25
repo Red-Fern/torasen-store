@@ -26,7 +26,7 @@ class Blocks
         ProductAttributesBlock::register();
 
         foreach (self::$blocks as $block) {
-            register_block_type(TORASENSTORE_PLUGIN_DIR . "/build/{$block}");
+            register_block_type(TORASENSTORE_PLUGIN_DIR . "/build/blocks/{$block}");
         }
     }
 }

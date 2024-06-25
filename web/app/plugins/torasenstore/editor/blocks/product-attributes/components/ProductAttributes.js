@@ -8,12 +8,8 @@ export default function ProductAttributes({
 }) {
 	const [productAttributes, setProductAttributes] = useState({});
 
-	const { count } = useSelect((select) => {
-		const value = select(attributeStore).getCount();
-
-		return {
-			count: value
-		}
+	const count = useSelect((select) => {
+		return select(attributeStore).getCount();
 	}, []);
 
 	const { increment } = useDispatch(attributeStore);
