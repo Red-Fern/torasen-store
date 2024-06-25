@@ -22,6 +22,7 @@ class AttributeForm
                 <?php wp_editor($value, 'torasen-attribute-content', [
                     'textarea_name' => 'attribute_help_text',
                     'textarea_rows' => 10,
+					'wpautop' => true,
                 ]); ?>
             </td>
         </tr>
