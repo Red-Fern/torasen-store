@@ -13,6 +13,10 @@
 		"interactivity": true
 	},
 	"attributes": {
+		"theme": {
+			"type": "string",
+			"default": "faqs"
+		},
 		"activeTab": {
 			"type": "string"
 		}
