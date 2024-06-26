@@ -6,7 +6,11 @@ export default function HelpPanel({ content }) {
 
 	return (
 		<>
-			<button onClick={() => setIsOpen(true)}>Open dialog</button>
+			<button className="bg-transparent p-2 border border-black rounded-full" onClick={() => setIsOpen(true)}>
+				<svg className="w-3 h-3 text-black" viewBox="0 0 10 11" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+					<path d="M3.5625 3.625C3.5625 2.93555 4.12305 2.375 4.8125 2.375H5.4375C6.12695 2.375 6.6875 2.93555 6.6875 3.625V3.80664C6.6875 4.18945 6.51172 4.55273 6.20898 4.78906L4.73828 5.94531L4.5 6.13281V6.4375V7.375H5.75V6.74219L6.98242 5.77344C7.58594 5.29883 7.9375 4.57422 7.9375 3.80664V3.625C7.9375 2.24414 6.81836 1.125 5.4375 1.125H4.8125C3.43164 1.125 2.3125 2.24414 2.3125 3.625V3.9375H3.5625V3.625ZM5.90625 8.3125H4.34375V9.875H5.90625V8.3125Z"/>
+				</svg>
+			</button>
 			<Dialog
 				open={isOpen}
 				onClose={() => setIsOpen(false)}
@@ -22,7 +26,8 @@ export default function HelpPanel({ content }) {
 						transition
 						className="max-w-lg h-full overflow-y-scroll bg-white duration-300 ease-out data-[closed]:translate-x-full"
 					>
-						<DialogTitle className="font-bold py-6 px-12 border-b border-black flex justify-between items-center">
+						<DialogTitle
+							className="font-bold py-6 px-12 border-b border-black flex justify-between items-center">
 							<span>Deactivate account</span>
 							<button
 								onClick={() => setIsOpen(false)}

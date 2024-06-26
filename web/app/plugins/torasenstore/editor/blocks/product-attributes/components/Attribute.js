@@ -4,16 +4,21 @@ import HelpPanel from "./HelpPanel";
 export default function Attribute({ attribute }) {
 	console.log(attribute.help_text);
 	return (
-		<div className="flex flex-row w-full">
-			<div className="w-1/3">{attribute.label}</div>
-			<div className="w-2/3">
-				{attribute.help_text && (
-					<HelpPanel content={attribute.help_text} />
-				)}
-
-				{attribute.options.map((option) => (
-					<AttributeOption key={option.id} option={option} />
-				))}
+		<div className="flex flex-row w-full pb-4 border-b border-gray-300">
+			<div className="md:w-1/4">
+				<div className="flex items-center gap-2">
+					<span>{attribute.label}</span>
+					{attribute.help_text && (
+						<HelpPanel content={attribute.help_text} />
+					)}
+				</div>
+			</div>
+			<div className="md:w-3/4">
+				<div className="flex flex-wrap gap-3">
+					{attribute.options.map((option) => (
+						<AttributeOption key={option.id} option={option} />
+					))}
+				</div>
 			</div>
 		</div>
 	)
