@@ -22,7 +22,6 @@ class ProductAttributesBlock
         ob_start();
         ?>
 		<div id="torasen-product-form" data-product-id="<?php echo $postId; ?>"></div>
-        <div>RENDER ATTRIBUTES HERE</div>
         <?php
         return ob_get_clean();
     }

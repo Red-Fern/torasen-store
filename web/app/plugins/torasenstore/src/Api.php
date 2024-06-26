@@ -31,9 +31,22 @@ class Api
             $attributes[$attribute] = (new ProductAttributeResource($product, $attribute))->toArray();
         }
 
-        $variations = $product->get_available_variations();
         $defaultAttributes = $product->get_default_attributes();
+        $data_store   = \WC_Data_Store::load('product');
+        $variationId = $data_store->find_matching_product_variation($product, self::createAttributeMap($defaultAttributes));
 
-        return wp_send_json(compact('defaultAttributes', 'variations', 'attributes'));
+        $variations = $product->get_available_variations();
+
+        return wp_send_json(compact('defaultAttributes', 'variations', 'attributes', 'variationId'));
+    }
+
+    public static function createAttributeMap($attributeArray)
+    {
+        $attributes = [];
+        foreach ($attributeArray as $key => $value) {
+            $attributes["attribute_{$key}"] = $value;
+        }
+
+        return $attributes;
     }
 }

@@ -6,25 +6,13 @@ import Attribute from "./Attribute";
 export default function ProductAttributes({
 	productId
 }) {
-	const [productAttributes, setProductAttributes] = useState({});
+	const selectedAttributes = useSelect((select) => {
+		return select(attributeStore).getSelectedAttributes()
+	}, [productId]);
 
-	const count = useSelect((select) => {
-		return select(attributeStore).getCount();
-	}, []);
-
-	const { increment } = useDispatch(attributeStore);
-
-
-	useEffect(() => {
-		loadProductAttributes();
-	}, [])
-
-	async function loadProductAttributes() {
-		const response = await fetch(`https://torasen-essentials.test/wp-json/torasen/v1/attributes/${productId}`);
-		const data = await response.json();
-
-		setProductAttributes(data.attributes);
-	}
+	const productAttributes = useSelect((select) => {
+		return select(attributeStore).getAttributes(productId);
+	}, [productId]);
 
 	return (
 		<>
@@ -33,12 +21,6 @@ export default function ProductAttributes({
 					<Attribute key={attributeSlug} attribute={attribute}/>
 				))}
 			</div>
-			<div>
-				<div>COUNT = {count}</div>
-				<button type="button" onClick={() => increment()}>Increment</button>
-				{'Product Attributes – hello from the editor!'}
-			</div>
 		</>
-
 	)
 }
