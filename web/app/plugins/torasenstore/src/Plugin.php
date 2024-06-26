@@ -20,10 +20,10 @@ class Plugin
     protected function __construct()
     {
         Blocks::init();
-		Taxonomies::init();
-		Api::init();
+        Taxonomies::init();
+        Api::init();
 
-		AttributeForm::init();
+        AttributeForm::init();
     }
 
     public function pluginUrl()
