@@ -4,3 +4,42 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+
+.wp-block-red-fern-accordion-item .accordion-icon {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNSIgaGVpZ2h0PSI4IiBmaWxsPSJub25lIj48cGF0aCBmaWxsPSIjMkEyQTJBIiBkPSJNMTUuMzU0IDQuMzU0YS41LjUgMCAwIDAgMC0uNzA4TDEyLjE3Mi40NjRhLjUuNSAwIDEgMC0uNzA4LjcwOEwxNC4yOTMgNGwtMi44MjkgMi44MjhhLjUuNSAwIDEgMCAuNzA4LjcwOGwzLjE4Mi0zLjE4MlpNMCA0LjVoMTV2LTFIMHYxWiIvPjwvc3ZnPg==");
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: 15px 8px;
+}
+
+.wp-block-red-fern-accordion-item .accordion-panel {
+    grid-template-rows: 0fr;
+}
+
+.wp-block-red-fern-accordion-item.active .accordion-panel {
+    grid-template-rows: 1fr;
+}
+
+.wp-block-red-fern-accordion.panels .wp-block-red-fern-accordion-item {
+    border-color: var(--wp--preset--color--black);
+}
+
+.wp-block-red-fern-accordion.panels .wp-block-red-fern-accordion-item button,
+.wp-block-red-fern-accordion.panels .wp-block-red-fern-accordion-item .accordion-panel {
+    padding-left: var(--wp--preset--spacing--sm);
+    padding-right: var(--wp--preset--spacing--sm);
+    font-size: var(--wp--preset--font-size--lg);
+}
+
+.wp-block-red-fern-accordion.panels .wp-block-red-fern-accordion-item .accordion-icon {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIzIiBmaWxsPSJub25lIj48ZyBmaWxsPSIjMUQxRDFCIiBjbGlwLXBhdGg9InVybCgjYSkiPjxwYXRoIGQ9Ik0wIC41aDd2MkgweiIvPjxwYXRoIGQ9Ik05IC41aDd2Mkg5eiIvPjwvZz48ZGVmcz48Y2xpcFBhdGggaWQ9ImEiPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0wIC41aDE2djJIMHoiLz48L2NsaXBQYXRoPjwvZGVmcz48L3N2Zz4=");
+    background-size: 16px 2px;
+}
+
+.wp-block-red-fern-accordion.panels .wp-block-red-fern-accordion-item.active {
+    background-color: var(--wp--preset--color--white);
+}
+
+.wp-block-red-fern-accordion.faqs .wp-block-red-fern-accordion-item.active .accordion-icon {
+    transform: rotate(90deg);
+}

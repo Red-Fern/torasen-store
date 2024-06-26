@@ -9,6 +9,7 @@ const TEMPLATE = [
 
 export default function Edit({
 	attributes: {
+		theme,
 		activeTab
 	},
 	setAttributes,
@@ -27,12 +28,24 @@ export default function Edit({
 		return select('core/block-editor').getBlock(clientId).innerBlocks;
 	})
 
+	const themeOptions = [
+		{
+			value: 'faqs',
+			label: 'FAQs'
+		},
+		{
+			value: 'panels',
+			label: 'Panels'
+		}
+	];
+
 	const tabOptions = [
 		{
 			value: '',
 			label: '- None Selected -'
 		}
 	];
+
 	innerBlocks?.filter(block => {
 		return !! block.attributes.slug
 	}).map((block, index) => {
@@ -46,6 +59,12 @@ export default function Edit({
 		<>
 			<InspectorControls>
 				<PanelBody title="Accordion Item Settings">
+					<SelectControl
+						label="Theme"
+						value={theme}
+						options={themeOptions}
+						onChange={(value) => setAttributes({ theme: value })}
+					/>
 					<SelectControl
 						label="Active Tab"
 						value={activeTab}
