@@ -12,7 +12,9 @@ export default function ProductAttributes({
 
 	const variation = useSelect((select) => select(attributeStore).getVariation());
 
-	console.log({variation});
+	useEffect(() => {
+		document.querySelector('input[name="variation_id"]').value = variation ? variation.variation_id : '';
+	}, [variation])
 
 	return (
 		<>
@@ -21,7 +23,6 @@ export default function ProductAttributes({
 					<Attribute key={attributeSlug} attribute={attribute}/>
 				))}
 			</div>
-			<div>{JSON.stringify(variation)}</div>
 		</>
 	)
 }
