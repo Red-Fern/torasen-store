@@ -22,6 +22,7 @@
     if (!empty($block['align'])) {
         $class_name .= ' align' . $block['align'];
     }
+
     $wrapper_attributes = get_block_wrapper_attributes(['class' => $class_name]); 
 
     $template = [
@@ -66,7 +67,7 @@
 
                 <?php if ($media == 'video' && $video): ?>
                     <div class="relative w-full h-full">
-                        <video class="absolute inset-0 w-full h-full object-cover" playsinline="playsinline" preload="metadata" muted autoplay loop crossorigin="anonymous" paused>
+                        <video class="absolute inset-0 w-full h-full object-cover" playsinline="playsinline" preload="metadata" muted autoplay loop crossorigin="anonymous">
                             <source src="<?php echo $video['url'] ?>" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>

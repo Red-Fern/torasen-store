@@ -20,6 +20,7 @@
 <?php if (have_rows('slides')): ?>
     <div <?php echo esc_attr($anchor); ?> class="<?php echo esc_attr($class_name); ?>">
         <div class="swiper" data-swiper='{
+            "spaceBetween": 0,
             "autoplay": {"delay": 6000},
             "loop": true
         }'>

@@ -40,6 +40,11 @@
 
 /******** Blocks *********/
 
+/* Typography */
+[class*="space-y"] :is(h1, h2, h3, h4, h5, h6) {
+    margin-bottom: 0;
+}
+
 /* Button */
 .wp-block-button > .wp-block-button__link {
     @apply transition duration-300 ease-in-out;
@@ -104,6 +109,9 @@ footer.wp-block-template-part .aligncenter {
 
 .editor-styles-wrapper .swiper .swiper-wrapper {
     @apply overflow-x-auto;
+}
+.editor-styles-wrapper .swiper .swiper-slide > a {
+    @apply pointer-events-none;
 }
 
 /******** WooCommerce ********/
