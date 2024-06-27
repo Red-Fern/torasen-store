@@ -7,17 +7,13 @@ export default function AttributeOption({ attribute, option }) {
 		return select(attributeStore).getSelected(attribute);
 	})
 
-	const { selectAttribute, removeAttribute } = useDispatch(attributeStore);
-
-	const toggleSelection = () => {
-		return selectedOption === option.slug ? removeAttribute(attribute) : selectAttribute(attribute, option.slug);
-	}
+	const { selectAttribute } = useDispatch(attributeStore);
 
 	return (
 		<button
 			type="button"
 			className={`border border-gray-300 py-3 px-4 ${selectedOption === option.slug ? 'bg-white' : 'bg-transparent'}`}
-			onClick={() => toggleSelection()}
+			onClick={() => selectAttribute(attribute, option.slug)}
 		>{option.name}</button>
 	)
 }

@@ -6,13 +6,13 @@ import Attribute from "./Attribute";
 export default function ProductAttributes({
 	productId
 }) {
-	const selectedAttributes = useSelect((select) => {
-		return select(attributeStore).getSelectedAttributes()
-	}, [productId]);
-
 	const productAttributes = useSelect((select) => {
 		return select(attributeStore).getAttributes(productId);
 	}, [productId]);
+
+	const variation = useSelect((select) => select(attributeStore).getVariation());
+
+	console.log({variation});
 
 	return (
 		<>
@@ -21,6 +21,7 @@ export default function ProductAttributes({
 					<Attribute key={attributeSlug} attribute={attribute}/>
 				))}
 			</div>
+			<div>{JSON.stringify(variation)}</div>
 		</>
 	)
 }

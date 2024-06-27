@@ -1,45 +1,57 @@
-import { createReduxStore, register } from '@wordpress/data';
+import { createReduxStore, register, select } from '@wordpress/data';
 
 const SET_INITIAL_DATA = 'SET_INITIAL_DATA';
 const FETCH_ATTRIBUTES = 'FETCH_ATTRIBUTES';
 const SELECT_ATTRIBUTE = 'SELECT_ATTRIBUTE';
-const REMOVE_ATTRIBUTE = 'REMOVE_ATTRIBUTE';
+const FETCH_VARIATION = 'FETCH_VARIATION';
+const SET_VARIATION = 'SET_VARIATION';
 
 const DEFAULT_STATE = {
+	productId: 0,
 	attributes: {},
 	selectedAttributes: {},
-	variationId: 0,
+	variation: 0,
 };
 
 const actions = {
-	setInitialData: ({attributes, selectedAttributes, variationId }) => {
+	setInitialData: ({productId, attributes, selectedAttributes, variation }) => {
 		return {
 			type: SET_INITIAL_DATA,
+			productId,
 			attributes,
 			selectedAttributes,
-			variationId
+			variation
 		}
 	},
 
-	selectAttribute(attribute, value) {
-		return {
+	*selectAttribute(attribute, value) {
+		yield {
 			type: SELECT_ATTRIBUTE,
 			attribute,
 			value
 		}
-	},
 
-	removeAttribute(attribute) {
-		return {
-			type: REMOVE_ATTRIBUTE,
-			attribute
-		}
+		const variation = yield actions.fetchVariation();
+		return { type: SET_VARIATION, variation };
 	},
 
 	getAttributes(productId) {
 		return {
 			type: FETCH_ATTRIBUTES,
 			productId,
+		}
+	},
+
+	fetchVariation() {
+		return {
+			type: FETCH_VARIATION
+		}
+	},
+
+	setVariation(variation) {
+		return {
+			type: SET_VARIATION,
+			variation
 		}
 	}
 }
@@ -49,9 +61,10 @@ const reducer = (state = DEFAULT_STATE, action) => {
 		case SET_INITIAL_DATA:
 			return {
 				...state,
+				productId: action.productId,
 				attributes: action.attributes,
 				selectedAttributes: action.selectedAttributes,
-				variationId: action.variationId
+				variation: action.variation
 			}
 		case SELECT_ATTRIBUTE:
 			return {
@@ -61,18 +74,20 @@ const reducer = (state = DEFAULT_STATE, action) => {
 					[action.attribute]: action.value
 				}
 			}
-		case REMOVE_ATTRIBUTE:
-			const { [action.attribute]: _, ...remainingAttributes } = state.selectedAttributes;
+		case SET_VARIATION:
 			return {
 				...state,
-				selectedAttributes: remainingAttributes
-			};
+				variation: action.variation
+			}
 		default:
 			return state;
 	}
 };
 
 const selectors = {
+	getProductId(state) {
+		return state.productId;
+	},
 	getSelectedAttributes(state) {
 		return state.selectedAttributes;
 	},
@@ -81,6 +96,9 @@ const selectors = {
 	},
 	getAttributes(state, productId) {
 		return state.attributes;
+	},
+	getVariation(state) {
+		return state.variation;
 	}
 }
 
@@ -88,17 +106,39 @@ const controls = {
 	FETCH_ATTRIBUTES: async ({ productId }) => {
 		const response = await fetch(`https://torasen-essentials.test/wp-json/torasen/v1/attributes/${productId}`);
 		return await response.json();
+	},
+	FETCH_VARIATION: async () => {
+		const attributes = await select(store).getSelectedAttributes();
+		const productId = await select(store).getProductId();
+
+		const formData = new FormData();
+		formData.append('product_id', parseInt(productId));
+		Object.entries(attributes).forEach(([attribute, value]) => {
+			formData.append(`attribute_${attribute}`, value);
+		});
+
+		const url = wc_add_to_cart_variation_params.wc_ajax_url.toString().replace( '%%endpoint%%', 'get_variation' )
+		const response = await fetch(url, {
+			method: 'POST',
+			body: formData
+		});
+		return response.json();
 	}
 }
 
 const resolvers = {
 	*getAttributes(productId) {
-		const { attributes, defaultAttributes, variationId } = yield actions.getAttributes(productId);
+		const { attributes, defaultAttributes, variation } = yield actions.getAttributes(productId);
 		return actions.setInitialData({
+			productId,
 			attributes,
 			selectedAttributes: defaultAttributes,
-			variationId
+			variation
 		});
+	},
+	*getVariation() {
+		const variation = yield actions.fetchVariation();
+		return actions.setVariation(variation);
 	}
 }
 

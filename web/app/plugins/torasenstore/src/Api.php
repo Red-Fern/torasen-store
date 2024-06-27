@@ -34,10 +34,9 @@ class Api
         $defaultAttributes = $product->get_default_attributes();
         $data_store   = \WC_Data_Store::load('product');
         $variationId = $data_store->find_matching_product_variation($product, self::createAttributeMap($defaultAttributes));
+        $variation    = $variationId ? $product->get_available_variation($variationId) : false;
 
-        $variations = $product->get_available_variations();
-
-        return wp_send_json(compact('defaultAttributes', 'variations', 'attributes', 'variationId'));
+        return wp_send_json(compact('defaultAttributes', 'variation', 'attributes'));
     }
 
     public static function createAttributeMap($attributeArray)
