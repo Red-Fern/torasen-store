@@ -105,6 +105,9 @@ footer.wp-block-template-part .aligncenter {
 .editor-styles-wrapper .swiper .swiper-wrapper {
     @apply overflow-x-auto;
 }
+.editor-styles-wrapper .swiper .swiper-slide > a {
+    @apply pointer-events-none;
+}
 
 /******** WooCommerce ********/
 

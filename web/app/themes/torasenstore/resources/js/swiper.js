@@ -2,10 +2,12 @@ import Swiper from 'swiper/bundle';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 
+// Build swipers
+
 let defaults = {
     modules: [Navigation, Pagination, Autoplay],
     slidesPerView: 1,
-    spaceBetween: 0,
+    spaceBetween: 20,
     speed: 950
 };
 

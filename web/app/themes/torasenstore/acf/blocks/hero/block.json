@@ -4,7 +4,7 @@
     "description": "Insert a hero section.",
     "category": "theme",
     "icon": "cover-image",
-    "keywords": ["hero", "header"],
+    "keywords": ["hero", "header", "carousel", "slider"],
     "acf": {
         "mode": "preview",
         "renderTemplate": "hero.php"
