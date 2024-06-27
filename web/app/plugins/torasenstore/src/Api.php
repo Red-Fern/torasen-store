@@ -3,6 +3,8 @@
 namespace RedFern\TorasenStore;
 
 use RedFern\TorasenStore\Resources\ProductAttributeResource;
+use SW_WAPF\Includes\Classes\Field_Groups;
+use SW_WAPF\Includes\Models\FieldGroup;
 
 class Api
 {
@@ -16,6 +18,12 @@ class Api
         register_rest_route('torasen/v1', '/attributes/(?P<id>\d+)', [
             'methods' => 'GET',
             'callback' => [__CLASS__, 'getAttributes'],
+            'permission_callback' => '__return_true',
+        ]);
+
+        register_rest_route('torasen/v1', '/extras/(?P<id>\d+)', [
+            'methods' => 'GET',
+            'callback' => [__CLASS__, 'getExtras'],
             'permission_callback' => '__return_true',
         ]);
     }
@@ -37,6 +45,33 @@ class Api
         $variation    = $variationId ? $product->get_available_variation($variationId) : false;
 
         return wp_send_json(compact('defaultAttributes', 'variation', 'attributes'));
+    }
+
+    public static function getExtras(\WP_REST_Request $request)
+    {
+        if (!class_exists('SW_WAPF\Includes\Classes\Field_Groups')) {
+            return wp_send_json([]);
+        }
+
+        $productId = $request->get_param('id');
+
+        $product = wc_get_product($productId);
+        $GLOBALS['product'] = $product;
+
+        $fieldGroups = Field_Groups::get_valid_field_groups('product');
+        $productFieldGroups = get_post_meta($product->get_id(), '_wapf_fieldgroup', true);
+        if ($productFieldGroups) {
+            array_unshift($fieldGroups, Field_Groups::process_data($productFieldGroups));
+        }
+
+		/** @var FieldGroup $fieldGroup */
+		foreach ($fieldGroups as $fieldGroup) {
+//			$fieldGroup->fields
+			print '<pre>';
+			print_r($fieldGroup);
+			print '</pre>';
+			die;
+        }
     }
 
     public static function createAttributeMap($attributeArray)
