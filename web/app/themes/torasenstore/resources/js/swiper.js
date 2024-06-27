@@ -27,3 +27,23 @@ function initSwipers(defaults = {}, selector = ".swiper") {
         new Swiper(swiper, options);
     });
 }
+
+// Size swipers with bleeding edges
+
+sizeSwipers();
+
+window.addEventListener('resize', function() {
+    sizeSwipers();
+}, true);
+
+function sizeSwipers() {
+    let swipers = document.querySelectorAll('.swiper.right-bleed');
+    
+    swipers.forEach((swiper) => {
+        let initialWidth = swiper.offsetWidth,
+            rightOffset = window.innerWidth - swiper.getBoundingClientRect().right,
+            newWidth = initialWidth + rightOffset + 'px';
+        
+        swiper.style.width = newWidth;
+    });
+}

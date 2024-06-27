@@ -1,0 +1,22 @@
+{
+    "name": "acf/gallery-carousel",
+    "title": "Gallery Carousel",
+    "description": "Insert a gallery carousel that supports image and video.",
+    "category": "theme",
+    "icon": "format-gallery",
+    "keywords": ["gallery", "carousel", "slider"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "gallery-carousel.php"
+    },
+    "attributes": {
+        "align": {
+            "type": "string",
+            "default": "full"
+        }
+    },
+    "supports": {
+        "align": ["full"],
+        "mode": true
+    }
+}
