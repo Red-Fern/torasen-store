@@ -6,8 +6,6 @@
  * Description: Insert image, text and link in columns.
  * Keywords: cta, image, text, column
  */
-
-$upload_dir = wp_upload_dir();
 ?>
 <!-- wp:group {"style":{"spacing":{"padding":{"top":"0","bottom":"0"},"margin":{"top":"var:preset|spacing|lg","bottom":"var:preset|spacing|xxl"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--lg);margin-bottom:var(--wp--preset--spacing--xxl);padding-top:0;padding-bottom:0"><!-- wp:heading -->
@@ -17,7 +15,7 @@ $upload_dir = wp_upload_dir();
 <!-- wp:columns {"style":{"spacing":{"blockGap":{"top":"var:preset|spacing|lg","left":"var:preset|spacing|xl"},"padding":{"right":"0","left":"0"}}}} -->
 <div class="wp-block-columns" style="padding-right:0;padding-left:0"><!-- wp:column {"style":{"spacing":{"blockGap":"var:preset|spacing|sm"}}} -->
 <div class="wp-block-column"><!-- wp:image {"id":1526,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo $upload_dir['baseurl']; ?>/2024/06/770x560.png" alt="" class="wp-image-1526"/></figure>
+<figure class="wp-block-image size-full"><img src="http://torasen-store.test/app/uploads/2024/06/770x560.png" alt="" class="wp-image-1526"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3} -->
@@ -37,7 +35,7 @@ $upload_dir = wp_upload_dir();
 
 <!-- wp:column {"style":{"spacing":{"blockGap":"var:preset|spacing|sm"}}} -->
 <div class="wp-block-column"><!-- wp:image {"id":1526,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo $upload_dir['baseurl']; ?>/2024/06/770x560.png" alt="" class="wp-image-1526"/></figure>
+<figure class="wp-block-image size-full"><img src="http://torasen-store.test/app/uploads/2024/06/770x560.png" alt="" class="wp-image-1526"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3} -->
