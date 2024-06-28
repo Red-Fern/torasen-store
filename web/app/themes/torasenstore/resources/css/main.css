@@ -120,6 +120,9 @@ footer.wp-block-template-part .aligncenter {
 .woocommerce .woocommerce-breadcrumb {
     @apply mb-0;
 }
+.woocommerce .woocommerce-Price-amount {
+    @apply text-sm;
+}
 
 /* Archive */
 .wc-block-components-product-image {

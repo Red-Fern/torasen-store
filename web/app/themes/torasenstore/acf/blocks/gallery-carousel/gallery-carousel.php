@@ -21,7 +21,8 @@
     <div <?php echo esc_attr($anchor); ?> class="<?php echo esc_attr($class_name); ?>">
         <div class="container">
             <div class="swiper right-bleed" data-swiper='{
-                "slidesPerView": "auto"
+                "slidesPerView": "auto",
+                "slidesPerGroup": 1
             }'>
                 <div class="swiper-wrapper">
                     <?php foreach(get_field('slides') as $slide): ?>
