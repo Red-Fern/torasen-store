@@ -50,7 +50,7 @@ $products = wc_products_array_orderby($query->get_products());
 
         <?php if ($family->description): ?>
             <div class="md:w-2/3">
-                <div class="text-dark-grey text-2xl font-medium"><?php echo $family->description; ?></div>
+                <div class="text-2xl font-medium | md:text-dark-grey"><?php echo $family->description; ?></div>
             </div>
         <?php endif; ?>
     </div>
