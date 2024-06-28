@@ -80,19 +80,17 @@ $products = wc_products_array_orderby($query->get_products());
 
             <div class="swiper-wrapper | md:!grid md:gap-xs md:grid-cols-4 | xl:grid-cols-7">
                 <?php foreach($products as $product): ?>
-                    <?php for ($i = 0; $i < 4; $i++): ?>
-                        <div class="swiper-slide | max-md:!w-[172px]">
-                            <div class="space-y-xs">
-                                <div class="aspect-[1/1] bg-light-grey">
-                                    <?php echo wp_get_attachment_image(get_post_thumbnail_id($product->get_id()), 'medium', '', ['class' => 'w-full h-full object-cover']); ?>
-                                </div>
-
-                                <h3 class="text-base"><?php echo $product->get_title(); ?></h3>
-
-                                <?php echo $product->get_price_html(); ?>
+                    <div class="swiper-slide | max-md:!w-[172px]">
+                        <div class="space-y-xs">
+                            <div class="aspect-[1/1] bg-light-grey">
+                                <?php echo wp_get_attachment_image(get_post_thumbnail_id($product->get_id()), 'medium', '', ['class' => 'w-full h-full object-cover']); ?>
                             </div>
+
+                            <h3 class="text-base"><?php echo $product->get_title(); ?></h3>
+
+                            <?php echo $product->get_price_html(); ?>
                         </div>
-                    <?php endfor; ?>
+                    </div>
                 <?php endforeach; ?>
             </div>
         </div>
