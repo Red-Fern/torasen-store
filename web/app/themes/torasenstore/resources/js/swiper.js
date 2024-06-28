@@ -8,10 +8,7 @@ let defaults = {
     modules: [Navigation, Autoplay],
     slidesPerView: 1,
     spaceBetween: 20,
-    speed: 950,
-    freeMode: false,
-    resistanceRatio: 0,
-    centeredSlides: false
+    speed: 950
 };
 
 initSwipers(defaults);
