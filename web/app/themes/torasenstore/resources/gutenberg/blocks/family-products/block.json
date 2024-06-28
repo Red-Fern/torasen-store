@@ -9,12 +9,26 @@
 	"description": "Display list of products belonging to a given family",
 	"example": {},
 	"supports": {
-		"interactivity": true
+		"interactivity": true,
+		"spacing": {
+            "margin": true
+        }
 	},
 	"attributes": {
 		"family": {
 			"type": "string",
 			"default": ""
+		},
+		"style": {
+			"type": "object",
+			"default": {
+				"spacing": {
+					"margin": {
+						"bottom": "var(--wp--preset--spacing--xxl)",
+						"top": "var(--wp--preset--spacing--xxl)"
+					}
+				}
+			}
 		}
 	},
 	"textdomain": "family-products",
