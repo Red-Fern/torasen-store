@@ -19,8 +19,7 @@ if (!$family) {
     return;
 }
 
-$query = [
-    'post_type' => 'product',
+$query = new WC_Product_Query([
     'posts_per_page' => -1,
     'post_status' => 'publish',
     'tax_query' => [
@@ -30,23 +29,72 @@ $query = [
             'terms' => $family->term_id
         ]
     ]
-];
-$products = get_posts($query);
+]);
+$products = wc_products_array_orderby($query->get_products());
+
 ?>
 
 <div
 	<?php echo get_block_wrapper_attributes([
-        'class' => 'flex flex-col gap-8'
+        'class' => 'flex flex-col gap-md | lg:gap-lg'
     ]); ?>
 	data-wp-interactive="torasen-family-products"
 >
-    <div class="flex flex-col gap-5 | md:flex-row md:justify-between md:items-start md:gap-24">
-        <div class="text-xl font-bold | md:text-xl md:w-1/4">The <?php echo $family->name; ?> Family</div>
-        <div class="text-md md:text-2xl md:w-3/4"><?php echo $family->description; ?></div>
+    <div class="flex flex-col-reverse gap-2xl | md:flex-row md:justify-between md:gap-lg">
+        <div class="md:w-1/3">
+            <h2 class="mb-0">
+                <span class="hidden md:block" aria-hidden="true">The <?php echo $family->name; ?> family</span>
+                <span class="md:hidden">Part of the <?php echo $family->name; ?> family</span>
+            </h2>
+        </div>
+
+        <?php if ($family->description): ?>
+            <div class="md:w-2/3">
+                <div class="text-dark-grey text-2xl font-medium"><?php echo $family->description; ?></div>
+            </div>
+        <?php endif; ?>
     </div>
+
     <div>
-        <?php foreach($products as $product): ?>
-            <div><?php echo $product->post_title; ?></div>
-        <?php endforeach; ?>
+        <div class="swiper right-bleed mobile-only" data-swiper='{
+            "slidesPerView": "auto",
+            "navigation": {
+                "nextEl": ".swiper-button-next",
+                "prevEl": ".swiper-button-prev"
+            },
+            "slidesPerGroup": 1
+        }'>
+            <div class="flex gap-2 mb-sm pr-root | md:hidden">
+                <button class="swiper-button-prev p-0 w-11 h-11 rounded-full border border-black bg-transparent flex items-center justify-center" aria-label="Previous slide">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+                        <path d="M1.15391 7.83774L0.800781 8.19087L1.15391 8.54399L6.40391 13.794L6.75703 14.1471L7.46328 13.4409L7.11016 13.0877L2.71328 8.69087H14.257H14.757V7.69087H14.257H2.71328L7.11016 3.29399L7.46328 2.94087L6.75703 2.23462L6.40391 2.58774L1.15391 7.83774Z" fill="#1D1D1B"/>
+                    </svg>
+                </button>
+
+                <button class="swiper-button-next p-0 w-11 h-11 rounded-full border border-black bg-transparent flex items-center justify-center" aria-label="Next slide">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+                        <path d="M14.4039 8.54399L14.757 8.19087L14.4039 7.83774L9.15391 2.58774L8.80078 2.23462L8.09453 2.94087L8.44766 3.29399L12.8445 7.69087H1.30078H0.800781V8.69087H1.30078H12.8445L8.44766 13.0877L8.09453 13.4409L8.80078 14.1471L9.15391 13.794L14.4039 8.54399Z" fill="#1D1D1B"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="swiper-wrapper | md:!grid md:gap-xs md:grid-cols-4 | xl:grid-cols-7">
+                <?php foreach($products as $product): ?>
+                    <?php for ($i = 0; $i < 4; $i++): ?>
+                        <div class="swiper-slide | max-md:!w-[172px]">
+                            <div class="space-y-xs">
+                                <div class="aspect-[1/1] bg-light-grey">
+                                    <?php echo wp_get_attachment_image(get_post_thumbnail_id($product->get_id()), 'medium', '', ['class' => 'w-full h-full object-cover']); ?>
+                                </div>
+
+                                <h3 class="text-base"><?php echo $product->get_title(); ?></h3>
+
+                                <?php echo $product->get_price_html(); ?>
+                            </div>
+                        </div>
+                    <?php endfor; ?>
+                <?php endforeach; ?>
+            </div>
+        </div>
     </div>
 </div>
