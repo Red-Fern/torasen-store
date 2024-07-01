@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "torasen/social-share-links",
+	"version": "0.1.0",
+	"title": "Social Share Links",
+	"category": "widgets",
+	"icon": "share",
+	"description": "List social share links.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "social-share-links",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

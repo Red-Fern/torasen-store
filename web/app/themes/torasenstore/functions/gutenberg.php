@@ -12,6 +12,7 @@ class Gutenberg
         'torasen/copyright-notice',
         'torasen/term-banner-sidebar',
         'torasen/term-banner-columns',
+        'torasen/social-share-links',
     ];
 
     public static function init()
