@@ -58,6 +58,10 @@
 .wp-block-button > .wp-block-button__link:hover {
     @apply border-dark-greige bg-dark-greige text-black;
 }
+.back-link {
+    @apply inline-block pl-6 bg-no-repeat bg-left bg-[length:14px_14px];
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgZmlsbD0ibm9uZSI+PGcgY2xpcC1wYXRoPSJ1cmwoI2EpIj48cGF0aCBmaWxsPSIjMDAwIiBkPSJNMTMuMTI2IDEzLjU2MlYxNEgxNFY2LjU2MkgxLjQ5M0w0LjI0OCAzLjgxbC4zMS0uMzEtLjYxOS0uNjE3LS4zMDkuMzA5LTMuNSAzLjVMLS4xOCA3bC4zMS4zMDkgMy41IDMuNS4zMDguMzA5LjYxOC0uNjE4LS4zMDktLjMxLTIuNzUzLTIuNzUzaDExLjYzMnY2LjEyNVoiLz48L2c+PGRlZnM+PGNsaXBQYXRoIGlkPSJhIj48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMCAwaDE0djE0SDB6Ii8+PC9jbGlwUGF0aD48L2RlZnM+PC9zdmc+");
+}
 
 /* Separator */
 .wp-block-separator {
