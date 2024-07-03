@@ -102,7 +102,7 @@ class Api
             }
         }
 
-        wp_send_json($extraFields);
+        wp_send_json(['fields' => $extraFields]);
     }
 
     public static function createAttributeMap($attributeArray)
