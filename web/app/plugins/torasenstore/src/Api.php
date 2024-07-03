@@ -2,7 +2,9 @@
 
 namespace RedFern\TorasenStore;
 
+use RedFern\TorasenStore\Resources\ExtraFieldResource;
 use RedFern\TorasenStore\Resources\ProductAttributeResource;
+use SW_WAPF\Includes\Classes\Enumerable;
 use SW_WAPF\Includes\Classes\Field_Groups;
 use SW_WAPF\Includes\Models\FieldGroup;
 
@@ -64,14 +66,43 @@ class Api
             array_unshift($fieldGroups, Field_Groups::process_data($productFieldGroups));
         }
 
-		/** @var FieldGroup $fieldGroup */
-		foreach ($fieldGroups as $fieldGroup) {
-//			$fieldGroup->fields
-			print '<pre>';
-			print_r($fieldGroup);
-			print '</pre>';
-			die;
+        $extraFields = [];
+
+        foreach ($fieldGroups as $fieldGroup) {
+            if ($product->is_type('variable')) {
+                $valids = Field_Groups::get_valid_rule_groups($fieldGroup);
+
+                $variation_rules = [];
+
+                foreach ($valids as $rule_group) {
+                    $filtered_rules = Enumerable::from($rule_group->rules)->where(function ($rule) {
+                        return $rule->subject === 'product_variation';
+                    })->select(function ($rule) {
+                        return [
+                            'condition' => $rule->condition,
+                            'values'     => Enumerable::from((array)$rule->value)->select(function ($value) {
+                                return intval($value['id']);
+                            })->toArray()
+                        ];
+                    })->toArray();
+
+                    if (!empty($filtered_rules)) {
+                        $variation_rules[] = $filtered_rules;
+                    }
+                }
+            }
+
+            $data = [
+                'has_variation_logic'   => !empty($variation_rules),
+                'variation_rules'       => $variation_rules
+            ];
+
+            foreach ($fieldGroup->fields as $field) {
+                $extraFields[] = (new ExtraFieldResource($field))->toArray();
+            }
         }
+
+        wp_send_json($extraFields);
     }
 
     public static function createAttributeMap($attributeArray)
