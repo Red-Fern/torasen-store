@@ -8,22 +8,17 @@ export default function ExtraOption({ fieldId, option }) {
 	const { selectOption } = useDispatch(extrasStore);
 
 	const chooseOption = () => {
-
-
-		if (!isSelected) {
-
-		}
-
 		selectOption(option.slug);
-
-		// document.querySelector(`select[name="attribute_${attribute}"]`).value = option.slug;
 	}
 
 	return (
 		<button
 			type="button"
-			className={`border border-gray-300 py-3 px-4 ${isSelected ? 'bg-white' : 'bg-transparent'}`}
+			className={`flex items-center border border-gray-300 ${isSelected ? 'bg-white' : 'bg-transparent'}`}
 			onClick={() => chooseOption()}
-		>{option.label}</button>
+		>
+			<span className="block py-3 px-4 border-r border-gray-300">{option.label}</span>
+			<span className="block py-3 px-4">+£{option.pricing_amount}</span>
+		</button>
 	)
 }
