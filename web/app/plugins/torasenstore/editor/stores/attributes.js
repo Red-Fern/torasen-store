@@ -1,4 +1,5 @@
 import { createReduxStore, register, select } from '@wordpress/data';
+import { ATTRIBUTE_STORE_NAME } from './constants';
 
 const SET_INITIAL_DATA = 'SET_INITIAL_DATA';
 const FETCH_ATTRIBUTES = 'FETCH_ATTRIBUTES';
@@ -142,9 +143,7 @@ const resolvers = {
 	}
 }
 
-export const store = 'torasenstore/product-attributes';
-
-const reduxStore = createReduxStore(store, {
+const reduxStore = createReduxStore(ATTRIBUTE_STORE_NAME, {
 	reducer,
 	actions,
 	selectors,

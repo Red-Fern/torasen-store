@@ -1,13 +1,13 @@
 import { useState } from '@wordpress/element';
-import { store as attributeStore } from '../store';
+import { ATTRIBUTE_STORE_NAME } from "../../../stores/constants";
 import { useSelect, useDispatch } from '@wordpress/data';
 
 export default function AttributeOption({ attribute, option }) {
 	const selectedOption = useSelect((select) => {
-		return select(attributeStore).getSelected(attribute);
+		return select(ATTRIBUTE_STORE_NAME).getSelected(attribute);
 	})
 
-	const { selectAttribute } = useDispatch(attributeStore);
+	const { selectAttribute } = useDispatch(ATTRIBUTE_STORE_NAME);
 
 	const chooseOption = () => {
 		selectAttribute(attribute, option.slug);

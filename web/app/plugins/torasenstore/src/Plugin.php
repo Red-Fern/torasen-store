@@ -19,11 +19,28 @@ class Plugin
 
     protected function __construct()
     {
+        add_action('wp_enqueue_scripts', [$this, 'enqueueScripts']);
+
         Blocks::init();
         Taxonomies::init();
         Api::init();
 
         AttributeForm::init();
+    }
+
+    public function enqueueScripts()
+    {
+        $indexAssets = $this->pluginPath(). 'build/index.asset.php';
+        if (file_exists($indexAssets)) {
+            $assets = require_once $indexAssets;
+            wp_enqueue_script(
+                'torasenstore-index',
+                $this->pluginUrl() . '/build/index.js',
+                $assets['dependencies'],
+                $assets['version'],
+                false
+            );
+        }
     }
 
     public function pluginUrl()

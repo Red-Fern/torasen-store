@@ -1,16 +1,16 @@
 import { useEffect } from "@wordpress/element";
 import { useSelect } from "@wordpress/data";
-import { store as extrasStore } from "../store/extras";
+import { EXTRA_STORE_NAME } from "../../../stores/constants";
 import HelpPanel from "./HelpPanel";
 import ExtraOption from "./ExtraOption";
 
 export default function ExtraField({ field }) {
 	const options = useSelect((select) => {
-		return select(extrasStore).getOptions(field.id);
+		return select(EXTRA_STORE_NAME).getOptions(field.id);
 	}, [field]);
 
 	const selectedOptions = useSelect((select) => {
-		return select(extrasStore).getSelectedOptions();
+		return select(EXTRA_STORE_NAME).getSelectedOptions();
 	})
 
 	useEffect(() => {

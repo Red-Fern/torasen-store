@@ -1,8 +1,7 @@
 import { createReduxStore, register } from '@wordpress/data';
 import { normalize } from "normalizr";
-import {fieldSchema} from "../schema";
-
-export const store = 'torasenstore/product-extras';
+import {fieldSchema} from "./schema";
+import { EXTRA_STORE_NAME } from './constants';
 
 const DEFAULT_STATE = {
 	fields: {},
@@ -85,7 +84,7 @@ const resolvers = {
 	}
 }
 
-export const storeInstance = createReduxStore(store, {
+export const storeInstance = createReduxStore(EXTRA_STORE_NAME, {
 	reducer,
 	actions,
 	selectors,
@@ -94,4 +93,3 @@ export const storeInstance = createReduxStore(store, {
 });
 
 register(storeInstance);
-
