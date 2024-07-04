@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "torasenstore/product-price",
+	"version": "0.1.0",
+	"title": "Product Price",
+	"category": "widgets",
+	"icon": "money",
+	"description": "Output the dynamic price based on attributes and extras",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"usesContext": [ "postType", "postId" ],
+	"textdomain": "product-price",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}
