@@ -30,7 +30,7 @@ export default function ExtraField({ field }) {
 	}, [selectedOptions]);
 
 	return (
-		<div className="flex flex-row w-full pb-4 border-b border-gray-300">
+		<div className="flex flex-col gap-3 w-full pb-4 border-b border-gray-300 | md:flex-row">
 			<div className="md:w-1/4">
 				<div className="flex items-center gap-2">
 					<span>{field.name}</span>
