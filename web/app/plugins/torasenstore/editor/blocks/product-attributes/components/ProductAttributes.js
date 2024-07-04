@@ -28,7 +28,7 @@ export default function ProductAttributes({
 					<Attribute key={attributeSlug} attribute={attribute}/>
 				))}
 
-				{Object.entries(extras).map(([fieldId, field]) => (
+				{extras && Object.entries(extras).map(([fieldId, field]) => (
 					<ExtraField key={fieldId} field={field} />
 				))}
 			</div>
