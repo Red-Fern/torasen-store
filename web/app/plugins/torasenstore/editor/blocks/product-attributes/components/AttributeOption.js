@@ -17,8 +17,15 @@ export default function AttributeOption({ attribute, option }) {
 	return (
 		<button
 			type="button"
-			className={`border border-gray-300 py-3 px-4 ${selectedOption === option.slug ? 'bg-white' : 'bg-transparent'}`}
+			className={`flex items-center border border-gray-300 ${selectedOption === option.slug ? 'bg-white' : 'bg-transparent'}`}
 			onClick={() => chooseOption()}
-		>{option.name}</button>
+		>
+			{option.swatch && (
+				<span className="h-full block py-3 px-4 border-r border-gray-300 grid place-items-center">
+					<img className="w-4 h-4 object-cover" src={option.swatch} alt={option.name}/>
+				</span>
+			)}
+			<span className="block py-3 px-4">{option.name}</span>
+		</button>
 	)
 }

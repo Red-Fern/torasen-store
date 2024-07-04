@@ -31,12 +31,18 @@ class AttributeOptionResource
 
     public function toArray()
     {
+        $swatch = get_term_meta($this->term_id, 'swatch', true);
+        if ($swatch) {
+            $swatch = wp_get_attachment_image_url($swatch, 'thumbnail');
+        }
+
         return [
             'id' => $this->term_id,
             'name' => $this->name,
             'slug' => $this->slug,
             'taxonomy' => $this->taxonomy,
             'description' => $this->description,
+            'swatch' => $swatch ? $swatch : null,
         ];
     }
 
