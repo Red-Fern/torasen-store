@@ -3,6 +3,7 @@
 namespace RedFern\TorasenStore;
 
 use RedFern\TorasenStore\Admin\AttributeForm;
+use RedFern\TorasenStore\Admin\Fabrics;
 
 class Plugin
 {
@@ -26,6 +27,7 @@ class Plugin
         Api::init();
 
         AttributeForm::init();
+		Fabrics::init();
     }
 
     public function enqueueScripts()

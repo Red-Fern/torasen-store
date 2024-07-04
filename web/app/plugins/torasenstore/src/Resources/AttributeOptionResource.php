@@ -31,6 +31,8 @@ class AttributeOptionResource
 
     public function toArray()
     {
+        $category = get_term_meta($this->term_id, 'fabric_band', true);
+
         $swatch = get_term_meta($this->term_id, 'swatch', true);
         if ($swatch) {
             $swatch = wp_get_attachment_image_url($swatch, 'thumbnail');
@@ -43,6 +45,7 @@ class AttributeOptionResource
             'taxonomy' => $this->taxonomy,
             'description' => $this->description,
             'swatch' => $swatch ? $swatch : null,
+            'category' => $category ?: null,
         ];
     }
 

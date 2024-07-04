@@ -3,6 +3,32 @@
     "title": "Fabric Options",
     "fields": [
         {
+            "key": "field_668669264473f",
+            "label": "Fabric Band",
+            "name": "fabric_band",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Essentials": "Essentials",
+                "Essentials Vinyl 1+": "Essentials Vinyl 1+"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_668664773b734",
             "label": "Swatch",
             "name": "swatch",
@@ -46,5 +72,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1720083624
+    "modified": 1720084841
 }

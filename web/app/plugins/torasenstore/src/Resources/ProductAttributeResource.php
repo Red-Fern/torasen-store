@@ -19,11 +19,14 @@ class ProductAttributeResource
 
     public function toArray()
     {
+        $displayType = get_option("wc_attribute_display_type-{$this->id}", '');
+
         return [
             'label' => $this->taxonomy->label,
             'name' => $this->taxonomy->name,
             'description' => $this->taxonomy->description,
             'help_text' => wpautop(get_option("wc_attribute_help_text-{$this->id}", '')),
+            'display_type' => $displayType ?: 'single',
             'options' => AttributeOptionResource::fromAttribute($this->product, $this->attribute),
         ];
     }
