@@ -71,7 +71,7 @@ const selectors = {
 
 const controls = {
 	async FETCH_FIELDS({ productId }) {
-		const response = await fetch(`https://torasen-essentials.test/wp-json/torasen/v1/extras/${productId}`);
+		const response = await fetch(`/wp-json/torasen/v1/extras/${productId}`);
 		return await response.json();
 	}
 }

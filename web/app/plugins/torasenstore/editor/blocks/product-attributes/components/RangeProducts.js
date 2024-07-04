@@ -10,7 +10,7 @@ export default function RangeProducts({ productId }) {
 	useEffect(() => {
 		async function loadProductRange() {
 			try {
-				const response = await fetch(`https://torasen-essentials.test/wp-json/torasen/v1/range/${productId}`);
+				const response = await fetch(`/wp-json/torasen/v1/range/${productId}`);
 				const { range, description, products } = await response.json();
 				setRange(range);
 				setRangeProducts(products);
