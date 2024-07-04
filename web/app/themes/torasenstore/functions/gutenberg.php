@@ -10,13 +10,22 @@ class Gutenberg
         'torasen/family-products',
         'torasen/product-specification',
         'torasen/copyright-notice',
+        'torasen/term-banner-sidebar',
+        'torasen/term-banner-columns',
+        'torasen/social-share-links',
     ];
 
     public static function init()
     {
+        add_action('after_setup_theme', [__CLASS__, 'removeCorePatterns']);
         add_action('init', [__CLASS__, 'registerBlockPatterns']);
         add_action('init', [__CLASS__, 'registerCustomBlocks']);
         add_action('enqueue_block_assets', [__CLASS__, 'enqueueEditorAssets']);
+    }
+
+    public static function removeCorePatterns()
+    {
+        remove_theme_support('core-block-patterns');
     }
 
     public static function registerBlockPatterns()

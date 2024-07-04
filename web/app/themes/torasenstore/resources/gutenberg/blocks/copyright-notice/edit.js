@@ -11,7 +11,7 @@ export default function Edit({
 	
 	return (
 		<div { ...blockProps }>
-			<div class="flex gap-[5px]">
+			<div className="flex gap-[5px]">
 				<RichText
 					value={label}
 					allowedFormats={['core/bold', 'core/italic']}

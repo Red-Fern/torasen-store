@@ -4,6 +4,7 @@
     $media = get_field('media');
     $image = get_field('image');
     $video = get_field('video');
+    $poster = get_field('video_poster_image');
 
     // Support custom "anchor" values
     $anchor = '';
@@ -21,6 +22,7 @@
     if (!empty($block['align'])) {
         $class_name .= ' align' . $block['align'];
     }
+
     $wrapper_attributes = get_block_wrapper_attributes(['class' => $class_name]); 
 
     $template = [
@@ -64,10 +66,18 @@
                 <?php endif; ?>
 
                 <?php if ($media == 'video' && $video): ?>
-                    <video class="w-full h-full object-cover" playsinline="playsinline" preload="metadata" muted autoplay loop crossorigin="anonymous">
-                        <source src="<?php echo $video['url'] ?>" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                    <div class="relative w-full h-full">
+                        <video class="absolute inset-0 w-full h-full object-cover" playsinline="playsinline" preload="metadata" muted autoplay loop crossorigin="anonymous">
+                            <source src="<?php echo $video['url'] ?>" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+
+                        <?php if ($poster): ?>
+                            <button class="video-button absolute inset-0 w-full h-full object-cover" aria-label="Play video">
+                                <img src="<?php echo $poster['url'] ?>" class="w-full h-full object-cover" alt="<?php echo $poster['alt'] ?>">
+                            </button>
+                        <?php endif; ?>
+                    </div>
                 <?php endif; ?>
             </div>
         </div>

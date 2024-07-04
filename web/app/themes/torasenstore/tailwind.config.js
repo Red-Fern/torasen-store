@@ -51,9 +51,7 @@ module.exports = {
       },
     },
   },
-  safelist: [
-      'bg-white',
-  ],
+  safelist: [],
   corePlugins: {
     preflight: false
   },

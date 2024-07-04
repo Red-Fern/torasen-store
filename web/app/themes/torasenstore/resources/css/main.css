@@ -40,8 +40,14 @@
 
 /******** Blocks *********/
 
+/* Typography */
+[class*="space-y"] :is(h1, h2, h3, h4, h5, h6) {
+    margin-bottom: 0;
+}
+
 /* Button */
-.wp-block-button > .wp-block-button__link {
+.wp-block-button > .wp-block-button__link,
+.wp-block-post-excerpt__more-link {
     @apply transition duration-300 ease-in-out;
 }
 .wp-block-button.is-style-white-fill > .wp-block-button__link {
@@ -50,8 +56,16 @@
 .wp-block-button.is-style-black-outline > .wp-block-button__link {
     @apply border-black bg-white text-black;
 }
-.wp-block-button > .wp-block-button__link:hover {
+.wp-block-button > .wp-block-button__link:hover,
+.wp-block-post-excerpt__more-link:hover {
     @apply border-dark-greige bg-dark-greige text-black;
+}
+.back-link {
+    @apply inline-block pl-6 bg-no-repeat bg-left bg-[length:14px_14px];
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgZmlsbD0ibm9uZSI+PGcgY2xpcC1wYXRoPSJ1cmwoI2EpIj48cGF0aCBmaWxsPSIjMDAwIiBkPSJNMTMuMTI2IDEzLjU2MlYxNEgxNFY2LjU2MkgxLjQ5M0w0LjI0OCAzLjgxbC4zMS0uMzEtLjYxOS0uNjE3LS4zMDkuMzA5LTMuNSAzLjVMLS4xOCA3bC4zMS4zMDkgMy41IDMuNS4zMDguMzA5LjYxOC0uNjE4LS4zMDktLjMxLTIuNzUzLTIuNzUzaDExLjYzMnY2LjEyNVoiLz48L2c+PGRlZnM+PGNsaXBQYXRoIGlkPSJhIj48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMCAwaDE0djE0SDB6Ii8+PC9jbGlwUGF0aD48L2RlZnM+PC9zdmc+");
+}
+.wp-block-post-excerpt__more-link {
+    @apply px-6 py-3 border border-black bg-black text-white;
 }
 
 /* Separator */
@@ -100,11 +114,23 @@ footer.wp-block-template-part .aligncenter {
     @apply max-md:!ml-0;
 }
 
+/******** Swiper ********/
+
+.editor-styles-wrapper .swiper .swiper-wrapper {
+    @apply overflow-x-auto;
+}
+.editor-styles-wrapper .swiper .swiper-slide > a {
+    @apply pointer-events-none;
+}
+
 /******** WooCommerce ********/
 
 /* General */
 .woocommerce .woocommerce-breadcrumb {
     @apply mb-0;
+}
+.woocommerce .woocommerce-Price-amount {
+    @apply text-sm;
 }
 
 /* Archive */
@@ -123,6 +149,23 @@ footer.wp-block-template-part .aligncenter {
 }
 .wp-block-woocommerce-product-collection .wp-block-query-pagination {
     @apply mt-md;
+}
+.term-banner {
+    @apply relative overflow-hidden;
+}
+.term-banner::before {
+    @apply content-[''] absolute inset-0 min-h-[710px] bg-lightest-grey bg-no-repeat bg-[center_top] bg-[length:auto_100%] z-[-1] max-lg:!bg-none;
+}
+.term-banner .wp-block-term-description {
+    @apply md:max-w-[475px];
+}
+.banner-essentials .term-banner::before {
+    @apply bg-light-greige;
+    background-image: url("../images/backgrounds/banner-essentials.svg");
+}
+.banner-essentials-home .term-banner::before {
+    @apply bg-light-blue;
+    background-image: url("../images/backgrounds/banner-essentials-home.svg");
 }
 
 /* Product */

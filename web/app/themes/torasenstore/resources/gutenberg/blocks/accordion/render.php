@@ -13,12 +13,13 @@
 // Generate unique id for aria-controls.
 $unique_id = wp_unique_id('p-');
 
+$theme = $attributes['theme'] ?? 0;
 $activeTab = $attributes['activeTab'] ?? 0;
 
 ?>
 
 <div
-    <?php echo get_block_wrapper_attributes(); ?>
+    <?php echo get_block_wrapper_attributes(['class' => $theme]); ?>
     data-wp-interactive="rfAccordion"
     <?php echo wp_interactivity_data_wp_context(['activeTab' => $activeTab]); ?>
 >

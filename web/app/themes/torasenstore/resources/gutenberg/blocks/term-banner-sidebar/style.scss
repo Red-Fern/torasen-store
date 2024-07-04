@@ -1,0 +1,21 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+ .wp-block-torasen-term-banner-sidebar {
+    display: flex;
+    justify-content: flex-end;
+    padding-left: var(--wp--preset--spacing--lg);
+ }
+
+ @media (max-width: 781px) {
+    .wp-block-torasen-term-banner-sidebar {
+        justify-content: flex-start;
+        padding-top: var(--wp--preset--spacing--lg);
+        padding-left: 0;
+        max-width: 100%;
+    }
+} 
