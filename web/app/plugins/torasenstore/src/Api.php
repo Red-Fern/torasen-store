@@ -4,6 +4,7 @@ namespace RedFern\TorasenStore;
 
 use RedFern\TorasenStore\Resources\ExtraFieldResource;
 use RedFern\TorasenStore\Resources\ProductAttributeResource;
+use RedFern\TorasenStore\Resources\ProductResource;
 use SW_WAPF\Includes\Classes\Enumerable;
 use SW_WAPF\Includes\Classes\Field_Groups;
 use SW_WAPF\Includes\Models\FieldGroup;
@@ -26,6 +27,12 @@ class Api
         register_rest_route('torasen/v1', '/extras/(?P<id>\d+)', [
             'methods' => 'GET',
             'callback' => [__CLASS__, 'getExtras'],
+            'permission_callback' => '__return_true',
+        ]);
+
+        register_rest_route('torasen/v1', '/range/(?P<id>\d+)', [
+            'methods' => 'GET',
+            'callback' => [__CLASS__, 'getRange'],
             'permission_callback' => '__return_true',
         ]);
     }
@@ -103,6 +110,39 @@ class Api
         }
 
         wp_send_json(['fields' => $extraFields]);
+    }
+
+    public static function getRange(\WP_REST_Request $request)
+    {
+        $productId = $request->get_param('id');
+
+        $productRanges = wp_get_object_terms($productId, 'productrange', array('fields' => 'all'));
+        if (empty($productRanges)) {
+            wp_send_json([]);
+            die;
+        }
+
+        $range = $productRanges[0];
+        $items = wc_get_products([
+            'post__not_in' => [$productId],
+            'tax_query' => [
+                [
+                    'taxonomy' => 'productrange',
+                    'field' => 'term_id',
+                    'terms' => $range->term_id
+                ]
+            ]
+        ]);
+
+        $products = array_map(function ($product) {
+            return (new ProductResource($product))->toArray();
+        }, $items);
+
+        wp_send_json([
+            'range' => $range->name,
+			'description' => $range->description,
+            'products' => $products,
+        ]);
     }
 
     public static function createAttributeMap($attributeArray)

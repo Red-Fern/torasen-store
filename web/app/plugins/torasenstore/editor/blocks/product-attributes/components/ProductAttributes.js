@@ -3,6 +3,7 @@ import { useSelect, useDispatch } from '@wordpress/data';
 import { ATTRIBUTE_STORE_NAME, EXTRA_STORE_NAME } from '../../../stores/constants';
 import Attribute from "./Attribute";
 import ExtraField from "./ExtraField";
+import RangeProducts from "./RangeProducts";
 
 export default function ProductAttributes({
 	productId
@@ -24,6 +25,8 @@ export default function ProductAttributes({
 	return (
 		<>
 			<div className="flex flex-col gap-4">
+				<RangeProducts productId={productId} />
+
 				{Object.entries(productAttributes).map(([attributeSlug, attribute]) => (
 					<Attribute key={attributeSlug} attribute={attribute}/>
 				))}
