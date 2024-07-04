@@ -109,8 +109,8 @@ const controls = {
 		return await response.json();
 	},
 	FETCH_VARIATION: async () => {
-		const attributes = await select(store).getSelectedAttributes();
-		const productId = await select(store).getProductId();
+		const attributes = await select(ATTRIBUTE_STORE_NAME).getSelectedAttributes();
+		const productId = await select(ATTRIBUTE_STORE_NAME).getProductId();
 
 		const formData = new FormData();
 		formData.append('product_id', parseInt(productId));

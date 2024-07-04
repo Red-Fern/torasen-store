@@ -63,6 +63,9 @@ const selectors = {
 	},
 	getSelectedOptions(state) {
 		return state.selectedOptions;
+	},
+	getSelectedPrices(state) {
+		return state.selectedOptions.reduce((total, optionId) => total + state.options[optionId].pricing_amount, 0);
 	}
 }
 
