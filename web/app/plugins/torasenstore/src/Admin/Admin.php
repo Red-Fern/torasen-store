@@ -10,6 +10,7 @@ class Admin
 
         AttributeForm::init();
         Fabrics::init();
+        VariationGallery::init();
     }
 
     public static function enqueueScripts()
