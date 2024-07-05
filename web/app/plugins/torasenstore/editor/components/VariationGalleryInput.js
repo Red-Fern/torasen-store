@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from '@wordpress/element';
 import { Button } from '@wordpress/components';
 import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
 import VariationGalleryItem from "./VariationGalleryItem";
+import Sortable from "./Sortable";
+import {SortableItem} from "./SortableItem";
 
 const ALLOWED_MEDIA_TYPES = [ 'image' ];
 
@@ -15,6 +17,11 @@ export default function VariationGalleryInput({ variationId }) {
 		setSelectedMedia([...selectedMedia, ...media]);
 		triggerInputChanged()
 	}
+
+	const updateMediaOrder = (newOrder) => {
+		setSelectedMedia(newOrder);
+		triggerInputChanged()
+	};
 
 	const removeMedia = (mediaId) => {
 		setSelectedMedia(selectedMedia.filter(media => media.id !== mediaId));
@@ -46,14 +53,19 @@ export default function VariationGalleryInput({ variationId }) {
 			<MediaUploadCheck>
 				<div className="bg-gray-200 w-full p-3 border border-gray-400">
 					<div className="w-full flex gap-2 mb-2">
-						{selectedMedia.map(media => (
-							<VariationGalleryItem
-								key={media.id}
-								media={media}
-								removeMedia={removeMedia}
-							/>
-						))}
+						<Sortable items={selectedMedia} onSort={updateMediaOrder}>
+							{selectedMedia.map(media => (
+								<SortableItem key={media.id} id={media.id}>
+									<VariationGalleryItem
+										key={media.id}
+										media={media}
+										removeMedia={removeMedia}
+									/>
+								</SortableItem>
+							))}
+						</Sortable>
 					</div>
+
 					<MediaUpload
 						onSelect={(media) => {
 							selectMedia(media)
@@ -62,7 +74,9 @@ export default function VariationGalleryInput({ variationId }) {
 						multiple
 						value={selectedMedia}
 						render={({open}) => (
-							<Button className="bg-black text-white w-8 h-8 grid place-items-center text-lg font-bold p-0" onClick={open}>+</Button>
+							<Button
+								className="bg-black text-white w-8 h-8 grid place-items-center text-lg font-bold p-0"
+								onClick={open}>+</Button>
 						)}
 					/>
 				</div>
