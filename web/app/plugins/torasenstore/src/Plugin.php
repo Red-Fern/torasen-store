@@ -2,8 +2,7 @@
 
 namespace RedFern\TorasenStore;
 
-use RedFern\TorasenStore\Admin\AttributeForm;
-use RedFern\TorasenStore\Admin\Fabrics;
+use RedFern\TorasenStore\Admin\Admin;
 
 class Plugin
 {
@@ -26,8 +25,9 @@ class Plugin
         Taxonomies::init();
         Api::init();
 
-        AttributeForm::init();
-		Fabrics::init();
+        if (is_admin()) {
+            Admin::init();
+        }
     }
 
     public function enqueueScripts()

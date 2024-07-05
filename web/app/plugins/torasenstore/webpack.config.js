@@ -5,6 +5,7 @@ module.exports = {
 	...defaultConfig,
 	entry: {
 		...defaultConfig.entry(),
-		index: './editor/index.js'
+		index: './editor/index.js',
+		admin: './editor/admin.js'
 	}
 }
