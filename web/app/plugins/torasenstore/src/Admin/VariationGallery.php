@@ -7,18 +7,6 @@ class VariationGallery
     public static function init()
     {
         add_action('woocommerce_save_product_variation', [__CLASS__, 'saveVariationGallery'], 10, 2);
-        add_action('wp_ajax_load_variation_gallery_media', [__CLASS__, 'loadGalleryMedia']);
-    }
-
-    public static function loadGalleryMedia()
-    {
-        $variationId      = absint(filter_input(INPUT_GET, 'variationId', FILTER_SANITIZE_NUMBER_INT));
-        $product           = wc_get_product($variationId);
-        $galleryImageIds = $product->get_gallery_image_ids();
-
-        wp_send_json([
-            'images' => array_map('wp_prepare_attachment_for_js', $galleryImageIds)
-        ]);
     }
 
     public static function saveVariationGallery($variation_id, $i)

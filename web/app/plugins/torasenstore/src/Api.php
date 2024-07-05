@@ -35,6 +35,12 @@ class Api
             'callback' => [__CLASS__, 'getRange'],
             'permission_callback' => '__return_true',
         ]);
+
+        register_rest_route('torasen/v1', '/variation-gallery/(?P<id>\d+)', [
+            'methods' => 'GET',
+            'callback' => [__CLASS__, 'getGalleryImages'],
+            'permission_callback' => '__return_true',
+        ]);
     }
 
     public static function getAttributes(\WP_REST_Request $request)
@@ -140,8 +146,19 @@ class Api
 
         wp_send_json([
             'range' => $range->name,
-			'description' => $range->description,
+            'description' => $range->description,
             'products' => $products,
+        ]);
+    }
+
+    public static function getGalleryImages(\WP_REST_Request $request)
+    {
+        $variationId = $request->get_param('id');
+        $product           = wc_get_product($variationId);
+        $galleryImageIds = $product->get_gallery_image_ids();
+
+        wp_send_json([
+            'images' => array_map('wp_prepare_attachment_for_js', $galleryImageIds)
         ]);
     }
 

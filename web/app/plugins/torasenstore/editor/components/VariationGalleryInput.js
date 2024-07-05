@@ -1,4 +1,4 @@
-import { useState, useRef } from '@wordpress/element';
+import { useState, useEffect, useRef } from '@wordpress/element';
 import { Button } from '@wordpress/components';
 import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
 import VariationGalleryItem from "./VariationGalleryItem";
@@ -8,9 +8,7 @@ const ALLOWED_MEDIA_TYPES = [ 'image' ];
 export default function VariationGalleryInput({ variationId }) {
 	const inputRef = useRef(null);
 	const inputName = `variation_media_gallery[${variationId}]`
-
 	const [selectedMedia, setSelectedMedia] = useState([]);
-
 	const mediaIds = selectedMedia.map(media => media.id);
 
 	const selectMedia = (media) => {
@@ -32,6 +30,16 @@ export default function VariationGalleryInput({ variationId }) {
 
 		jQuery( '#variable_product_options' ).trigger( 'woocommerce_variations_input_changed' );
 	}
+
+	useEffect(() => {
+		const fetchGalleryMedia = async () => {
+			const response = await fetch(`/wp-json/torasen/v1/variation-gallery/${variationId}`);
+			const { images } = await response.json();
+			setSelectedMedia(images);
+		}
+
+		fetchGalleryMedia();
+	}, []);
 
 	return (
 		<div ref={inputRef} className="clear-both mt-2">
