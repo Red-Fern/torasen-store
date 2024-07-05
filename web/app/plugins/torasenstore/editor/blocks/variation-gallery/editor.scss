@@ -7,3 +7,21 @@
 .wp-block-create-block-variation-gallery {
 	border: 1px dotted #f00;
 }
+
+.variation-gallery-edit {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2rem;
+}
+
+.variation-gallery-placeholder {
+	aspect-ratio: 1 / 1;
+	background-color: #d1d5db;
+	display: grid;
+	place-items: center;
+}
+
+.variation-gallery-placeholder-image {
+	width: 100px;
+	height: 100px;
+}
