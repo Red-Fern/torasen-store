@@ -4,6 +4,7 @@ namespace RedFern\TorasenStore;
 
 use RedFern\TorasenStore\Blocks\ProductAttributesBlock;
 use RedFern\TorasenStore\Blocks\ProductPriceBlock;
+use RedFern\TorasenStore\Blocks\VariationGalleryBlock;
 
 class Blocks
 {
@@ -26,6 +27,7 @@ class Blocks
     {
         ProductAttributesBlock::register();
         ProductPriceBlock::register();
+        VariationGalleryBlock::register();
 
         foreach (self::$blocks as $block) {
             register_block_type(TORASENSTORE_PLUGIN_DIR . "/build/blocks/{$block}");

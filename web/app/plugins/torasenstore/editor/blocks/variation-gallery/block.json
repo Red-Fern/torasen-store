@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "torasenstore/variation-gallery",
+	"version": "0.1.0",
+	"title": "Variation Gallery",
+	"category": "widgets",
+	"icon": "images-alt",
+	"description": "Display a gallery for the current product variation",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"usesContext": ["postType","postId"],
+	"textdomain": "variation-gallery",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}
