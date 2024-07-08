@@ -1,11 +1,51 @@
+import { useRef, useEffect } from '@wordpress/element';
 import RangeProduct from "./RangeProduct";
 
 export default function RangeSlider({ products }) {
+	const swiperElRef = useRef(null);
+
+	const swiperParams = {
+		slidesPerView: 1.2,
+		spaceBetween: 30,
+		breakpoints: {
+			640: {
+				slidesPerView: 3.5,
+			},
+			768: {
+				slidesPerView: 4.5,
+			},
+		},
+	};
+
+	useEffect(() => {
+		Object.assign(swiperElRef.current, swiperParams);
+
+		swiperElRef.current.initialize();
+	}, []);
+
+	const nextSlide = () => {
+		swiperElRef.current.swiper.slideNext();
+	}
+
+	const prevSlide = () => {
+		swiperElRef.current.swiper.slidePrev();
+	}
+
 	return (
-		<div className="flex gap-4">
-			{products.map((product) => (
-				<RangeProduct key={product.id} product={product} />
-			))}
+		<div className="overflow-hidden my-4">
+			<swiper-container
+				init="false"
+				ref={swiperElRef}
+			>
+				{products.map((product) => (
+					<swiper-slide
+						className="!h-auto p-6"
+						key={product.id}
+					>
+						<RangeProduct key={product.id} product={product}/>
+					</swiper-slide>
+				))}
+			</swiper-container>
 		</div>
 	)
 }

@@ -64,8 +64,6 @@ export default function Slideshow({ videoUrl }) {
 		videoElRef.current.play();
 	}
 
-	console.log({inView})
-
 	return (
 		<div className="relative">
 			<div className="absolute z-20 top-0 right-0 px-8 py-8 flex items-center gap-4">
