@@ -173,6 +173,10 @@ footer.wp-block-template-part .aligncenter {
     @apply my-0;
 }
 
+.woocommerce div.product form.cart  {
+    @apply mb-0;
+}
+
 .woocommerce div.product form.cart .woocommerce-variation.single_variation {
     @apply !hidden;
 }
