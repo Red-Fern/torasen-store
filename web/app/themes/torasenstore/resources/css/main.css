@@ -173,6 +173,10 @@ footer.wp-block-template-part .aligncenter {
     @apply my-0;
 }
 
+.woocommerce div.product form.cart .woocommerce-variation.single_variation {
+    @apply !hidden;
+}
+
 .woocommerce div.product form.cart .woocommerce-variation-add-to-cart .quantity {
     @apply w-full flex items-center border border-black justify-between;
 }
