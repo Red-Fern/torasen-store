@@ -7,6 +7,9 @@ domReady(() => {
 
 	const root = createRoot(container)
 	root.render(
-		<VariationGallery productId={container.dataset.productId}/>,
+		<VariationGallery
+			productId={container.dataset.productId}
+			videoUrl={container.dataset.video}
+		/>,
 	)
 });

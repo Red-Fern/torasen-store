@@ -1,10 +1,19 @@
 import { useEffect, useRef } from "@wordpress/element";
 import { useSelect } from '@wordpress/data';
+import { useInView } from "react-intersection-observer";
 import {ATTRIBUTE_STORE_NAME} from "../../../stores/constants";
 
-export default function Slideshow({}) {
+export default function Slideshow({ videoUrl }) {
 	const swiperElRef = useRef(null);
+	const videoElRef = useRef(null);
+
 	const variation = useSelect((select) => select(ATTRIBUTE_STORE_NAME).getVariation());
+	const imageCount = variation?.galleryImages?.length;
+	const { ref, inView, entry } = useInView({
+		threshold: 0,
+	})
+
+	const videoIndex = videoUrl ? imageCount + 1 : null;
 
 	const swiperParams = {
 		slidesPerView: 1.2,
@@ -24,6 +33,18 @@ export default function Slideshow({}) {
 		swiperElRef.current.initialize();
 	}, []);
 
+	useEffect(() => {
+		if (!videoElRef.current) {
+			return;
+		}
+		
+		if (inView) {
+			videoElRef.current.play();
+		} else {
+			videoElRef.current.pause();
+		}
+	}, [inView]);
+
 	const nextSlide = () => {
 		swiperElRef.current.swiper.slideNext();
 	}
@@ -32,12 +53,27 @@ export default function Slideshow({}) {
 		swiperElRef.current.swiper.slidePrev();
 	}
 
-	const imageCount = variation?.galleryImages?.length;
+	const goToVideo = (e) => {
+		e.preventDefault();
+
+		if (!videoIndex) {
+			return;
+		}
+
+		swiperElRef.current.swiper.slideTo(videoIndex);
+		videoElRef.current.play();
+	}
+
+	console.log({inView})
 
 	return (
 		<div className="relative">
 			<div className="absolute z-20 top-0 right-0 px-8 py-8 flex items-center gap-4">
-				<button type="button" className="flex gap-2 items-center bg-white p-3 hover:bg-[#D0D0CD] shadow">
+				<button
+					type="button"
+					className="flex gap-2 items-center bg-white p-3 hover:bg-[#D0D0CD] shadow"
+					onClick={goToVideo}
+				>
 					<span className="text-xs">Video</span>
 					<svg className="w-4 h-4 text-[#1D1D1B]" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 						<path d="M2.60156 14.4156L1.60156 15V13.8438V2.15625V1L2.60156 1.58438L12.6078 7.42188L13.6016 8L12.6078 8.57812L2.60156 14.4156ZM11.6172 8L2.60156 2.74062V13.2594L11.6172 8Z"/>
@@ -81,6 +117,18 @@ export default function Slideshow({}) {
 						<img src={mediaItem.url} alt={mediaItem.alt} key={mediaItem.id}/>
 					</swiper-slide>
 				))}
+
+				{videoUrl && (
+					<swiper-slide
+						class="!h-auto [&:not(:first-child)]:border-l border-[#D0D0CD] p-6"
+						key={videoUrl}
+						ref={ref}
+					>
+						<video ref={videoElRef} controls={false} autoPlay={true}>
+							<source src={videoUrl} type="video/mp4"/>
+						</video>
+					</swiper-slide>
+				)}
 			</swiper-container>
 		</div>
 	)
