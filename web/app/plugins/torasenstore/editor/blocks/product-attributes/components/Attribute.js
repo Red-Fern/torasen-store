@@ -23,7 +23,10 @@ export default function Attribute({ attribute }) {
 				<div className="flex items-center gap-2">
 					<span>{attribute.label}</span>
 					{attribute.help_text && (
-						<HelpPanel content={attribute.help_text} />
+						<HelpPanel
+							title={attribute.label}
+							content={attribute.help_text}
+						/>
 					)}
 				</div>
 			</div>
