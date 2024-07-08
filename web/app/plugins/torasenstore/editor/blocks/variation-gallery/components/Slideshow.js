@@ -37,7 +37,7 @@ export default function Slideshow({ videoUrl }) {
 		if (!videoElRef.current) {
 			return;
 		}
-		
+
 		if (inView) {
 			videoElRef.current.play();
 		} else {
@@ -124,7 +124,7 @@ export default function Slideshow({ videoUrl }) {
 						key={videoUrl}
 						ref={ref}
 					>
-						<video ref={videoElRef} controls={false} autoPlay={true}>
+						<video ref={videoElRef} controls={false} autoPlay={true} loop={true}>
 							<source src={videoUrl} type="video/mp4"/>
 						</video>
 					</swiper-slide>
