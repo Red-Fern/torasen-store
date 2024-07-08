@@ -177,7 +177,7 @@ footer.wp-block-template-part .aligncenter {
     @apply mb-0;
 }
 
-.woocommerce div.product form.cart .woocommerce-variation-add-to-cart .wpaf,
+.woocommerce div.product form.cart .woocommerce-variation-add-to-cart .wapf,
 .woocommerce div.product form.cart .woocommerce-variation.single_variation {
     @apply !hidden;
 }
