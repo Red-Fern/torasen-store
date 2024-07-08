@@ -173,7 +173,31 @@ footer.wp-block-template-part .aligncenter {
     @apply my-0;
 }
 
-/******** Search and Filter ********/
+.woocommerce div.product form.cart  {
+    @apply mb-0;
+}
+
+.woocommerce div.product form.cart .woocommerce-variation.single_variation {
+    @apply !hidden;
+}
+
+.woocommerce div.product form.cart .woocommerce-variation-add-to-cart .quantity {
+    @apply w-full flex items-center border border-black justify-between;
+}
+
+.quantity-label {
+    @apply flex-1 py-2 px-6;
+}
+
+.woocommerce div.product form.cart .woocommerce-variation-add-to-cart .quantity .qty {
+    @apply w-[5rem] mr-0 py-4 border-l border-black;
+}
+
+.woocommerce div.product form.cart .woocommerce-variation-add-to-cart .single_add_to_cart_button {
+    @apply w-full;
+}
+
+    /******** Search and Filter ********/
 .searchandfilter {
     @apply border-t border-mid-grey;
 }

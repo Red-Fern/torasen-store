@@ -7,6 +7,7 @@ module.exports = {
     "./resources/js/**/*.js",
     "./resources/gutenberg/**/*.{js,php}",
     "./acf/**/*.php",
+    "./woocommerce/**/*.php",
   ],
   theme: {
     fontFamily: {

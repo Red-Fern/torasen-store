@@ -2,8 +2,7 @@
 
 namespace RedFern\TorasenStore;
 
-use RedFern\TorasenStore\Admin\AttributeForm;
-use RedFern\TorasenStore\Admin\Fabrics;
+use RedFern\TorasenStore\Admin\Admin;
 
 class Plugin
 {
@@ -21,13 +20,23 @@ class Plugin
     protected function __construct()
     {
         add_action('wp_enqueue_scripts', [$this, 'enqueueScripts']);
+        add_filter('woocommerce_available_variation', [$this, 'addVariationGalleryImages'], 10, 3);
 
         Blocks::init();
         Taxonomies::init();
         Api::init();
 
-        AttributeForm::init();
-		Fabrics::init();
+        if (is_admin()) {
+            Admin::init();
+        }
+    }
+
+    public static function addVariationGalleryImages($attributes, $product, $variation)
+    {
+        $galleryImageIds = $variation->get_gallery_image_ids();
+        $attributes['galleryImages'] = array_map('wp_prepare_attachment_for_js', $galleryImageIds);
+
+        return $attributes;
     }
 
     public function enqueueScripts()

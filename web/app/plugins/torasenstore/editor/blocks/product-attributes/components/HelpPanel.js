@@ -1,7 +1,7 @@
 import { Dialog, DialogPanel, DialogBackdrop, DialogTitle, Description } from "@headlessui/react";
 import { useState } from "@wordpress/element";
 
-export default function HelpPanel({ content }) {
+export default function HelpPanel({ title, content }) {
 	let [isOpen, setIsOpen] = useState(false)
 
 	return (
@@ -28,7 +28,7 @@ export default function HelpPanel({ content }) {
 					>
 						<DialogTitle
 							className="font-bold py-6 px-12 border-b border-black flex justify-between items-center">
-							<span>Deactivate account</span>
+							<span>{title}</span>
 							<button
 								onClick={() => setIsOpen(false)}
 								className="p-2 bg-black"
