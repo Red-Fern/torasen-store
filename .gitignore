@@ -40,6 +40,7 @@ wp-cli.local.yml
 !web/app/plugins/wpai-woocommerce-add-on
 !web/app/plugins/woocommerce-conditional-shipping-and-payments
 !web/app/plugins/woocommerce-shipment-tracking
+!web/app/plugins/gravityforms
 
 # Themes
 /wp-content/themes/twenty*/
