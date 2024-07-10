@@ -142,7 +142,7 @@
 						{
 							"fontFamily": "Söhne",
 							"fontStyle": "normal",
-							"fontWeight": "500",
+							"fontWeight": "500 700",
 							"src": [
 								"file:./resources/fonts/sohne-medium.woff2"
 							]
