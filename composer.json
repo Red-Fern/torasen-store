@@ -52,7 +52,13 @@
     "wpackagist-plugin/create-block-theme": "^2.1.0",
     "wpackagist-plugin/woocommerce":"^8.8.2",
     "deliciousbrains-plugin/wp-migrate-db-pro": "*",
-    "wpengine/advanced-custom-fields-pro": "*"
+    "wpengine/advanced-custom-fields-pro": "*",
+    "wpackagist-plugin/advanced-product-fields-for-woocommerce": "^1.6",
+    "wpackagist-plugin/woo-variation-swatches": "^2.0",
+    "wpackagist-plugin/clicktoaddress-auto-complete": "^1.7",
+    "wpackagist-plugin/wordpress-seo": "^23.0",
+    "wpackagist-plugin/wp-mail-smtp": "^4.0",
+    "wpackagist-plugin/woocommerce-pdf-invoices-packing-slips": "^3.8"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.7.1",

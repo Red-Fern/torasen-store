@@ -2,10 +2,13 @@
 
 namespace RedFern\TorasenStore;
 
+use RedFern\TorasenStore\Blocks\ProductAttributesBlock;
+use RedFern\TorasenStore\Blocks\ProductPriceBlock;
+use RedFern\TorasenStore\Blocks\VariationGalleryBlock;
+
 class Blocks
 {
     protected static $blocks = [
-
     ];
 
     public static function init()
@@ -22,8 +25,12 @@ class Blocks
      */
     public static function registerBlocks()
     {
+        ProductAttributesBlock::register();
+        ProductPriceBlock::register();
+        VariationGalleryBlock::register();
+
         foreach (self::$blocks as $block) {
-            register_block_type(TORASENSTORE_PLUGIN_DIR . "/build/{$block}");
+            register_block_type(TORASENSTORE_PLUGIN_DIR . "/build/blocks/{$block}");
         }
     }
 }

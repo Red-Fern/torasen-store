@@ -34,6 +34,11 @@ wp-cli.local.yml
 !web/app/plugins/search-filter-pro
 !web/app/plugins/wp-all-export-pro
 !web/app/plugins/wpae-woocommerce-add-on
+!web/app/plugins/advanced-product-fields-for-woocommerce
+!web/app/plugins/wp-all-import-pro
+!web/app/plugins/wpai-acf-add-on
+!web/app/plugins/wpai-woocommerce-add-on
+!web/app/plugins/woocommerce-conditional-shipping-and-payments
 
 # Themes
 /wp-content/themes/twenty*/
