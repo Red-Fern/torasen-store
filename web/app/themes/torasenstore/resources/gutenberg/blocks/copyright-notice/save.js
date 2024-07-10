@@ -5,7 +5,7 @@ export default function save({ attributes }) {
 
 	return (
 		<div { ...blockProps }>
-			<div class="flex gap-[5px]">
+			<div className="flex gap-[5px]">
 				<RichText.Content { ...blockProps } value={ attributes.label } />
 				<span>{ new Date().getFullYear() }</span>
 			</div>
