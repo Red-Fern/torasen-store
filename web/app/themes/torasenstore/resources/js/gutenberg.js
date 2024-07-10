@@ -10,14 +10,12 @@ wp.blocks.registerBlockStyle('core/button', {
 
 wp.blocks.registerBlockStyle('core/button', {
     name: 'white-fill',
-    label: 'White Fill',
-    isDefault: true,
+    label: 'White Fill'
 });
 
 wp.blocks.registerBlockStyle('core/button', {
     name: 'black-outline',
-    label: 'Black Outline',
-    isDefault: true,
+    label: 'Black Outline'
 });
 
 // Unregister default blocks and styles
