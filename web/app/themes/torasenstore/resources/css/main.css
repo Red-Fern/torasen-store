@@ -198,7 +198,7 @@ footer.wp-block-template-part .aligncenter {
     @apply w-full;
 }
 
-    /******** Search and Filter ********/
+/******** Search and Filter ********/
 .searchandfilter {
     @apply border-t border-mid-grey;
 }
@@ -226,6 +226,86 @@ footer.wp-block-template-part .aligncenter {
 }
 .searchandfilter li[data-sf-field-input-type=radio] label .sf-count {
     @apply flex-none ml-auto pl-2.5 font-mono;
+}
+
+/******** Gravity Forms ********/
+.gform_wrapper.gravity-theme {
+    @apply mt-0;
+}
+.gform_wrapper.gravity-theme form .gform_fields {
+	@apply gap-x-sm gap-y-xs;
+}
+.gform_wrapper.gravity-theme form .gfield_label {
+	@apply mb-2.5 text-sm font-medium;
+}
+.gform_wrapper.gravity-theme form .gfield_label_before_complex {
+	@apply hidden;
+}
+.gform_wrapper.gravity-theme form .ginput_complex label {
+	@apply mb-2.5 p-0 text-sm font-medium;
+}
+.gform_wrapper.gravity-theme form input[type="text"], 
+.gform_wrapper.gravity-theme form input[type="password"], 
+.gform_wrapper.gravity-theme form input[type="email"], 
+.gform_wrapper.gravity-theme form input[type="url"], 
+.gform_wrapper.gravity-theme form input[type="date"], 
+.gform_wrapper.gravity-theme form input[type="month"], 
+.gform_wrapper.gravity-theme form input[type="time"], 
+.gform_wrapper.gravity-theme form input[type="datetime"], 
+.gform_wrapper.gravity-theme form input[type="datetime-local"], 
+.gform_wrapper.gravity-theme form input[type="week"], 
+.gform_wrapper.gravity-theme form input[type="number"], 
+.gform_wrapper.gravity-theme form input[type="search"], 
+.gform_wrapper.gravity-theme form input[type="tel"], 
+.gform_wrapper.gravity-theme form input[type="color"], 
+.gform_wrapper.gravity-theme form textarea, 
+.gform_wrapper.gravity-theme form select {
+	@apply p-3 border border-black rounded-[3px];
+}
+.gform_wrapper.gravity-theme form select {
+	@apply appearance-none pr-10 bg-no-repeat bg-[right_12px_center] bg-[length:25px_25px];
+	background-image: url("../images/icons/arrow-dropdown.svg"); 
+}
+.gform_wrapper.gravity-theme form input[type="radio"],
+.gform_wrapper.gravity-theme form input[type="checkbox"] {
+    @apply mr-1 accent-current;
+}
+.gform_wrapper.gravity-theme form .ginput_complex {
+	@apply gap-xs;
+}
+.gform_wrapper.gravity-theme form .ginput_complex span {
+	@apply mb-0;
+}
+.gform_wrapper.gravity-theme form .gform_drop_area button {
+	@apply px-6 py-3 border border-mid-grey;
+}
+.gform_wrapper.gravity-theme form .gform_footer {
+	@apply py-0 mt-xs;
+}
+.gform_wrapper.gravity-theme form input[type="submit"] {
+	@apply mb-0 px-6 py-3 border border-black bg-black text-white cursor-pointer transition duration-300 ease-in-out;
+}
+.gform_wrapper.gravity-theme form input[type="submit"]:hover {
+    @apply border-dark-greige bg-dark-greige text-black;
+}
+.gform_wrapper.gravity-theme form .gfield_contains_required label::after {
+	@apply content-['*'];
+}
+.gform_wrapper.gravity-theme form .gfield_required {
+	@apply hidden;
+}
+.gform_wrapper.gravity-theme form .field_description_above .gfield_description.gfield_validation_message {
+	@apply mt-xs py-xs;
+}
+.gform_wrapper.gravity-theme.gform_validation_error .gform_validation_errors {
+	@apply mt-0 mb-xs px-xs py-xs rounded-none text-base;
+}
+.gform_wrapper.gravity-theme.gform_validation_error .gform_validation_errors h2 {
+	@apply text-md font-medium leading-normal;
+}
+.gform_wrapper.gravity-theme.gform_validation_error .gform_validation_errors > ol li,
+.gform_wrapper.gravity-theme.gform_validation_error .gform_validation_errors > ol a {
+	@apply text-base;
 }
 
 /******** Editor ********/
