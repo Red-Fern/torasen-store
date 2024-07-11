@@ -130,6 +130,33 @@ footer.wp-block-template-part .aligncenter {
     @apply mb-0;
 }
 
+/* Forms */
+.woocommerce form label {
+    @apply mb-2.5 text-sm font-medium;
+}
+.woocommerce form .input-text {
+    @apply p-3 border border-black rounded-[3px] text-base;
+}
+.woocommerce form .form-row {
+    @apply mb-xs;
+}
+.woocommerce form .form-row-first, 
+.woocommerce form .form-row-last {
+    @apply w-full lg:w-[calc(50%-(var(--wp--preset--spacing--sm)*0.5))];
+}
+.woocommerce form fieldset legend {
+    @apply mb-2.5 text-base font-medium;
+}
+.woocommerce form :is(input[type="radio"], input[type="checkbox"]) {
+    @apply mr-1 accent-current;
+}
+.woocommerce form :is(input[type="radio"], input[type="checkbox"]) + span {
+    @apply text-base font-normal;
+}
+.woocommerce form .woocommerce-privacy-policy-text + .form-row {
+    @apply mt-xs;
+}
+
 /* Archive */
 .wc-block-components-product-image {
     @apply aspect-[392/480];
@@ -268,12 +295,19 @@ table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantit
 }
 
 /* Account - Log In */
+.woocommerce-log-in .entry-content > .wp-block-group {
+    @apply max-w-[700px];
+}
 .woocommerce-log-in h2 {
     @apply hidden;
 }
 .woocommerce-log-in form.login, 
 .woocommerce-log-in form.register {
     @apply m-0 p-sm border-0 rounded-none bg-lightest-grey;
+}
+.woocommerce-log-in form.login .input-text,  
+.woocommerce-log-in form.register .input-text {
+    @apply border-0;
 }
 .woocommerce-log-in .col2-set .col-2 {
     @apply max-md:mt-lg;
@@ -338,33 +372,6 @@ table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantit
 }
 .woocommerce-account table.order_details .wc-item-meta p {
     @apply m-0;
-}
-
-/* Account - Forms */
-.woocommerce form label {
-    @apply mb-2.5 text-sm font-medium;
-}
-.woocommerce form .input-text {
-    @apply p-3 border border-black rounded-[3px] text-base;
-}
-.woocommerce form .form-row {
-    @apply mb-xs;
-}
-.woocommerce form .form-row-first, 
-.woocommerce form .form-row-last {
-    @apply w-full lg:w-[calc(50%-(var(--wp--preset--spacing--sm)*0.5))];
-}
-.woocommerce form fieldset legend {
-    @apply mb-2.5 text-base font-medium;
-}
-.woocommerce form :is(input[type="radio"], input[type="checkbox"]) {
-    @apply mr-1 accent-current;
-}
-.woocommerce form :is(input[type="radio"], input[type="checkbox"]) + span {
-    @apply text-base font-normal;
-}
-.woocommerce form .woocommerce-privacy-policy-text + .form-row {
-    @apply mt-xs;
 }
 
 /******** Search and Filter ********/
