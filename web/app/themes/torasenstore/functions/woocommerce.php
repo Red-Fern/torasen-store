@@ -13,6 +13,7 @@ class WooCommerce
         add_filter('body_class', [__CLASS__, 'addLogInClass']);
         add_filter('the_content', [__CLASS__, 'changeLogInTitle']);
         add_action('woocommerce_after_customer_login_form', [__CLASS__, 'addLogInRegisterButton']);
+        add_filter('woocommerce_my_account_my_orders_actions', [__CLASS__, 'orderAgainAction'], 10, 2);
     }
 
     public static function registerImageSizes()
@@ -63,6 +64,18 @@ class WooCommerce
                 <a class="wp-block-button__link wp-element-button" href="/contact"><?php _e( 'Request a dealer account' ); ?></a>
             </div>
         <?php
+    }
+
+    public static function orderAgainAction($actions, $order)
+    {
+        if ($order->has_status('completed')) {
+            $actions['order-again'] = array(
+                'url' => wp_nonce_url(add_query_arg( 'order_again', $order->get_id(), wc_get_cart_url() ), 'woocommerce-order_again'),
+                'name' => __( 'Order again', 'woocommerce' ),
+            );
+        }
+
+        return $actions;
     }
 }
 
