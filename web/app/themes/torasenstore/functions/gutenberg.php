@@ -13,6 +13,7 @@ class Gutenberg
         'torasen/term-banner-sidebar',
         'torasen/term-banner-columns',
         'torasen/social-share-links',
+        'torasen/product-item',
     ];
 
     public static function init()
