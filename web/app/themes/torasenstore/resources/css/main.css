@@ -223,6 +223,12 @@ footer.wp-block-template-part .aligncenter {
 .wc-block-components-product-metadata {
     @apply text-dark-grey text-sm;
 }
+table.wc-block-cart-items .wc-block-cart-items__header .wc-block-cart-items__header-image {
+    @apply pl-4 w-[180px] text-left
+}
+table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__image {
+    @apply pr-4;
+}
 table.wc-block-cart-items .wc-block-cart-items__row .wc-block-components-product-name {
     @apply mb-1;
 }
@@ -264,11 +270,20 @@ table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantit
 .wp-block-woocommerce-checkout {
     @apply pt-0;
 }
+.wp-block-woocommerce-checkout .wc-block-components-sidebar-layout {
+    @apply mb-0;
+}
+.wp-block-woocommerce-checkout .wc-block-components-sidebar {
+    @apply mt-0;
+}
 .wp-block-woocommerce-checkout-order-summary-block {
     @apply p-sm bg-lightest-grey;
 }
+.wc-block-components-order-summary .wc-block-components-order-summary-item__image {
+    @apply md:hidden xl:block;
+}
 .wc-block-components-order-summary .wc-block-components-order-summary-item__description {
-    @apply pr-4;
+    @apply md:pl-0 pr-4 xl:pl-6;
 }
 .wc-block-components-order-summary .wc-block-components-order-summary-item__individual-prices {
     @apply pt-0;
@@ -281,6 +296,9 @@ table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantit
 }
 .wc-block-components-order-summary .wc-block-components-order-summary-item__quantity {
     @apply border-0 shadow-none bg-black text-white;
+}
+.is-large .wc-block-checkout__actions {
+    @apply pb-0;
 }
 
 /* Order Confirmation */
@@ -346,14 +364,14 @@ table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantit
 .woocommerce-account table.my_account_orders tbody {
     @apply text-dark-grey;
 }
-.woocommerce-account table.my_account_orders a:where(:not(.wp-element-button)) {
+.woocommerce-account table.my_account_orders a {
     @apply font-medium underline;
 }
-.woocommerce-account table.my_account_orders .woocommerce-orders-table__cell.woocommerce-orders-table__cell-order-actions a:first-child {
-    @apply max-md:mt-md;
+.woocommerce-account table.my_account_orders .wp-element-button {
+    @apply inline-block m-0 p-0 bg-transparent text-black;
 }
-.woocommerce-account table.my_account_orders .woocommerce-orders-table__cell.woocommerce-orders-table__cell-order-actions a:last-child {
-    @apply mb-0;
+.woocommerce-account table.my_account_orders .wp-element-button + .wp-element-button {
+    @apply ml-2;
 }
 
 /* Account - View Order */
