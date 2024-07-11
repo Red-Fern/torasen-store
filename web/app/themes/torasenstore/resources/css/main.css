@@ -48,7 +48,7 @@
 /* Button */
 .wp-block-button > .wp-block-button__link,
 .wp-block-post-excerpt__more-link {
-    @apply transition duration-300 ease-in-out;
+    @apply inline-block border transition duration-300 ease-in-out;
 }
 .wp-block-button.is-style-white-fill > .wp-block-button__link {
     @apply border-white bg-white text-black;
@@ -268,12 +268,18 @@ table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantit
 }
 
 /* Account - Log In */
-.woocommerce form.login, 
-.woocommerce form.register {
+.woocommerce-log-in h2 {
+    @apply hidden;
+}
+.woocommerce-log-in form.login, 
+.woocommerce-log-in form.register {
     @apply m-0 p-sm border-0 rounded-none bg-lightest-grey;
 }
-.woocommerce .col2-set .col-2 {
+.woocommerce-log-in .col2-set .col-2 {
     @apply max-md:mt-lg;
+}
+.woocommerce-log-in .request-account-button .wp-element-button {
+    @apply mt-sm w-full text-center;
 }
 
 /* Account - Dashboard */
