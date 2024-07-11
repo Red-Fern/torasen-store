@@ -267,12 +267,21 @@ table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantit
     @apply font-normal;
 }
 
+/* Account - Log In */
+.woocommerce form.login, 
+.woocommerce form.register {
+    @apply m-0 p-sm border-0 rounded-none bg-lightest-grey;
+}
+.woocommerce .col2-set .col-2 {
+    @apply max-md:mt-lg;
+}
+
 /* Account - Dashboard */
 .woocommerce-account main .woocommerce {
-    @apply max-w-full flex items-start flex-wrap gap-lg before:hidden after:hidden lg:flex-nowrap;
+    @apply max-w-full;
 }
 .woocommerce-account .woocommerce-MyAccount-navigation {
-    @apply float-none shrink-0 p-sm w-full bg-lightest-grey lg:w-[240px];
+    @apply p-sm w-full bg-lightest-grey lg:w-[240px];
 }
 .woocommerce-account .woocommerce-MyAccount-navigation ul {
     @apply m-0 space-y-xs;
@@ -284,7 +293,7 @@ table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantit
     @apply text-md;
 }
 .woocommerce-account .woocommerce-MyAccount-content {
-    @apply float-none grow w-auto;
+    @apply mt-lg w-full lg:m-0 lg:w-[calc(100%-(240px+var(--wp--preset--spacing--lg)))];
 }
 
 /* Account - Orders */
@@ -326,27 +335,30 @@ table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantit
 }
 
 /* Account - Forms */
-.woocommerce form label,
-.woocommerce-page form label {
+.woocommerce form label {
     @apply mb-2.5 text-sm font-medium;
 }
-.woocommerce form .input-text,
-.woocommerce-page form .input-text {
+.woocommerce form .input-text {
     @apply p-3 border border-black rounded-[3px] text-base;
 }
-.woocommerce form .form-row,
-.woocommerce-page form .form-row {
+.woocommerce form .form-row {
     @apply mb-xs;
 }
 .woocommerce form .form-row-first, 
-.woocommerce form .form-row-last, 
-.woocommerce-page form .form-row-first, 
-.woocommerce-page form .form-row-last {
+.woocommerce form .form-row-last {
     @apply w-full lg:w-[calc(50%-(var(--wp--preset--spacing--sm)*0.5))];
 }
-.woocommerce form fieldset legend,
-.woocommerce-page form fieldset legend {
+.woocommerce form fieldset legend {
     @apply mb-2.5 text-base font-medium;
+}
+.woocommerce form :is(input[type="radio"], input[type="checkbox"]) {
+    @apply mr-1 accent-current;
+}
+.woocommerce form :is(input[type="radio"], input[type="checkbox"]) + span {
+    @apply text-base font-normal;
+}
+.woocommerce form .woocommerce-privacy-policy-text + .form-row {
+    @apply mt-xs;
 }
 
 /******** Search and Filter ********/
