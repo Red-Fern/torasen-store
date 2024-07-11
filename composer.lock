@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3978f6aeb8dd37cd6aaa25fdf97b8231",
+    "content-hash": "6392a6a7b997c7050e6df69a699c9a0d",
     "packages": [
         {
             "name": "composer/installers",
@@ -1174,6 +1174,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/create-block-theme/"
+        },
+        {
+            "name": "wpackagist-plugin/say-what",
+            "version": "2.2.3",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/say-what/",
+                "reference": "tags/2.2.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/say-what.2.2.3.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/say-what/"
         },
         {
             "name": "wpackagist-plugin/woo-variation-swatches",
