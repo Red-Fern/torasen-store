@@ -58,7 +58,8 @@
     "wpackagist-plugin/clicktoaddress-auto-complete": "^1.7",
     "wpackagist-plugin/wordpress-seo": "^23.0",
     "wpackagist-plugin/wp-mail-smtp": "^4.0",
-    "wpackagist-plugin/woocommerce-pdf-invoices-packing-slips": "^3.8"
+    "wpackagist-plugin/woocommerce-pdf-invoices-packing-slips": "^3.8",
+    "wpackagist-plugin/say-what": "^2.2"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.7.1",
