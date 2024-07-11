@@ -129,6 +129,9 @@ footer.wp-block-template-part .aligncenter {
 .woocommerce .woocommerce-breadcrumb {
     @apply mb-0;
 }
+.col2-set .col-2 {
+    @apply max-md:mt-lg;
+}
 
 /* Forms */
 .woocommerce form label {
@@ -326,9 +329,6 @@ table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantit
 .woocommerce-log-in form.login .input-text,  
 .woocommerce-log-in form.register .input-text {
     @apply border-0;
-}
-.woocommerce-log-in .col2-set .col-2 {
-    @apply max-md:mt-lg;
 }
 .woocommerce-log-in .request-account-button .wp-element-button {
     @apply mt-sm w-full text-center;
