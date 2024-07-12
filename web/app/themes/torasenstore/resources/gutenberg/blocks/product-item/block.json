@@ -5,8 +5,8 @@
 	"version": "0.1.0",
 	"title": "Product Item",
 	"category": "widgets",
-	"icon": "media-interactive",
-	"description": "An interactive block with the Interactivity API",
+	"icon": "products",
+	"description": "Display a product item.",
 	"example": {},
 	"supports": {
 		"interactivity": true
