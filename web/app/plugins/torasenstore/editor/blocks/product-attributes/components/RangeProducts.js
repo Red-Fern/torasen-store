@@ -31,7 +31,7 @@ export default function RangeProducts({ productId }) {
 			<div className="flex flex-col gap-3 w-full | md:flex-row">
 				<div className="md:w-1/4">
 					<div className="flex items-center gap-2">
-						<span>Product Range</span>
+						<span className="font-medium">Product Range</span>
 					</div>
 				</div>
 				<div className="md:w-3/4 flex gap-2">

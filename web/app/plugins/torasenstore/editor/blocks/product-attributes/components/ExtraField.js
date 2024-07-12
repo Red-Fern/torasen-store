@@ -33,7 +33,7 @@ export default function ExtraField({ field }) {
 		<div className="flex flex-col gap-3 w-full pb-4 border-b border-gray-300 | md:flex-row">
 			<div className="md:w-1/4">
 				<div className="flex items-center gap-2">
-					<span>{field.name}</span>
+					<span className="font-medium">{field.name}</span>
 				</div>
 			</div>
 			<div className="md:w-3/4">

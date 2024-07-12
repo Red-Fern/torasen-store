@@ -41,21 +41,30 @@ $rangeProducts = getRangeProducts($productId);
 
 <div
     <?php echo get_block_wrapper_attributes([
-        'class' => 'relative group hover:border-r hover:border-b hover:border-black',
+        'class' => 'relative group',
     ]); ?>
     data-wp-interactive="product-item"
     <?php echo wp_interactivity_data_wp_context(array( 'isOpen' => false )); ?>
     data-wp-watch="callbacks.logIsOpen"
 >
     <div class="flex flex-col">
-        <?php echo $product->get_image(); ?>
-
-        <div class="flex flex-col">
-            <a class="block p-2 group-hover:order-1" href="<?php echo $product->get_permalink(); ?>">
-                <?php echo $product->get_name(); ?>
+        <div class="wc-block-components-product-image border border-b-0 border-transparent <?php echo !empty($rangeProducts) ? 'group-hover:border-dark-grey' : ''; ?>">
+            <a href="<?php echo $product->get_permalink(); ?>">
+                <?php echo $product->get_image(); ?>
             </a>
+        </div>
+
+        <div class="relative flex flex-col pt-4">
+            <a href="<?php echo $product->get_permalink(); ?>" class="border border-t-0 border-transparent">
+                <div class="mb-1 font-medium"><?php echo $product->get_name(); ?></div>
+
+                <div class="text-sm">
+                    <?php echo $product->get_price_html(); ?>
+                </div>
+            </a>
+
             <?php if (!empty($rangeProducts)) : ?>
-                <div class="overflow-hidden hidden group-hover:block">
+                <div class="hidden absolute top-0 left-0 w-full min-h-full border border-t-0 border-dark-grey bg-white z-10 overflow-hidden | group-hover:block">
                     <swiper-container slides-per-view="4" loop="true">
                         <?php foreach ($rangeProducts as $product) : ?>
                             <swiper-slide>
@@ -63,6 +72,16 @@ $rangeProducts = getRangeProducts($productId);
                             </swiper-slide>
                         <?php endforeach; ?>
                     </swiper-container>
+
+                    <div class="p-4">
+                        <a href="#"><!-- Product link here -->
+                            <div class="mb-1 font-medium">[ Product name ]</div>
+
+                            <div class="text-sm">
+                                [ Product price ]
+                            </div>
+                        </a>
+                    </div>
                 </div>
             <?php endif; ?>
         </div>
