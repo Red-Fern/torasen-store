@@ -65,13 +65,15 @@ $rangeProducts = getRangeProducts($productId);
 
             <?php if (!empty($rangeProducts)) : ?>
                 <div class="hidden absolute top-0 left-0 w-full min-h-full border border-t-0 border-dark-grey bg-white z-10 overflow-hidden | group-hover:block">
-                    <swiper-container slides-per-view="4" loop="true">
-                        <?php foreach ($rangeProducts as $product) : ?>
-                            <swiper-slide>
-                                <?php echo $product->get_image(); ?>
-                            </swiper-slide>
-                        <?php endforeach; ?>
-                    </swiper-container>
+                    <div class="max-h-[100px] overflow-hidden">
+                        <swiper-container slides-per-view="4" loop="true">
+                            <?php foreach ($rangeProducts as $product) : ?>
+                                <swiper-slide>
+                                    <?php echo $product->get_image(); ?>
+                                </swiper-slide>
+                            <?php endforeach; ?>
+                        </swiper-container>
+                    </div>
 
                     <div class="p-4">
                         <a href="#"><!-- Product link here -->
