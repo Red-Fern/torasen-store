@@ -4,7 +4,7 @@
 	"name": "torasen/related-products",
 	"version": "0.1.0",
 	"title": "Related Products",
-	"category": "widgets",
+	"category": "products",
 	"icon": "info",
 	"description": "Display related products.",
 	"example": {},
