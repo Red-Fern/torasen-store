@@ -14,6 +14,7 @@ class Gutenberg
         'torasen/term-banner-columns',
         'torasen/social-share-links',
         'torasen/product-item',
+        'torasen/related-products',
     ];
 
     public static function init()
