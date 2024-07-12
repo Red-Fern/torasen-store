@@ -168,7 +168,7 @@ footer.wp-block-template-part .aligncenter {
     @apply block h-full;
 }
 .wc-block-components-product-image > a > img {
-    @apply w-full h-full;
+    @apply w-full h-full object-cover;
 }
 .wp-block-woocommerce-product-collection .wc-block-product-template,
 .wp-block-woocommerce-related-products .wp-block-query .products-block-post-template.wp-block-post-template-is-layout-grid {
