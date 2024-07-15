@@ -15,6 +15,7 @@ class Gutenberg
         'torasen/social-share-links',
         'torasen/product-item',
         'torasen/related-products',
+        'torasen/product-families',
     ];
 
     public static function init()

@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "torasen/product-families",
+	"version": "0.1.0",
+	"title": "Product Families",
+	"category": "widgets",
+	"icon": "editor-ul",
+	"description": "Display product families.",
+	"example": {},
+	"supports": {
+		"spacing": {
+            "margin": true
+        }
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "Product Families"
+		},
+		"style": {
+			"type": "object",
+			"default": {
+				"spacing": {
+					"margin": {
+						"bottom": "var(--wp--preset--spacing--xxl)",
+						"top": "var(--wp--preset--spacing--xxl)"
+					}
+				}
+			}
+		}
+	},
+	"textdomain": "product-families",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}
