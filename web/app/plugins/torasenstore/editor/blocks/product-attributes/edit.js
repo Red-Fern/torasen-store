@@ -5,7 +5,12 @@ import './editor.scss';
 export default function Edit({ context }) {
 	return (
 		<div { ...useBlockProps() }>
-			{ __( 'Product Attributes – hello from the editor!', 'product-attributes' ) }
+			<div className="flex flex-col gap-lg">
+				<div className="border-b border-gray-300"></div>
+				<div className="border-b border-gray-300"></div>
+				<div className="border-b border-gray-300"></div>
+				<div className="border-b border-gray-300"></div>
+			</div>
 		</div>
 	);
 }
