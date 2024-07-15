@@ -127,9 +127,9 @@ footer.wp-block-template-part .aligncenter {
 
 /* General */
 .woocommerce .woocommerce-breadcrumb {
-    @apply mb-0;
+    @apply mb-0 tracking-wider;
 }
-.col2-set .col-2 {
+.woocommerce .col2-set .col-2 {
     @apply max-md:mt-lg;
 }
 
@@ -507,6 +507,12 @@ table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantit
 .gform_wrapper.gravity-theme.gform_validation_error .gform_validation_errors > ol li,
 .gform_wrapper.gravity-theme.gform_validation_error .gform_validation_errors > ol a {
 	@apply text-base;
+}
+
+/******** Yoast ********/
+
+.yoast-breadcrumbs {
+    @apply font-mono text-xs uppercase tracking-wider;
 }
 
 /******** Editor ********/

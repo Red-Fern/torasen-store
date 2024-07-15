@@ -14,6 +14,7 @@ class WooCommerce
         add_filter('the_content', [__CLASS__, 'changeLogInTitle']);
         add_action('woocommerce_after_customer_login_form', [__CLASS__, 'addLogInRegisterButton']);
         add_filter('woocommerce_my_account_my_orders_actions', [__CLASS__, 'orderAgainAction'], 10, 2);
+        add_filter('woocommerce_breadcrumb_defaults', [__CLASS__, 'changeBreadcrumbDelimiter']);
     }
 
     public static function registerImageSizes()
@@ -76,6 +77,12 @@ class WooCommerce
         }
 
         return $actions;
+    }
+
+    public static function changeBreadcrumbDelimiter($defaults) 
+    {
+        $defaults['delimiter'] = ' &gt; ';
+        return $defaults;
     }
 }
 
