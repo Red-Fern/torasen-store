@@ -15,8 +15,6 @@ class Admin
 
     public static function enqueueScripts()
     {
-        wp_enqueue_style('torasenstore-admin', TorasenStore()->pluginUrl() . '/build/admin.css');
-
         $assets = TorasenStore()->pluginPath(). 'build/admin.asset.php';
         if (file_exists($assets)) {
             $assets = require_once $assets;
