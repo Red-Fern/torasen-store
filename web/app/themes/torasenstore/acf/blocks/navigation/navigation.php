@@ -45,7 +45,7 @@
                                 class="w-full bg-light-grey text-md overflow-x-clip z-10 transition duration-500 | lg:absolute lg:top-full lg:left-0 lg:py-lg lg:bg-lightest-grey lg:shadow-lg"
                                 x-cloak
                                 x-show="showing"
-                                @click.away="showing = false"
+                                x-on:click.away="showing = false"
                             >
                                 <div class="container | max-lg:p-0">
                                     <div class="lg:flex lg:gap-[10%]">
