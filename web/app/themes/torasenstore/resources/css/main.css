@@ -97,7 +97,7 @@ header.wp-block-template-part > .wp-block-group {
     @apply relative z-10;
 }
 .wp-block-site-logo.header-logo {
-    @apply max-lg:mr-auto;
+    @apply mr-auto lg:mr-sm;
 }
 
 /* Footer */
@@ -268,10 +268,13 @@ table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantit
     @apply pr-4;
 }
 
-/* Minicart */
+/* Mini cart */
 .wc-block-mini-cart__button {
-    @apply min-w-4 min-h-4 bg-no-repeat bg-center bg-[length:16px_16px];
+    @apply relative p-0 w-12 h-12 bg-no-repeat bg-center bg-[length:16px_16px];
     background-image: url("../images/icons/mini-cart.svg");
+}
+.wc-block-mini-cart__button .wc-block-mini-cart__quantity-badge {
+    @apply static;
 }
 .wc-block-mini-cart__button svg {
     @apply hidden;

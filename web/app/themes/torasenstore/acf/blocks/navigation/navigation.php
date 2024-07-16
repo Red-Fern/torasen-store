@@ -159,7 +159,7 @@
 
     <!-- Mobile menu toggle -->
     <button 
-        class="py-5 bg-transparent z-20 | lg:hidden" 
+        class="shrink-0 flex items-center justify-center -mr-4 w-12 h-12 bg-transparent z-20 | lg:hidden" 
         <?php if (!is_admin()) : ?>
             x-on:click="toggle"
         <?php endif; ?>
