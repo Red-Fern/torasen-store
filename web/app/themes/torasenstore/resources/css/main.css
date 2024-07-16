@@ -269,6 +269,13 @@ table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantit
 }
 
 /* Minicart */
+.wc-block-mini-cart__button {
+    @apply min-w-4 min-h-4 bg-no-repeat bg-center bg-[length:16px_16px];
+    background-image: url("../images/icons/mini-cart.svg");
+}
+.wc-block-mini-cart__button svg {
+    @apply hidden;
+}
 .wc-block-mini-cart__drawer .wc-block-mini-cart__title {
     @apply text-lg;
 }
