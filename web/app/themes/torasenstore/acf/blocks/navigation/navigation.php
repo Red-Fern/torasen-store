@@ -33,7 +33,7 @@
                         <?php if ($menu_item['columns']): ?>
                             <template x-teleport="body">
                                 <div
-                                    class="fixed inset-0 w-full h-full bg-[rgba(95,95,95,.35)]"
+                                    class="fixed inset-0 w-full h-full bg-[rgba(95,95,95,.35)] z-[5]"
                                     x-on:click="showing = !showing"
                                     x-show="showing"
                                     x-cloak
