@@ -33,7 +33,7 @@
                         <?php if ($menu_item['columns']): ?>
                             <template x-teleport="body">
                                 <div
-                                    class="fixed inset-0 w-full h-full bg-[rgba(95,95,95,.35)]"
+                                    class="fixed inset-0 w-full h-full bg-[rgba(95,95,95,.35)] z-[5]"
                                     x-on:click="showing = !showing"
                                     x-show="showing"
                                     x-cloak
@@ -45,7 +45,7 @@
                                 class="w-full bg-light-grey text-md overflow-x-clip z-10 transition duration-500 | lg:absolute lg:top-full lg:left-0 lg:py-lg lg:bg-lightest-grey lg:shadow-lg"
                                 x-cloak
                                 x-show="showing"
-                                @click.away="showing = false"
+                                x-on:click.away="showing = false"
                             >
                                 <div class="container | max-lg:p-0">
                                     <div class="lg:flex lg:gap-[10%]">
@@ -159,19 +159,19 @@
 
     <!-- Mobile menu toggle -->
     <button 
-        class="py-5 bg-transparent z-20 | lg:hidden" 
+        class="shrink-0 flex items-center justify-center -mr-4 w-12 h-12 bg-transparent z-20 | lg:hidden" 
         <?php if (!is_admin()) : ?>
             x-on:click="toggle"
         <?php endif; ?>
     >
         <!-- Mobile menu open -->
-        <svg x-show="!menuOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M3 18H21V16H3V18ZM3 13H21V11H3V13ZM3 6V8H21V6H3Z"></path>
+        <svg x-show="!menuOpen" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+            <path fill="currentColor" d="M.8 2h14v1H.8V2Zm0 5h14v1H.8V7Zm14 5v1H.8v-1h14Z"/>
         </svg>
 
         <!-- Mobile menu close -->
-        <svg x-cloak x-show="menuOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+        <svg x-cloak x-show="menuOpen" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+            <path fill="currentColor" d="m8.047 7.294-4.14-4.14-.707.705L7.34 8 3.2 12.14l.706.707 4.141-4.14 4.14 4.14.707-.706L8.754 8l4.14-4.14-.706-.707-4.14 4.14Z"/>
         </svg>
     </button>
 </div>

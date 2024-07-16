@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "torasen/search-form",
+	"version": "0.1.0",
+	"title": "Search Button",
+	"category": "widgets",
+	"icon": "search",
+	"description": "Inseart search button and form.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "search-form",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}
