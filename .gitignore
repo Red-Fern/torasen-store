@@ -42,6 +42,7 @@ wp-cli.local.yml
 !web/app/plugins/woocommerce-shipment-tracking
 !web/app/plugins/gravityforms
 !web/app/plugins/gravityformsmailchimp
+!web/app/plugins/role-based-pricing-for-woocommerce
 
 # Themes
 /wp-content/themes/twenty*/

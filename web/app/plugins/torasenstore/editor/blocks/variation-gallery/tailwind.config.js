@@ -2,8 +2,6 @@
 import path from 'path';
 const contentPath = path.resolve(__dirname, './components/**/*.js');
 
-console.log(contentPath);
-
 module.exports = {
 	content: [
 		contentPath
