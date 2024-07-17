@@ -6,7 +6,7 @@
 	"title": "Search Button",
 	"category": "widgets",
 	"icon": "search",
-	"description": "Inseart search button and form.",
+	"description": "Insert search button and form.",
 	"example": {},
 	"supports": {
 		"html": false
