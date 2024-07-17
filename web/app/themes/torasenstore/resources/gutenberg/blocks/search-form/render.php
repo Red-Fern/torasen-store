@@ -23,9 +23,10 @@
         </button>
 
         <div
-            x-on:click="hide"
-            x-show="showing"
             class="absolute top-full left-0 w-full h-[calc(100vh-100%)] bg-[rgba(95,95,95,.35)] z-[9999] overflow-auto"
+            x-show="showing"
+            x-cloak
+            x-on:click="hide"
             x-on:click.away="showing = false"
         >
             <div
@@ -35,8 +36,8 @@
             >
                 <div class="container text-center">
                     <form role="search" method="get" class="woocommerce-product-search inline-flex justify-center border border-black rounded-[3px] overflow-hidden" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-                        <label class="screen-reader-text" for="woocommerce-product-search-field-<?php echo isset( $index ) ? absint( $index ) : 0; ?>"><?php esc_html_e( 'Search for:', 'woocommerce' ); ?></label>
-                        <input type="search" id="woocommerce-product-search-field-<?php echo isset( $index ) ? absint( $index ) : 0; ?>" class="search-field p-3" placeholder="<?php echo esc_attr__( 'Search products&hellip;', 'woocommerce' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
+                        <label class="screen-reader-text" for="woocommerce-product-search-field"><?php esc_html_e( 'Search for:', 'woocommerce' ); ?></label>
+                        <input type="search" id="woocommerce-product-search-field" class="search-field p-3" placeholder="<?php echo esc_attr__( 'Search products&hellip;', 'woocommerce' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
                         <button type="submit" value="<?php echo esc_attr_x( 'Search', 'submit button', 'woocommerce' ); ?>" class="<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ); ?>"><?php echo esc_html_x( 'Search', 'submit button', 'woocommerce' ); ?></button>
                         <input type="hidden" name="post_type" value="product" />
                     </form>
