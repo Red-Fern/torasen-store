@@ -14,6 +14,7 @@ class WooCommerce
         add_filter('the_content', [__CLASS__, 'changeLogInTitle']);
         add_action('woocommerce_after_customer_login_form', [__CLASS__, 'addLogInRegisterButton']);
         add_filter('woocommerce_my_account_my_orders_actions', [__CLASS__, 'orderAgainAction'], 10, 2);
+        add_filter('woocommerce_valid_order_statuses_for_order_again', [__CLASS__, 'orderAgainStatus']);
         add_filter('woocommerce_breadcrumb_defaults', [__CLASS__, 'changeBreadcrumbDelimiter']);
     }
 
@@ -69,14 +70,18 @@ class WooCommerce
 
     public static function orderAgainAction($actions, $order)
     {
-        if ($order->has_status('completed')) {
-            $actions['order-again'] = array(
-                'url' => wp_nonce_url(add_query_arg( 'order_again', $order->get_id(), wc_get_cart_url() ), 'woocommerce-order_again'),
-                'name' => __( 'Order again', 'woocommerce' ),
-            );
-        }
+        $actions['order-again'] = array(
+            'url' => wp_nonce_url(add_query_arg( 'order_again', $order->get_id(), wc_get_cart_url() ), 'woocommerce-order_again'),
+            'name' => __( 'Order again', 'woocommerce' )
+        );
 
         return $actions;
+    }
+ 
+    public static function orderAgainStatus() 
+    {
+        // Array of order statuses where 'order again' button will show
+        return array('pending', 'processing', 'on-hold', 'completed', 'cancelled', 'refunded', 'failed');
     }
 
     public static function changeBreadcrumbDelimiter($defaults) 
