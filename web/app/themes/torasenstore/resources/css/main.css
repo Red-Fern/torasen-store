@@ -339,6 +339,12 @@ table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantit
 .is-large .wc-block-checkout__actions {
     @apply pb-0;
 }
+.order-again .button {
+    @apply inline-block;
+}
+table + .order-again {
+    @apply mt-sm;
+}
 
 /* Order Confirmation */
 .wc-block-order-confirmation-totals .wc-block-order-confirmation-totals__product a {
