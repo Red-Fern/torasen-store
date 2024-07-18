@@ -16,6 +16,8 @@ class WooCommerce
         add_filter('woocommerce_my_account_my_orders_actions', [__CLASS__, 'orderAgainAction'], 10, 2);
         add_filter('woocommerce_valid_order_statuses_for_order_again', [__CLASS__, 'orderAgainStatus']);
         add_filter('woocommerce_breadcrumb_defaults', [__CLASS__, 'changeBreadcrumbDelimiter']);
+        // Remove default order again button to be replaced with custom block
+        remove_action('woocommerce_order_details_after_order_table', 'woocommerce_order_again_button');
     }
 
     public static function registerImageSizes()

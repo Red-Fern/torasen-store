@@ -1,17 +1,17 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "torasen/search-form",
+	"name": "torasen/order-again-button",
 	"version": "0.1.0",
-	"title": "Search Button",
+	"title": "Order Again Button",
 	"category": "widgets",
-	"icon": "search",
-	"description": "Insert search button and form.",
+	"icon": "controls-repeat",
+	"description": "Add 'order again' button to order confirmation page.",
 	"example": {},
 	"supports": {
 		"html": false
 	},
-	"textdomain": "search-form",
+	"textdomain": "order-again-button",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
