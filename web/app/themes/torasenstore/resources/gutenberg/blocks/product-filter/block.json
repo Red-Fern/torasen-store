@@ -1,0 +1,26 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "torasen/product-filter",
+	"version": "0.1.0",
+	"title": "Product Filter",
+	"category": "widgets",
+	"icon": "admin-settings",
+	"description": "Insert product filter.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"filterId": {
+			"type": "string",
+			"default": "70"
+		}
+	},
+	"textdomain": "product-filter",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}
