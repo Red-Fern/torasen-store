@@ -1,0 +1,28 @@
+name: torasen-store
+recipe: wordpress
+config:
+  php: '8.2'
+  webroot: web
+  via: nginx
+  config:
+    php: .lando_config/php.ini
+  xdebug: false
+services:
+  appserver:
+    xdebug: 'profile,debug'
+    config:
+      php: .lando_config/php.ini
+    overrides:
+      volumes:
+        - ./.lando/php-fpm.conf:/usr/local/etc/php-fpm.d/www_overrides.conf
+      environment:
+        PHP_IDE_CONFIG: "serverName=lando"
+  mailhog:
+    type: mailhog
+    portforward: true
+  database:
+    type: mysql:8.0.20
+    creds:
+      user: wordpress
+      password: wordpress
+      database: wordpress
