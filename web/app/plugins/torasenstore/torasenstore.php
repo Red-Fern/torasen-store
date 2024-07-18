@@ -29,6 +29,10 @@ if (! class_exists('RedFern\\TorasenStore\\Plugin')) {
     wp_die('Please install the TorasenStore plugin dependencies');
 }
 
+if ( defined( 'WP_CLI' ) && WP_CLI ) {
+	include_once __DIR__ . '/src/Import.php';
+}
+
 /* Create plugin instance */
 function TorasenStore()
 {

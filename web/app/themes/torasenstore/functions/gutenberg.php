@@ -53,7 +53,7 @@ class Gutenberg
             // Retrieve the section after the forward slash from the $slug
             $blockName = substr($block, strpos($block, '/') + 1);
 
-            register_block_type($path . $blockName);
+            register_block_type($block);
         }
     }
 
