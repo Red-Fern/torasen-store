@@ -17,7 +17,8 @@ class Gutenberg
         'torasen/related-products',
         'torasen/product-families',
         'torasen/search-form',
-        'torasen/order-again-button'
+        'torasen/order-again-button',
+        'torasen/product-filter'
     ];
 
     public static function init()
