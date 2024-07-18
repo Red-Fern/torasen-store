@@ -6,7 +6,7 @@
 	"title": "Order Again Button",
 	"category": "widgets",
 	"icon": "controls-repeat",
-	"description": "Insert 'order again' button.",
+	"description": "Add 'order again' button to order confirmation page.",
 	"example": {},
 	"supports": {
 		"html": false

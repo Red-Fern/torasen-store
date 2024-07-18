@@ -12,7 +12,6 @@
 
 $is_order_received_page = is_order_received_page();
 $order_template_data = null;
-$error_message = null;
 
 if ($is_order_received_page) {
     global $wp;
@@ -27,20 +26,13 @@ if ($is_order_received_page) {
                 'wp_button_class' => wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : '',
                 'order_again_url' => wp_nonce_url(add_query_arg('order_again', $order->get_id(), wc_get_cart_url()), 'woocommerce-order_again'),
             );
-        } else {
-            // Handle unauthorized access or order not found
-            $error_message = __('You are not authorized to view this order.', 'torasenstore');
         }
     }
 }
 ?>
 
-<div <?php echo get_block_wrapper_attributes(); ?>>
-    <?php if ($is_order_received_page): ?>
-        <?php if ($order_template_data): ?>
-            <?php wc_get_template('order/order-again.php', $order_template_data); ?>
-        <?php elseif ($error_message): ?>
-            <p><?php echo $error_message; ?></p>
-        <?php endif; ?>
-    <?php endif; ?>
-</div>
+<?php if ($is_order_received_page && $order_template_data): ?>
+    <div <?php echo get_block_wrapper_attributes(); ?>>
+        <?php wc_get_template('order/order-again.php', $order_template_data); ?>
+    </div>
+<?php endif; ?>
