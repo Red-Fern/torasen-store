@@ -32,7 +32,12 @@ if (!function_exists('getRangeProducts')) {
     }
 }
 
-$productId = $block->context['postId'];
+$productId = isset($block->context['postId']) ? $block->context['postId'] : 0;
+
+if (empty($productId)) {
+    return;
+}
+
 /** @var WC_Product $product */
 $product = wc_get_product($productId);
 $rangeProducts = getRangeProducts($productId);
