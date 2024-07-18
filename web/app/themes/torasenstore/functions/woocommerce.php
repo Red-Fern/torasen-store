@@ -16,8 +16,7 @@ class WooCommerce
         add_filter('woocommerce_my_account_my_orders_actions', [__CLASS__, 'orderAgainAction'], 10, 2);
         add_filter('woocommerce_valid_order_statuses_for_order_again', [__CLASS__, 'orderAgainStatus']);
         add_filter('woocommerce_breadcrumb_defaults', [__CLASS__, 'changeBreadcrumbDelimiter']);
-        // Remove default order again button to be replaced with custom block
-        remove_action('woocommerce_order_details_after_order_table', 'woocommerce_order_again_button');
+        add_action('wp', [__CLASS__, 'removeDefaultOrderAgain']);
     }
 
     public static function registerImageSizes()
@@ -70,8 +69,17 @@ class WooCommerce
         <?php
     }
 
+    public static function removeDefaultOrderAgain() 
+    {
+        if (is_order_received_page()) 
+        {
+            remove_action('woocommerce_order_details_after_order_table', 'woocommerce_order_again_button');
+        }
+    }
+
     public static function orderAgainAction($actions, $order)
     {
+        // Add 'order again' button to orders table
         $actions['order-again'] = array(
             'url' => wp_nonce_url(add_query_arg( 'order_again', $order->get_id(), wc_get_cart_url() ), 'woocommerce-order_again'),
             'name' => __( 'Order again', 'woocommerce' )
