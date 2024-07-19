@@ -53,9 +53,13 @@ $rangeProducts = getRangeProducts($productId);
     data-wp-watch="callbacks.logIsOpen"
 >
     <div class="flex flex-col">
-        <div class="wc-block-components-product-image border border-b-0 border-transparent <?php echo !empty($rangeProducts) ? 'group-hover:border-dark-grey' : ''; ?>">
+        <div class="wc-block-components-product-image relative border border-b-0 border-transparent <?php echo !empty($rangeProducts) ? 'group-hover:border-dark-grey' : ''; ?>">
             <a href="<?php echo $product->get_permalink(); ?>">
                 <?php echo $product->get_image(); ?>
+
+                <?php if (has_term('shipped-next-day', 'product_cat', $product->get_id())): ?>
+                    <span class="absolute top-xs right-xs px-3 py-1 bg-white font-mono text-xs uppercase tracking-wider | xl:top-md xl:right-md xl:px-5">Next day delivery</span>
+                <?php endif; ?>
             </a>
         </div>
 
