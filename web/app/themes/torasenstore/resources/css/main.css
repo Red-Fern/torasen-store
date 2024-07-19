@@ -466,6 +466,36 @@ form.searchandfilter li[data-sf-field-input-type=radio] input:checked + label {
 form.searchandfilter li[data-sf-field-input-type=radio] label .sf-count {
     @apply flex-none ml-auto pl-2.5 font-mono;
 }
+form.searchandfilter .sf-meta-range-slider {
+    @apply flex flex-wrap;
+}
+form.searchandfilter .sf-meta-range-slider > label {
+    @apply max-w-[85px];
+}
+form.searchandfilter .sf-meta-range-slider .sf-input-range-number {
+    @apply p-3 w-full max-w-full border border-black rounded-[3px] text-center text-sm leading-none;
+}
+form.searchandfilter .sf-meta-range-slider .sf-range-values-seperator {
+    @apply grow self-center px-xs text-center leading-none;
+}
+form.searchandfilter .sf-meta-range-slider .meta-slider {
+    @apply order-first mt-0 mb-xs mr-px w-full max-w-full h-[2px] border-none rounded-none;
+}
+form.searchandfilter .sf-meta-range-slider .noUi-connect {
+    @apply bg-dark-grey;
+}
+form.searchandfilter .sf-meta-range-slider .noUi-handle {
+    @apply w-[12px] h-[12px] border border-black rounded-[2px] before:hidden;
+}
+form.searchandfilter .sf-meta-range-slider .noUi-handle::after {
+    @apply top-px left-px w-[8px] h-[8px] rounded-[2px] bg-black;
+}
+form.searchandfilter .sf-meta-range-slider .noUi-handle.noUi-handle-lower {
+    @apply -right-[12px];
+}
+form.searchandfilter .sf-meta-range-slider .noUi-handle.noUi-handle-upper {
+    @apply right-0;
+}
 
 /******** Gravity Forms ********/
 .gform_wrapper.gravity-theme {
