@@ -69,7 +69,7 @@ if (!empty($relatedIDs))
                 <?php foreach($products as $product): ?>
                     <div class="swiper-slide">
                         <div class="wc-block-components-product-image">
-                            <a href="<?php echo $product->get_permalink(); ?>">
+                            <a class="has-lightest-grey-background-color" href="<?php echo $product->get_permalink(); ?>">
                                 <?php echo $product->get_image(); ?>
                             </a>
                         </div>
