@@ -85,11 +85,11 @@ $rangeProducts = getRangeProducts($productId);
                     </div>
 
                     <div class="p-4">
-                        <a href="#"><!-- Product link here -->
-                            <div class="mb-1 font-medium">[ Product name ]</div>
+                        <a href="<?php echo $product->get_permalink(); ?>" class="border border-t-0 border-transparent">
+                            <div class="mb-1 font-medium"><?php echo $product->get_name(); ?></div>
 
                             <div class="text-sm">
-                                [ Product price ]
+                                <?php echo $product->get_price_html(); ?>
                             </div>
                         </a>
                     </div>
