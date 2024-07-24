@@ -1,14 +1,9 @@
 import { ATTRIBUTE_STORE_NAME, EXTRA_STORE_NAME } from "../../../stores/constants";
-import { useEffect } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 
 export default function ProductInformation({ productId }) {
 	const variation = useSelect((select) => {
 		return select(ATTRIBUTE_STORE_NAME).getVariation();
-	}, [productId]);
-
-	const extraPrices = useSelect((select) => {
-		return select(EXTRA_STORE_NAME).getSelectedPrices();
 	}, [productId]);
 
 	return (

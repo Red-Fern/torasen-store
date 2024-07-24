@@ -21,6 +21,8 @@ class Plugin
     {
         add_action('wp_enqueue_scripts', [$this, 'enqueueScripts']);
         add_filter('woocommerce_available_variation', [$this, 'addVariationGalleryImages'], 10, 3);
+        add_filter('woocommerce_show_variation_price', '__return_true');
+        add_filter('woocommerce_get_price_html', [$this, 'hidePricesForUnauthenticated'], 999, 2);
 
         Blocks::init();
         Taxonomies::init();
@@ -36,9 +38,17 @@ class Plugin
     {
         $galleryImageIds = $variation->get_gallery_image_ids();
         $attributes['galleryImages'] = array_map('wp_prepare_attachment_for_js', $galleryImageIds);
-        $attributes['price_html'] = $variation->get_price_html();
 
         return $attributes;
+    }
+
+    public static function hidePricesForUnauthenticated($price, $product)
+    {
+        if (!is_user_logged_in()) {
+            return '';
+        }
+
+        return $price;
     }
 
     public function enqueueScripts()
