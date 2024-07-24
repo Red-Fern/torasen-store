@@ -6,16 +6,6 @@ export default function ProductInformation({ productId }) {
 		return select(ATTRIBUTE_STORE_NAME).getVariation();
 	}, [productId]);
 
-	const extraPrices = useSelect((select) => {
-		return select(EXTRA_STORE_NAME).getSelectedPrices();
-	}, [productId]);
-
-	const price = variation ? variation.display_price + extraPrices : 0;
-	const priceFormatter = new Intl.NumberFormat('en-US', {
-		style: 'currency',
-		currency: 'GBP',
-	});
-
 	return (
 		<div className="text-xl font-bold flex justify-between">
 			<div className="flex gap-2">
@@ -23,7 +13,7 @@ export default function ProductInformation({ productId }) {
 				<div>{variation.sku}</div>
 			</div>
 			<div>
-				<span>{priceFormatter.format(price)}</span>
+				<span dangerouslySetInnerHTML={{ __html: variation.price_html }}></span>
 			</div>
 		</div>
 	)

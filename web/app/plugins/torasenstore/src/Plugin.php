@@ -21,10 +21,13 @@ class Plugin
     {
         add_action('wp_enqueue_scripts', [$this, 'enqueueScripts']);
         add_filter('woocommerce_available_variation', [$this, 'addVariationGalleryImages'], 10, 3);
+        add_filter('woocommerce_show_variation_price', '__return_true');
+        add_filter('woocommerce_get_price_html', [$this, 'hidePricesForUnauthenticated'], 999, 2);
 
         Blocks::init();
         Taxonomies::init();
         Api::init();
+        Ajax::init();
 
         if (is_admin()) {
             Admin::init();
@@ -39,6 +42,15 @@ class Plugin
         return $attributes;
     }
 
+    public static function hidePricesForUnauthenticated($price, $product)
+    {
+        if (!is_user_logged_in()) {
+            return '';
+        }
+
+        return $price;
+    }
+
     public function enqueueScripts()
     {
         $indexAssets = $this->pluginPath(). 'build/index.asset.php';
@@ -51,6 +63,11 @@ class Plugin
                 $assets['version'],
                 false
             );
+
+            wp_localize_script('torasenstore-index', 'torasenstore', [
+                'ajaxUrl' => admin_url('admin-ajax.php'),
+                'nonce' => wp_create_nonce('torasenstore-nonce')
+            ]);
         }
     }
 
