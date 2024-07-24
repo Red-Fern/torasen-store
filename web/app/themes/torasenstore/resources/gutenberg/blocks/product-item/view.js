@@ -5,16 +5,25 @@ import { store, getContext } from "@wordpress/interactivity";
 
 store( 'product-item', {
 	actions: {
-		toggle: () => {
+		changeImage: (e) => {
 			const context = getContext();
-			context.isOpen = ! context.isOpen;
+
+			const src = e.srcElement.getAttribute('src');
+			const srcSet = e.srcElement.getAttribute('srcset');
+
+			context.imageUrl = src;
+			context.srcSet = srcSet;
 		},
+		revertImage: (e) => {
+			const context = getContext();
+			context.imageUrl = context.originalImageUrl;
+			context.srcSet = context.originalSrcSet;
+		}
 	},
 	callbacks: {
-		logIsOpen: () => {
-			const { isOpen } = getContext();
-			// Log the value of `isOpen` each time it changes.
-			console.log( `Is open: ${ isOpen }` );
+		cacheImage: () => {
+			const { imageUrl, srcSet } = getContext();
+
 		},
 	},
 } );
