@@ -25,6 +25,7 @@ class Plugin
         Blocks::init();
         Taxonomies::init();
         Api::init();
+        Ajax::init();
 
         if (is_admin()) {
             Admin::init();
@@ -35,6 +36,7 @@ class Plugin
     {
         $galleryImageIds = $variation->get_gallery_image_ids();
         $attributes['galleryImages'] = array_map('wp_prepare_attachment_for_js', $galleryImageIds);
+        $attributes['price_html'] = $variation->get_price_html();
 
         return $attributes;
     }
@@ -51,6 +53,11 @@ class Plugin
                 $assets['version'],
                 false
             );
+
+            wp_localize_script('torasenstore-index', 'torasenstore', [
+                'ajaxUrl' => admin_url('admin-ajax.php'),
+                'nonce' => wp_create_nonce('torasenstore-nonce')
+            ]);
         }
     }
 

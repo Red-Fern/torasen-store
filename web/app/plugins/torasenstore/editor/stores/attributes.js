@@ -105,9 +105,9 @@ const selectors = {
 
 const controls = {
 	FETCH_ATTRIBUTES: async ({ productId }) => {
-		const response = await fetch(`/wp-json/torasen/v1/attributes/${productId}`);
-		return await response.json();
-	},
+        const response = await fetch(`${torasenstore.ajaxUrl}?action=torasenstore_get_attributes&product_id=${productId}`);
+        return await response.json();
+},
 	FETCH_VARIATION: async () => {
 		const attributes = await select(ATTRIBUTE_STORE_NAME).getSelectedAttributes();
 		const productId = await select(ATTRIBUTE_STORE_NAME).getProductId();
