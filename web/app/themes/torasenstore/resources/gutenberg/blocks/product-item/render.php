@@ -42,6 +42,9 @@ if (empty($productId)) {
 $product = wc_get_product($productId);
 $rangeProducts = getRangeProducts($productId);
 
+$product->get_image();
+$imageUrl = wp_get_attachment_image_url( $product->get_image_id(), 'woocommerce_thumbnail', false);
+$srcSet = wp_get_attachment_image_srcset( $product->get_image_id(), 'woocommerce_thumbnail', false);
 ?>
 
 <div
@@ -49,13 +52,24 @@ $rangeProducts = getRangeProducts($productId);
         'class' => 'relative group',
     ]); ?>
     data-wp-interactive="product-item"
-    <?php echo wp_interactivity_data_wp_context(array( 'isOpen' => false )); ?>
-    data-wp-watch="callbacks.logIsOpen"
+    <?php echo wp_interactivity_data_wp_context([
+        'imageUrl' => $imageUrl,
+        'originalImageUrl' => $imageUrl,
+        'srcSet' => $srcSet,
+        'originalSrcSet' => $srcSet,
+    ]); ?>
+    data-wp-init="callbacks.cacheImage"
 >
     <div class="flex flex-col">
         <div class="wc-block-components-product-image relative border border-b-0 border-transparent <?php echo !empty($rangeProducts) ? 'group-hover:border-dark-grey' : ''; ?>">
             <a href="<?php echo $product->get_permalink(); ?>">
-                <?php echo $product->get_image(); ?>
+                <img
+                    data-wp-bind--src="context.imageUrl"
+                    data-wp-bind--srcset="context.srcSet"
+                    alt=""
+                    decoding="async"
+                    loading="lazy"
+                />
 
                 <?php if (has_term('shipped-next-day', 'product_cat', $product->get_id())): ?>
                     <span class="absolute top-xs right-xs px-3 py-1 bg-white font-mono text-xs uppercase tracking-wider | xl:top-md xl:right-md xl:px-5">Next day delivery</span>
@@ -78,18 +92,21 @@ $rangeProducts = getRangeProducts($productId);
                         <swiper-container slides-per-view="4" loop="true">
                             <?php foreach ($rangeProducts as $product) : ?>
                                 <swiper-slide>
-                                    <?php echo $product->get_image(); ?>
+                                    <?php echo $product->get_image('woocommerce_thumbnail', [
+                                        'data-wp-on--mouseover' => 'actions.changeImage',
+                                        'data-wp-on--mouseout' => 'actions.revertImage',
+                                    ]); ?>
                                 </swiper-slide>
                             <?php endforeach; ?>
                         </swiper-container>
                     </div>
 
                     <div class="p-4">
-                        <a href="#"><!-- Product link here -->
-                            <div class="mb-1 font-medium">[ Product name ]</div>
+                        <a href="<?php echo $product->get_permalink(); ?>" class="border border-t-0 border-transparent">
+                            <div class="mb-1 font-medium"><?php echo $product->get_name(); ?></div>
 
                             <div class="text-sm">
-                                [ Product price ]
+                                <?php echo $product->get_price_html(); ?>
                             </div>
                         </a>
                     </div>

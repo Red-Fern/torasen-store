@@ -81,7 +81,7 @@ export default function Slideshow({ videoUrl }) {
 				{imageCount > 3 && (
 					<div className="flex divide-x divide-[#D0D0CD]">
 						<button type="button"
-								className="bg-white grid place-items-center p-3 hover:bg-[#D0D0CD] shadow"
+								className="bg-white grid place-items-center p-3 hover:bg-[#D0D0CD] shadow "
 								onClick={prevSlide}
 						>
 							<svg className="w-4 h-4 text-[#1D1D1B]" viewBox="0 0 16 16" fill="currentColor"
@@ -109,16 +109,16 @@ export default function Slideshow({ videoUrl }) {
 			>
 				{variation?.galleryImages?.map((mediaItem) => (
 					<swiper-slide
-						class="!h-auto [&:not(:first-child)]:border-l border-[#D0D0CD] p-6"
+						class="!h-auto [&:not(:first-child)]:border-l border-[#D0D0CD] has-lightest-grey-background-color"
 						key={mediaItem.id}
 					>
-						<img src={mediaItem.url} alt={mediaItem.alt} key={mediaItem.id}/>
+						<img class="mix-blend-multiply" src={mediaItem.url} alt={mediaItem.alt} key={mediaItem.id}/>
 					</swiper-slide>
 				))}
 
 				{videoUrl && (
 					<swiper-slide
-						class="!h-auto [&:not(:first-child)]:border-l border-[#D0D0CD] p-6"
+						class="!h-auto [&:not(:first-child)]:border-l border-[#D0D0CD] has-lightest-grey-background-color"
 						key={videoUrl}
 						ref={ref}
 					>

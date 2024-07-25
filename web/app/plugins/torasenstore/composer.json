@@ -13,5 +13,7 @@
             "email": "elizabeth@red-fern.co.uk"
         }
     ],
-    "require": {}
+    "require": {
+        "league/csv": "^9.0"
+    }
 }
