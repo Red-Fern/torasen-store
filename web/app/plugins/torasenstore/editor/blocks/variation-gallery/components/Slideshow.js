@@ -67,16 +67,18 @@ export default function Slideshow({ videoUrl }) {
 	return (
 		<div className="relative">
 			<div className="absolute z-20 top-0 right-0 px-8 py-8 flex items-center gap-4">
-				<button
-					type="button"
-					className="flex gap-2 items-center bg-white p-3 hover:bg-[#D0D0CD] shadow"
-					onClick={goToVideo}
-				>
-					<span className="text-xs">Video</span>
-					<svg className="w-4 h-4 text-[#1D1D1B]" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-						<path d="M2.60156 14.4156L1.60156 15V13.8438V2.15625V1L2.60156 1.58438L12.6078 7.42188L13.6016 8L12.6078 8.57812L2.60156 14.4156ZM11.6172 8L2.60156 2.74062V13.2594L11.6172 8Z"/>
-					</svg>
-				</button>
+				{videoUrl && (
+					<button
+						type="button"
+						className="flex gap-2 items-center bg-white p-3 hover:bg-[#D0D0CD] shadow"
+						onClick={goToVideo}
+					>
+						<span className="text-sm">Video</span>
+						<svg className="w-4 h-4 text-[#1D1D1B]" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+							<path d="M2.60156 14.4156L1.60156 15V13.8438V2.15625V1L2.60156 1.58438L12.6078 7.42188L13.6016 8L12.6078 8.57812L2.60156 14.4156ZM11.6172 8L2.60156 2.74062V13.2594L11.6172 8Z"/>
+						</svg>
+					</button>
+				)}
 
 				{imageCount > 3 && (
 					<div className="flex divide-x divide-[#D0D0CD]">
