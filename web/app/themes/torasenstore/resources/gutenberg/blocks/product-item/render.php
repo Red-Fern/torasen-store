@@ -61,7 +61,7 @@ $srcSet = wp_get_attachment_image_srcset( $product->get_image_id(), 'woocommerce
     data-wp-init="callbacks.cacheImage"
 >
     <div class="flex flex-col">
-        <div class="wc-block-components-product-image relative border border-b-0 border-transparent <?php echo !empty($rangeProducts) ? 'group-hover:border-dark-grey' : ''; ?>">
+        <div class="wc-block-components-product-image relative border border-b-0 border-transparent has-lightest-grey-background-color <?php echo !empty($rangeProducts) ? 'group-hover:border-dark-grey' : ''; ?>">
             <a href="<?php echo $product->get_permalink(); ?>">
                 <img
                     data-wp-bind--src="context.imageUrl"
@@ -69,6 +69,7 @@ $srcSet = wp_get_attachment_image_srcset( $product->get_image_id(), 'woocommerce
                     alt=""
                     decoding="async"
                     loading="lazy"
+                    class="mix-blend-multiply"
                 />
 
                 <?php if (has_term('shipped-next-day', 'product_cat', $product->get_id())): ?>
@@ -87,15 +88,17 @@ $srcSet = wp_get_attachment_image_srcset( $product->get_image_id(), 'woocommerce
             </a>
 
             <?php if (!empty($rangeProducts)) : ?>
-                <div class="hidden absolute top-0 left-0 w-full min-h-full border border-t-0 border-dark-grey bg-white z-10 overflow-hidden | group-hover:block">
+                <div class="hidden absolute top-0 left-0 w-full min-h-full border border-t-white border-dark-grey bg-white z-10 overflow-hidden | group-hover:block">
                     <div class="max-h-[100px] overflow-hidden">
-                        <swiper-container slides-per-view="4" loop="true">
+                        <swiper-container slides-per-view="4" loop="true" Mousewheel="true">
                             <?php foreach ($rangeProducts as $product) : ?>
-                                <swiper-slide>
-                                    <?php echo $product->get_image('woocommerce_thumbnail', [
-                                        'data-wp-on--mouseover' => 'actions.changeImage',
-                                        'data-wp-on--mouseout' => 'actions.revertImage',
-                                    ]); ?>
+                                <swiper-slide class="slide-product-thumbnial" >
+                                    <a href="<?php echo $product->get_permalink(); ?>" class="block has-lightest-grey-background-color">
+                                        <?php echo $product->get_image('woocommerce_thumbnail', [
+                                            'data-wp-on--mouseover' => 'actions.changeImage',
+                                            'data-wp-on--mouseout' => 'actions.revertImage',
+                                        ]); ?>
+                                    </a>
                                 </swiper-slide>
                             <?php endforeach; ?>
                         </swiper-container>
