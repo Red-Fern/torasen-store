@@ -49,7 +49,6 @@ if (empty($productId)) {
 $product = wc_get_product($productId);
 $rangeProducts = getRangeProducts($productId);
 
-$product->get_image();
 $imageUrl = wp_get_attachment_image_url( $product->get_image_id(), 'woocommerce_thumbnail', false);
 $srcSet = wp_get_attachment_image_srcset( $product->get_image_id(), 'woocommerce_thumbnail', false);
 ?>
@@ -98,6 +97,15 @@ $srcSet = wp_get_attachment_image_srcset( $product->get_image_id(), 'woocommerce
                 <div class="hidden absolute top-0 left-0 w-full min-h-full border border-t-white border-dark-grey bg-white z-10 overflow-hidden | group-hover:block">
                     <div class="max-h-[100px] overflow-hidden">
                         <swiper-container slides-per-view="4" loop="false" mousewheel-force-to-axis="true" free-mode="true">
+                            <swiper-slide class="slide-product-thumbnial" >
+                                <a href="<?php echo $product->get_permalink(); ?>" class="block has-lightest-grey-background-color">
+                                    <?php echo $product->get_image('woocommerce_thumbnail', [
+                                        'data-wp-on--mouseover' => 'actions.changeImage',
+                                        'data-wp-on--mouseout' => 'actions.revertImage',
+                                    ]); ?>
+                                </a>
+                            </swiper-slide>
+
                             <?php foreach ($rangeProducts as $product) : ?>
                                 <swiper-slide class="slide-product-thumbnial" >
                                     <a href="<?php echo $product->get_permalink(); ?>" class="block has-lightest-grey-background-color">

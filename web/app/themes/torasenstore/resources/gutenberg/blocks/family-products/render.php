@@ -13,12 +13,15 @@
 // Generate unique id for aria-controls.
 $unique_id = wp_unique_id( 'p-' );
 
+global $post;
+
 $family = \RFOrigin\Products::parseProductFamily($attributes['family']);
 if (!$family) {
     echo '<div>No Product Family available</div>';
     return;
 }
 
+$productCategories = wc_get_product_term_ids($post->ID, 'product_cat');
 $query = new WC_Product_Query([
     'posts_per_page' => -1,
     'post_status' => 'publish',
@@ -27,7 +30,13 @@ $query = new WC_Product_Query([
             'taxonomy' => 'productfamily',
             'field' => 'term_id',
             'terms' => $family->term_id
-        ]
+        ],
+        [
+            'taxonomy' => 'product_cat',
+            'field' => 'term_id',
+            'terms' => $productCategories,
+            'operator' => 'IN',
+        ],
     ]
 ]);
 $products = wc_products_array_orderby($query->get_products());
