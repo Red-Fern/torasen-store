@@ -106,10 +106,10 @@ $srcSet = wp_get_attachment_image_srcset( $product->get_image_id(), 'woocommerce
                                 </a>
                             </swiper-slide>
 
-                            <?php foreach ($rangeProducts as $product) : ?>
+                            <?php foreach ($rangeProducts as $rangeProduct) : ?>
                                 <swiper-slide class="slide-product-thumbnial" >
-                                    <a href="<?php echo $product->get_permalink(); ?>" class="block has-lightest-grey-background-color">
-                                        <?php echo $product->get_image('woocommerce_thumbnail', [
+                                    <a href="<?php echo $rangeProduct->get_permalink(); ?>" class="block has-lightest-grey-background-color">
+                                        <?php echo $rangeProduct->get_image('woocommerce_thumbnail', [
                                             'data-wp-on--mouseover' => 'actions.changeImage',
                                             'data-wp-on--mouseout' => 'actions.revertImage',
                                         ]); ?>
