@@ -97,7 +97,7 @@ $srcSet = wp_get_attachment_image_srcset( $product->get_image_id(), 'woocommerce
             <?php if (!empty($rangeProducts)) : ?>
                 <div class="hidden absolute top-0 left-0 w-full min-h-full border border-t-white border-dark-grey bg-white z-10 overflow-hidden | group-hover:block">
                     <div class="max-h-[100px] overflow-hidden">
-                        <swiper-container slides-per-view="4" loop="true" Mousewheel="true">
+                        <swiper-container slides-per-view="4" loop="false" mousewheel-force-to-axis="true" free-mode="true">
                             <?php foreach ($rangeProducts as $product) : ?>
                                 <swiper-slide class="slide-product-thumbnial" >
                                     <a href="<?php echo $product->get_permalink(); ?>" class="block has-lightest-grey-background-color">
