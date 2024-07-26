@@ -43,37 +43,73 @@
         >
             <div class="flex flex-wrap items-center gap-sm py-xs border-b border-mid-grey | lg:flex-nowrap">
                 <div class="w-full text-lg font-medium | lg:w-1/5">
-                    [ Category ]
+                    Chairs
                 </div>
 
                 <div class="w-full flex gap-sm overflow-x-scroll | lg:flex-wrap lg:w-4/5 lg:justify-end">
-                    <?php for ($i = 0; $i < 6; $i++): ?>
-                        <div class="shrink-0 w-[150px] h-[150px] bg-lightest-grey"></div>
-                    <?php endfor; ?>
+                   
+                        <div class="shrink-0 w-[150px] h-[150px] bg-lightest-grey">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/products/saturn.jpg'); ?>" alt="" class="wp-image-1526"/>
+                        </div>
+                        <div class="shrink-0 w-[150px] h-[150px] bg-lightest-grey">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/products/saturn-mesh.jpg'); ?>" alt="" class="wp-image-1526"/>
+                        </div>
+                        <div class="shrink-0 w-[150px] h-[150px] bg-lightest-grey">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/products/saturn-flex.jpg'); ?>" alt="" class="wp-image-1526"/>
+                        </div>
+                        <div class="shrink-0 w-[150px] h-[150px] bg-lightest-grey">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/products/eclipse.jpg'); ?>" alt="" class="wp-image-1526"/>
+                        </div>
+                        <div class="shrink-0 w-[150px] h-[150px] bg-lightest-grey">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/products/industrial.jpg'); ?>" alt="" class="wp-image-1526"/>
+                        </div>
+                        <div class="shrink-0 w-[150px] h-[150px] bg-lightest-grey">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/products/etcetera.jpg'); ?>" alt="" class="wp-image-1526"/>
+                        </div>
+                    
                 </div>
             </div>
 
             <div class="flex flex-wrap items-center gap-sm py-xs border-b border-mid-grey | lg:flex-nowrap">
                 <div class="w-full text-lg font-medium | lg:w-1/5">
-                    [ Category ]
+                    Desks
                 </div>
 
                 <div class="w-full flex gap-sm overflow-x-scroll | lg:flex-wrap lg:w-4/5 lg:justify-end">
-                    <?php for ($i = 0; $i < 5; $i++): ?>
-                        <div class="shrink-0 w-[150px] h-[150px] bg-lightest-grey"></div>
-                    <?php endfor; ?>
+                    
+                        <div class="shrink-0 w-[150px] h-[150px] bg-lightest-grey">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/products/apsen-standalone-compact.jpg'); ?>" alt="" class="wp-image-1526"/>
+                        </div>
+                        <div class="shrink-0 w-[150px] h-[150px] bg-lightest-grey">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/products/aspen-standalone.jpg'); ?>" alt="" class="wp-image-1526"/>
+                        </div>
+                        <div class="shrink-0 w-[150px] h-[150px] bg-lightest-grey">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/products/aspen-in-line.jpg'); ?>" alt="" class="wp-image-1526"/>
+                        </div>
+                        <div class="shrink-0 w-[150px] h-[150px] bg-lightest-grey">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/products/aspen-back-to-back.jpg'); ?>" alt="" class="wp-image-1526"/>
+                        </div>
+                        <div class="shrink-0 w-[150px] h-[150px] bg-lightest-grey">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/products/aspen-height-adjustable.jpg'); ?>" alt="" class="wp-image-1526"/>
+                        </div>
+                    
                 </div>
             </div>
 
             <div class="flex flex-wrap items-center gap-sm py-xs border-b border-mid-grey | lg:flex-nowrap">
                 <div class="w-full text-lg font-medium | lg:w-1/5">
-                    [ Category ]
+                    Storage
                 </div>
 
                 <div class="w-full flex gap-sm overflow-x-scroll | lg:flex-wrap lg:w-4/5 lg:justify-end">
-                    <?php for ($i = 0; $i <= 2; $i++): ?>
-                        <div class="shrink-0 w-[150px] h-[150px] bg-lightest-grey"></div>
-                    <?php endfor; ?>
+                    
+                        <div class="shrink-0 w-[150px] h-[150px] bg-lightest-grey">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/products/aspen-pedestal.jpg'); ?>" alt="" class="wp-image-1526"/>
+                        </div>
+                        <div class="shrink-0 w-[150px] h-[150px] bg-lightest-grey">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/products/aspen-storage.jpg'); ?>" alt="" class="wp-image-1526"/>
+                        </div>
+                    
                 </div>
             </div>
         </div>
@@ -85,35 +121,56 @@
         >
             <div class="flex flex-wrap items-center gap-sm py-xs border-b border-mid-grey | lg:flex-nowrap">
                 <div class="w-full text-lg font-medium | lg:w-1/5">
-                    [ Category ]
+                    Chairs
                 </div>
 
                 <div class="w-full flex gap-sm overflow-x-scroll | lg:flex-wrap lg:w-4/5 lg:justify-end">
-                    <?php for ($i = 0; $i < 4; $i++): ?>
-                        <div class="shrink-0 w-[150px] h-[150px] bg-lightest-grey"></div>
-                    <?php endfor; ?>
+                    
+                        <div class="shrink-0 w-[150px] h-[150px] bg-lightest-grey">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/products/home-saturn.jpg'); ?>" alt="" class="wp-image-1526"/>
+                        </div>
+                        <div class="shrink-0 w-[150px] h-[150px] bg-lightest-grey">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/products/home-saturn-mesh.jpg'); ?>" alt="" class="wp-image-1526"/>
+                        </div>
+                        <div class="shrink-0 w-[150px] h-[150px] bg-lightest-grey">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/products/home-pluto-mesh.jpg'); ?>" alt="" class="wp-image-1526"/>
+                        </div>
+                        <div class="shrink-0 w-[150px] h-[150px] bg-lightest-grey">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/products/home-orthopaedica.jpg'); ?>" alt="" class="wp-image-1526"/>
+                        </div>
+                    
                 </div>
             </div>
 
             <div class="flex flex-wrap items-center gap-sm py-xs border-b border-mid-grey | lg:flex-nowrap">
                 <div class="w-full text-lg font-medium | lg:w-1/5">
-                    [ Category ]
+                    Desks
                 </div>
 
                 <div class="w-full flex gap-sm overflow-x-scroll | lg:flex-wrap lg:w-4/5 lg:justify-end">
-                    <?php for ($i = 0; $i < 3; $i++): ?>
-                        <div class="shrink-0 w-[150px] h-[150px] bg-lightest-grey"></div>
-                    <?php endfor; ?>
+                    
+                        <div class="shrink-0 w-[150px] h-[150px] bg-lightest-grey">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/products/home-aspen-compact.jpg'); ?>" alt="" class="wp-image-1526"/>
+                        </div>
+                        <div class="shrink-0 w-[150px] h-[150px] bg-lightest-grey">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/products/home-cade.jpg'); ?>" alt="" class="wp-image-1526"/>
+                        </div>
+                        <div class="shrink-0 w-[150px] h-[150px] bg-lightest-grey">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/products/home-arise.jpg'); ?>" alt="" class="wp-image-1526"/>
+                        </div>
+                
                 </div>
             </div>
 
             <div class="flex flex-wrap items-center gap-sm py-xs border-b border-mid-grey | lg:flex-nowrap">
                 <div class="w-full text-lg font-medium | lg:w-1/5">
-                    [ Category ]
+                    Storage
                 </div>
 
                 <div class="w-full flex gap-sm overflow-x-scroll | lg:flex-wrap lg:w-4/5 lg:justify-end">
-                    <div class="shrink-0 w-[150px] h-[150px] bg-lightest-grey"></div>
+                    <div class="shrink-0 w-[150px] h-[150px] bg-lightest-grey">
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/products/home-pedestal.jpg'); ?>" alt="" class="wp-image-1526"/>
+                    </div>
                 </div>
             </div>
         </div>
