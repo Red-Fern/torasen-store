@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "27adcc5ad6109d69622d33975ea3d9c0",
+    "content-hash": "f394d735e3c3a3925845cbde929f4aa0",
     "packages": [
         {
             "name": "composer/installers",
@@ -1175,6 +1175,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/say-what/"
+        },
+        {
+            "name": "wpackagist-plugin/w3-total-cache",
+            "version": "2.7.4",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/w3-total-cache/",
+                "reference": "tags/2.7.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/w3-total-cache.2.7.4.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/w3-total-cache/"
         },
         {
             "name": "wpackagist-plugin/woo-variation-swatches",
