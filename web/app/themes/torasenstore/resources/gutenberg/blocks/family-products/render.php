@@ -42,7 +42,7 @@ $products = wc_products_array_orderby($query->get_products());
 >
     <div class="flex flex-col-reverse gap-2xl | md:flex-row md:justify-between md:gap-lg">
         <div class="md:w-1/3">
-            <h2 class="mb-0">
+            <h2 class="wp-block-heading mb-0">
                 <span class="hidden md:block" aria-hidden="true">The <?php echo $family->name; ?> family</span>
                 <span class="md:hidden">Part of the <?php echo $family->name; ?> family</span>
             </h2>
@@ -50,7 +50,7 @@ $products = wc_products_array_orderby($query->get_products());
 
         <?php if ($family->description): ?>
             <div class="md:w-2/3">
-                <div class="text-2xl font-medium | md:text-dark-grey"><?php echo $family->description; ?></div>
+                <h2 class="wp-block-heading md:text-dark-grey"><?php echo $family->description; ?></h2>
             </div>
         <?php endif; ?>
     </div>
@@ -82,11 +82,15 @@ $products = wc_products_array_orderby($query->get_products());
                 <?php foreach($products as $product): ?>
                     <div class="swiper-slide | max-md:!w-[172px]">
                         <div class="space-y-xs">
-                            <div class="aspect-[1/1] bg-light-grey">
-                                <?php echo wp_get_attachment_image(get_post_thumbnail_id($product->get_id()), 'medium', '', ['class' => 'w-full h-full object-cover']); ?>
-                            </div>
-
-                            <h3 class="text-base"><?php echo $product->get_title(); ?></h3>
+                            <a href="<?php echo $product->get_permalink(); ?>" class="aspect-[1/1] block has-lightest-grey-background-color">
+                                <?php echo wp_get_attachment_image(get_post_thumbnail_id($product->get_id()), 'medium', '', ['class' => 'w-full h-full object-contain mix-blend-multiply aspect-[1/1] ']); ?>
+                            </a>
+    
+                            <h3 class="text-base">
+                                <a href="<?php echo $product->get_permalink(); ?>">
+                                    <?php echo $product->get_title(); ?>
+                                </a>
+                            </h3>
 
                             <?php echo $product->get_price_html(); ?>
                         </div>
