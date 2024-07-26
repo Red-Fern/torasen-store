@@ -19,6 +19,8 @@ if (!function_exists('getRangeProducts')) {
         }
 
         $range = $productRanges[0];
+        $productCategories = wc_get_product_term_ids($productId, 'product_cat');  
+        
         return wc_get_products([
             'post__not_in' => [$productId],
             'tax_query' => [
@@ -26,12 +28,17 @@ if (!function_exists('getRangeProducts')) {
                     'taxonomy' => 'productrange',
                     'field' => 'term_id',
                     'terms' => $range->term_id
-                ]
+                ],
+                [
+                    'taxonomy' => 'product_cat',
+                    'field' => 'term_id',
+                    'terms' => $productCategories,
+                    'operator' => 'IN',
+                ],
             ]
         ]);
     }
 }
-
 $productId = isset($block->context['postId']) ? $block->context['postId'] : 0;
 
 if (empty($productId)) {
