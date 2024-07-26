@@ -250,6 +250,9 @@ footer.wp-block-template-part .aligncenter {
 .wp-block-torasen-related-products .wc-block-components-product-image img {
     @apply mix-blend-multiply;
 }
+.slide-product-thumbnial img {
+    @apply mix-blend-multiply;
+}
 
 /* Cart */
 .wc-block-components-product-name {
