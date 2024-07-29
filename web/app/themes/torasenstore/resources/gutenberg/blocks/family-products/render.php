@@ -73,7 +73,7 @@ $products = wc_products_array_orderby($query->get_products());
             },
             "slidesPerGroup": 1
         }'>
-            <div class="flex gap-2 mb-sm pr-root | md:hidden">
+            <div class="container flex gap-2 mb-sm | md:hidden">
                 <button class="swiper-button-prev p-0 w-11 h-11 rounded-full border border-black bg-transparent flex items-center justify-center" aria-label="Previous slide">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
                         <path d="M1.15391 7.83774L0.800781 8.19087L1.15391 8.54399L6.40391 13.794L6.75703 14.1471L7.46328 13.4409L7.11016 13.0877L2.71328 8.69087H14.257H14.757V7.69087H14.257H2.71328L7.11016 3.29399L7.46328 2.94087L6.75703 2.23462L6.40391 2.58774L1.15391 7.83774Z" fill="#1D1D1B"/>
