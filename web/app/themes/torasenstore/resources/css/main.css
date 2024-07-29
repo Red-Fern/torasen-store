@@ -254,6 +254,14 @@ footer.wp-block-template-part .aligncenter {
     @apply mix-blend-multiply;
 }
 
+/* Add to cart scroll prompt - product apge */
+.scroll-prompt {
+    @apply fixed bottom-6 right-6 p-6 z-20 bg-white 
+}
+.scroll-prompt .wp-block-post-featured-image {
+    @apply w-10;
+}
+
 /* Cart */
 .wc-block-components-product-name {
     @apply mb-1 text-base font-medium;
