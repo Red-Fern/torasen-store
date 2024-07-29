@@ -1,11 +1,11 @@
 import Swiper from 'swiper';
-import { Navigation, Autoplay } from 'swiper/modules';
+import { Navigation, Autoplay, FreeMode } from 'swiper/modules';
 import 'swiper/css';
 
 // Build swipers
 
 let defaults = {
-    modules: [Navigation, Autoplay],
+    modules: [Navigation, Autoplay, FreeMode],
     slidesPerView: 1,
     spaceBetween: 20,
     speed: 950

@@ -104,6 +104,8 @@ class Api
         }
 
         $range = $productRanges[0];
+        $productCategories = wc_get_product_term_ids($productId, 'product_cat');
+
         $items = wc_get_products([
             'post__not_in' => [$productId],
             'tax_query' => [
@@ -111,7 +113,13 @@ class Api
                     'taxonomy' => 'productrange',
                     'field' => 'term_id',
                     'terms' => $range->term_id
-                ]
+                ],
+                [
+                    'taxonomy' => 'product_cat',
+                    'field' => 'term_id',
+                    'terms' => $productCategories,
+                    'operator' => 'IN',
+                ],
             ]
         ]);
 

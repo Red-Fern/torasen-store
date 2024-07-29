@@ -6,7 +6,7 @@ export default function RangeSlider({ products }) {
 
 	const swiperParams = {
 		slidesPerView: 1.2,
-		spaceBetween: 30,
+		spaceBetween: 20,
 		breakpoints: {
 			640: {
 				slidesPerView: 3.5,
@@ -15,6 +15,10 @@ export default function RangeSlider({ products }) {
 				slidesPerView: 4.5,
 			},
 		},
+		freeMode: true,
+		mousewheel: {
+			forceToAxis: true,
+		}
 	};
 
 	useEffect(() => {

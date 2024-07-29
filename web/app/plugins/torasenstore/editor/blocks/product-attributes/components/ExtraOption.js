@@ -16,8 +16,8 @@ export default function ExtraOption({ fieldId, option }) {
 			className={`flex items-center border border-gray-300 ${isSelected ? 'bg-white' : 'bg-transparent'}`}
 			onClick={() => chooseOption()}
 		>
-			<span className="block py-3 px-4 border-r border-gray-300">{option.label}</span>
-			<span className="block py-3 px-4">+£{option.pricing_amount}</span>
+			<span className="block py-2 px-3 border-r border-gray-300">{option.label}</span>
+			<span className="block py-2 px-3">+£{option.pricing_amount}</span>
 		</button>
 	)
 }

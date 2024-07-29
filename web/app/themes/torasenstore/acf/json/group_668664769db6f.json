@@ -18,7 +18,8 @@
             },
             "choices": {
                 "Essentials": "Essentials",
-                "Essentials Vinyl 1+": "Essentials Vinyl 1+"
+                "Essentials Vinyl 1+": "Essentials Vinyl 1+",
+                "EHW": "EHW"
             },
             "default_value": false,
             "return_format": "value",
@@ -72,5 +73,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1720084841
+    "modified": 1722023006
 }
