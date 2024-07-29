@@ -110,10 +110,10 @@ export default function Slideshow({ videoUrl }) {
 			>
 				{variation?.galleryImages?.map((mediaItem) => (
 					<swiper-slide
-						class="!h-auto [&:not(:first-child)]:border-l border-[#D0D0CD] has-lightest-grey-background-color"
+						class="!h-auto [&:not(:first-child)]:border-l border-[#D0D0CD] has-lightest-grey-background-color overflow-hidden"
 						key={mediaItem.id}
 					>
-						<img class="mix-blend-multiply" src={mediaItem.url} alt={mediaItem.alt} key={mediaItem.id}/>
+						<img class="scale-125 mix-blend-multiply" src={mediaItem.url} alt={mediaItem.alt} key={mediaItem.id}/>
 					</swiper-slide>
 				))}
 
