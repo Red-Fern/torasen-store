@@ -3,6 +3,26 @@
     "title": "Gallery Carousel Block",
     "fields": [
         {
+            "key": "field_66a799e960b1f",
+            "label": "Title",
+            "name": "title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_667d1d0d19a2c",
             "label": "Slides",
             "name": "slides",
@@ -153,5 +173,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1719477221
+    "modified": 1722259952
 }
