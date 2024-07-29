@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         );
         const firstThreeDivs = directChildrenDivs.slice(0, 3);
         totalOffsetHeight = firstThreeDivs.reduce(
-            (total, div) => total + div.offsetHeight,
+            (total, div) => total + div.offsetHeight + 320,
             0
         );
     };
