@@ -21,11 +21,11 @@ export default function AttributeOption({ attribute, option }) {
 			onClick={() => chooseOption()}
 		>
 			{option.swatch && (
-				<span className="h-full block py-3 px-4 border-r border-gray-300 grid place-items-center">
-					<img className="w-4 h-4 object-cover" src={option.swatch} alt={option.name}/>
+				<span className="h-full block py-3 px-3 border-r border-gray-300 grid place-items-center">
+					<img className="w-3 h-3 object-cover" src={option.swatch} alt={option.name}/>
 				</span>
 			)}
-			<span className="block py-3 px-4">{option.name}</span>
+			<span className="block py-2 px-3">{option.name}</span>
 		</button>
 	)
 }
