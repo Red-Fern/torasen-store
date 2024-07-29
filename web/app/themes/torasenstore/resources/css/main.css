@@ -7,12 +7,13 @@
         @apply scroll-smooth;
     }
     p:first-child {
-		@apply mt-0;
-	}
-	p:last-child {
-		@apply mb-0;
-	}
-    b, strong {
+        @apply mt-0;
+    }
+    p:last-child {
+        @apply mb-0;
+    }
+    b,
+    strong {
         @apply font-medium;
     }
 }
@@ -38,7 +39,16 @@
 /* Match tailwind and WordPress containers */
 .container {
     @apply mx-auto px-root;
-    max-width: calc(var(--wp--style--global--content-size) + var(--wp--style--root--padding-left) + var(--wp--style--root--padding-right));
+    max-width: calc(
+        var(--wp--style--global--content-size) +
+            var(--wp--style--root--padding-left) +
+            var(--wp--style--root--padding-right)
+    );
+}
+/* Size containers within right bleed elements by nullifying the left padding */
+.right-bleed .container {
+    @apply mx-0 pl-0;
+    max-width: calc(var(--wp--style--global--content-size) + var(--wp--style--root--padding-right));
 }
 
 /******** Blocks *********/
@@ -107,7 +117,8 @@ header.wp-block-template-part > .wp-block-group {
 footer.wp-block-template-part {
     @apply my-0;
 }
-footer.wp-block-template-part :is(.has-text-align-center, .has-text-align-right) {
+footer.wp-block-template-part
+    :is(.has-text-align-center, .has-text-align-right) {
     @apply max-md:text-left;
 }
 footer.wp-block-template-part .is-content-justification-right {
@@ -146,7 +157,7 @@ footer.wp-block-template-part .aligncenter {
 .woocommerce form .form-row {
     @apply mb-xs;
 }
-.woocommerce form .form-row-first, 
+.woocommerce form .form-row-first,
 .woocommerce form .form-row-last {
     @apply w-full lg:w-[calc(50%-(var(--wp--preset--spacing--sm)*0.5))];
 }
@@ -164,10 +175,10 @@ footer.wp-block-template-part .aligncenter {
 }
 .woocommerce input::-webkit-outer-spin-button,
 .woocommerce input::-webkit-inner-spin-button {
-  @apply appearance-none m-0;
+    @apply appearance-none m-0;
 }
-.woocommerce input[type=number] {
-  @apply [appearance:textfield];
+.woocommerce input[type="number"] {
+    @apply [appearance:textfield];
 }
 
 /* Archive */
@@ -181,7 +192,9 @@ footer.wp-block-template-part .aligncenter {
     @apply w-full h-full object-contain;
 }
 .wp-block-woocommerce-product-collection .wc-block-product-template,
-.wp-block-woocommerce-related-products .wp-block-query .products-block-post-template.wp-block-post-template-is-layout-grid {
+.wp-block-woocommerce-related-products
+    .wp-block-query
+    .products-block-post-template.wp-block-post-template-is-layout-grid {
     @apply gap-y-sm max-lg:grid-cols-2;
 }
 .wp-block-query-pagination {
@@ -193,10 +206,12 @@ footer.wp-block-template-part .aligncenter {
 .wp-block-query-pagination .wp-block-query-pagination-numbers .page-numbers {
     @apply text-dark-grey font-mono leading-none;
 }
-.wp-block-query-pagination .wp-block-query-pagination-numbers .page-numbers.current {
+.wp-block-query-pagination
+    .wp-block-query-pagination-numbers
+    .page-numbers.current {
     @apply text-black;
 }
-.wp-block-query-pagination .wp-block-query-pagination-next, 
+.wp-block-query-pagination .wp-block-query-pagination-next,
 .wp-block-query-pagination .wp-block-query-pagination-previous {
     @apply m-0 w-8 h-8 bg-no-repeat bg-[length:16px_16px] bg-center text-[0];
 }
@@ -235,16 +250,29 @@ footer.wp-block-template-part .aligncenter {
 .woocommerce div.product form.cart .woocommerce-variation.single_variation {
     @apply !hidden;
 }
-.woocommerce div.product form.cart .woocommerce-variation-add-to-cart .quantity {
+.woocommerce
+    div.product
+    form.cart
+    .woocommerce-variation-add-to-cart
+    .quantity {
     @apply w-full flex items-center border border-black justify-between;
 }
 .quantity-label {
     @apply flex-1 py-2 px-6;
 }
-.woocommerce div.product form.cart .woocommerce-variation-add-to-cart .quantity .qty {
+.woocommerce
+    div.product
+    form.cart
+    .woocommerce-variation-add-to-cart
+    .quantity
+    .qty {
     @apply w-[5rem] mr-0 py-4 border-0 border-l rounded-none bg-transparent font-medium;
 }
-.woocommerce div.product form.cart .woocommerce-variation-add-to-cart .single_add_to_cart_button {
+.woocommerce
+    div.product
+    form.cart
+    .woocommerce-variation-add-to-cart
+    .single_add_to_cart_button {
     @apply w-full;
 }
 .wp-block-torasen-related-products .wc-block-components-product-image img {
@@ -256,7 +284,7 @@ footer.wp-block-template-part .aligncenter {
 
 /* Add to cart scroll prompt - product apge */
 .scroll-prompt {
-    @apply fixed bottom-6 right-6 p-6 z-20 bg-white 
+    @apply fixed bottom-6 right-6 p-6 z-20 bg-white;
 }
 .scroll-prompt .wp-block-post-featured-image {
     @apply w-10;
@@ -269,22 +297,34 @@ footer.wp-block-template-part .aligncenter {
 .wc-block-components-product-metadata {
     @apply text-dark-grey text-sm;
 }
-table.wc-block-cart-items .wc-block-cart-items__header .wc-block-cart-items__header-image {
-    @apply pl-4 w-[180px] text-left
+table.wc-block-cart-items
+    .wc-block-cart-items__header
+    .wc-block-cart-items__header-image {
+    @apply pl-4 w-[180px] text-left;
 }
 table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__image {
     @apply pr-4;
 }
-table.wc-block-cart-items .wc-block-cart-items__row .wc-block-components-product-name {
+table.wc-block-cart-items
+    .wc-block-cart-items__row
+    .wc-block-components-product-name {
     @apply mb-1;
 }
-table.wc-block-cart-items .wc-block-cart-items__row .wc-block-components-product-metadata .wc-block-components-product-details__name {
+table.wc-block-cart-items
+    .wc-block-cart-items__row
+    .wc-block-components-product-metadata
+    .wc-block-components-product-details__name {
     @apply font-normal;
 }
-table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantity {
+table.wc-block-cart-items
+    .wc-block-cart-items__row
+    .wc-block-cart-item__quantity {
     @apply flex flex-wrap items-center gap-4;
 }
-table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantity .wc-block-components-quantity-selector {
+table.wc-block-cart-items
+    .wc-block-cart-items__row
+    .wc-block-cart-item__quantity
+    .wc-block-components-quantity-selector {
     @apply mb-0;
 }
 .wc-block-cart .wc-block-cart__sidebar {
@@ -297,10 +337,16 @@ table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantit
     @apply p-sm pt-0 bg-lightest-grey;
 }
 .wc-block-cart__submit {
-    @apply mb-0
+    @apply mb-0;
 }
-.is-small table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__product,
-.is-mobile table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__product {
+.is-small
+    table.wc-block-cart-items
+    .wc-block-cart-items__row
+    .wc-block-cart-item__product,
+.is-mobile
+    table.wc-block-cart-items
+    .wc-block-cart-items__row
+    .wc-block-cart-item__product {
     @apply pr-4;
 }
 
@@ -335,22 +381,28 @@ table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantit
 .wp-block-woocommerce-checkout-order-summary-block {
     @apply p-sm bg-lightest-grey;
 }
-.wc-block-components-order-summary .wc-block-components-order-summary-item__image {
+.wc-block-components-order-summary
+    .wc-block-components-order-summary-item__image {
     @apply md:hidden xl:block;
 }
-.wc-block-components-order-summary .wc-block-components-order-summary-item__description {
+.wc-block-components-order-summary
+    .wc-block-components-order-summary-item__description {
     @apply md:pl-0 pr-4 xl:pl-6;
 }
-.wc-block-components-order-summary .wc-block-components-order-summary-item__individual-prices {
+.wc-block-components-order-summary
+    .wc-block-components-order-summary-item__individual-prices {
     @apply pt-0;
 }
-.wc-block-components-order-summary .wc-block-components-order-summary-item__total-price {
+.wc-block-components-order-summary
+    .wc-block-components-order-summary-item__total-price {
     @apply text-base font-normal;
 }
-.wc-block-components-totals-footer-item .wc-block-components-totals-item__label {
+.wc-block-components-totals-footer-item
+    .wc-block-components-totals-item__label {
     @apply text-md;
 }
-.wc-block-components-order-summary .wc-block-components-order-summary-item__quantity {
+.wc-block-components-order-summary
+    .wc-block-components-order-summary-item__quantity {
     @apply border-0 shadow-none bg-black text-white;
 }
 .is-large .wc-block-checkout__actions {
@@ -364,13 +416,20 @@ table + .order-again {
 }
 
 /* Order Confirmation */
-.wc-block-order-confirmation-totals .wc-block-order-confirmation-totals__product a {
+.wc-block-order-confirmation-totals
+    .wc-block-order-confirmation-totals__product
+    a {
     @apply font-medium;
 }
-.wc-block-order-confirmation-totals .wc-block-order-confirmation-totals__product .wc-item-meta {
+.wc-block-order-confirmation-totals
+    .wc-block-order-confirmation-totals__product
+    .wc-item-meta {
     @apply mt-1 text-dark-grey text-sm;
 }
-.wc-block-order-confirmation-totals .wc-block-order-confirmation-totals__product .wc-item-meta .wc-item-meta-label {
+.wc-block-order-confirmation-totals
+    .wc-block-order-confirmation-totals__product
+    .wc-item-meta
+    .wc-item-meta-label {
     @apply font-normal;
 }
 
@@ -381,11 +440,11 @@ table + .order-again {
 .woocommerce-log-in h2 {
     @apply hidden;
 }
-.woocommerce-log-in form.login, 
+.woocommerce-log-in form.login,
 .woocommerce-log-in form.register {
     @apply m-0 p-sm border-0 rounded-none bg-lightest-grey;
 }
-.woocommerce-log-in form.login .input-text,  
+.woocommerce-log-in form.login .input-text,
 .woocommerce-log-in form.register .input-text {
     @apply border-0;
 }
@@ -429,12 +488,15 @@ table + .order-again {
 .woocommerce-account table.my_account_orders .wp-element-button {
     @apply inline-block m-0 p-0 bg-transparent text-black;
 }
-.woocommerce-account table.my_account_orders .wp-element-button + .wp-element-button {
+.woocommerce-account
+    table.my_account_orders
+    .wp-element-button
+    + .wp-element-button {
     @apply ml-2;
 }
 
 /* Account - View Order */
-.woocommerce-page .woocommerce-column__title, 
+.woocommerce-page .woocommerce-column__title,
 .woocommerce-page .woocommerce-customer-details h2 {
     @apply text-lg font-medium;
 }
@@ -470,17 +532,20 @@ form.searchandfilter h4 {
 form.searchandfilter label {
     @apply m-0 text-base font-normal;
 }
-form.searchandfilter li[data-sf-field-input-type=radio] input {
+form.searchandfilter li[data-sf-field-input-type="radio"] input {
     @apply absolute w-0 h-0 opacity-0;
 }
-form.searchandfilter li[data-sf-field-input-type=radio] label {
+form.searchandfilter li[data-sf-field-input-type="radio"] label {
     @apply relative flex pl-5 bg-no-repeat bg-[length:12px_12px] bg-[left_top_0.25rem] cursor-pointer;
     background-image: url("../images/icons/checkbox-unchecked.svg");
 }
-form.searchandfilter li[data-sf-field-input-type=radio] input:checked + label {
+form.searchandfilter
+    li[data-sf-field-input-type="radio"]
+    input:checked
+    + label {
     background-image: url("../images/icons/checkbox-checked.svg");
 }
-form.searchandfilter li[data-sf-field-input-type=radio] label .sf-count {
+form.searchandfilter li[data-sf-field-input-type="radio"] label .sf-count {
     @apply flex-none ml-auto pl-2.5 font-mono;
 }
 form.searchandfilter .sf-meta-range-slider {
@@ -519,79 +584,90 @@ form.searchandfilter .sf-meta-range-slider .noUi-handle.noUi-handle-upper {
     @apply mt-0;
 }
 .gform_wrapper.gravity-theme form .gform_fields {
-	@apply gap-x-sm gap-y-xs;
+    @apply gap-x-sm gap-y-xs;
 }
 .gform_wrapper.gravity-theme form .gfield_label {
-	@apply mb-2.5 text-sm font-medium;
+    @apply mb-2.5 text-sm font-medium;
 }
 .gform_wrapper.gravity-theme form .gfield_label_before_complex {
-	@apply hidden;
+    @apply hidden;
 }
 .gform_wrapper.gravity-theme form .ginput_complex label {
-	@apply mb-2.5 p-0 text-sm font-medium;
+    @apply mb-2.5 p-0 text-sm font-medium;
 }
-.gform_wrapper.gravity-theme form input[type="text"], 
-.gform_wrapper.gravity-theme form input[type="password"], 
-.gform_wrapper.gravity-theme form input[type="email"], 
-.gform_wrapper.gravity-theme form input[type="url"], 
-.gform_wrapper.gravity-theme form input[type="date"], 
-.gform_wrapper.gravity-theme form input[type="month"], 
-.gform_wrapper.gravity-theme form input[type="time"], 
-.gform_wrapper.gravity-theme form input[type="datetime"], 
-.gform_wrapper.gravity-theme form input[type="datetime-local"], 
-.gform_wrapper.gravity-theme form input[type="week"], 
-.gform_wrapper.gravity-theme form input[type="number"], 
-.gform_wrapper.gravity-theme form input[type="search"], 
-.gform_wrapper.gravity-theme form input[type="tel"], 
-.gform_wrapper.gravity-theme form input[type="color"], 
-.gform_wrapper.gravity-theme form textarea, 
+.gform_wrapper.gravity-theme form input[type="text"],
+.gform_wrapper.gravity-theme form input[type="password"],
+.gform_wrapper.gravity-theme form input[type="email"],
+.gform_wrapper.gravity-theme form input[type="url"],
+.gform_wrapper.gravity-theme form input[type="date"],
+.gform_wrapper.gravity-theme form input[type="month"],
+.gform_wrapper.gravity-theme form input[type="time"],
+.gform_wrapper.gravity-theme form input[type="datetime"],
+.gform_wrapper.gravity-theme form input[type="datetime-local"],
+.gform_wrapper.gravity-theme form input[type="week"],
+.gform_wrapper.gravity-theme form input[type="number"],
+.gform_wrapper.gravity-theme form input[type="search"],
+.gform_wrapper.gravity-theme form input[type="tel"],
+.gform_wrapper.gravity-theme form input[type="color"],
+.gform_wrapper.gravity-theme form textarea,
 .gform_wrapper.gravity-theme form select {
-	@apply p-3 border border-black rounded-[3px];
+    @apply p-3 border border-black rounded-[3px];
 }
 .gform_wrapper.gravity-theme form select {
-	@apply appearance-none pr-10 bg-no-repeat bg-[right_12px_center] bg-[length:25px_25px];
-	background-image: url("../images/icons/arrow-dropdown.svg"); 
+    @apply appearance-none pr-10 bg-no-repeat bg-[right_12px_center] bg-[length:25px_25px];
+    background-image: url("../images/icons/arrow-dropdown.svg");
 }
 .gform_wrapper.gravity-theme form input[type="radio"],
 .gform_wrapper.gravity-theme form input[type="checkbox"] {
     @apply mr-1 accent-current;
 }
 .gform_wrapper.gravity-theme form .ginput_complex {
-	@apply gap-xs;
+    @apply gap-xs;
 }
 .gform_wrapper.gravity-theme form .ginput_complex span {
-	@apply mb-0;
+    @apply mb-0;
 }
 .gform_wrapper.gravity-theme form .gform_drop_area button {
-	@apply px-6 py-3 border border-mid-grey;
+    @apply px-6 py-3 border border-mid-grey;
 }
 .gform_wrapper.gravity-theme form .gform_footer {
-	@apply py-0 mt-xs;
+    @apply py-0 mt-xs;
 }
 .gform_wrapper.gravity-theme form input[type="submit"] {
-	@apply mb-0 px-6 py-3 border border-black bg-black text-white cursor-pointer transition duration-300 ease-in-out;
+    @apply mb-0 px-6 py-3 border border-black bg-black text-white cursor-pointer transition duration-300 ease-in-out;
 }
 .gform_wrapper.gravity-theme form input[type="submit"]:hover {
     @apply border-dark-greige bg-dark-greige text-black;
 }
 .gform_wrapper.gravity-theme form .gfield_contains_required label::after {
-	@apply content-['*'];
+    @apply content-['*'];
 }
 .gform_wrapper.gravity-theme form .gfield_required {
-	@apply hidden;
+    @apply hidden;
 }
-.gform_wrapper.gravity-theme form .field_description_above .gfield_description.gfield_validation_message {
-	@apply mt-xs py-xs;
+.gform_wrapper.gravity-theme
+    form
+    .field_description_above
+    .gfield_description.gfield_validation_message {
+    @apply mt-xs py-xs;
 }
 .gform_wrapper.gravity-theme.gform_validation_error .gform_validation_errors {
-	@apply mt-0 mb-xs px-xs py-xs rounded-none text-base;
+    @apply mt-0 mb-xs px-xs py-xs rounded-none text-base;
 }
-.gform_wrapper.gravity-theme.gform_validation_error .gform_validation_errors h2 {
-	@apply text-md font-medium leading-normal;
+.gform_wrapper.gravity-theme.gform_validation_error
+    .gform_validation_errors
+    h2 {
+    @apply text-md font-medium leading-normal;
 }
-.gform_wrapper.gravity-theme.gform_validation_error .gform_validation_errors > ol li,
-.gform_wrapper.gravity-theme.gform_validation_error .gform_validation_errors > ol a {
-	@apply text-base;
+.gform_wrapper.gravity-theme.gform_validation_error
+    .gform_validation_errors
+    > ol
+    li,
+.gform_wrapper.gravity-theme.gform_validation_error
+    .gform_validation_errors
+    > ol
+    a {
+    @apply text-base;
 }
 
 /******** Yoast ********/
@@ -614,10 +690,27 @@ form.searchandfilter .sf-meta-range-slider .noUi-handle.noUi-handle-upper {
     @apply p-2.5;
 }
 .block-editor .edit-post-sidebar .acf-table .acf-link .link-wrap,
-.block-editor-page .interface-complementary-area .acf-table .acf-link .link-wrap {
+.block-editor-page
+    .interface-complementary-area
+    .acf-table
+    .acf-link
+    .link-wrap {
     @apply leading-normal;
 }
-.block-editor .edit-post-sidebar .acf-table .acf-link .link-wrap .link-title, 
-.block-editor-page .interface-complementary-area .acf-table .acf-link .link-wrap .link-title {
+.block-editor .edit-post-sidebar .acf-table .acf-link .link-wrap .link-title,
+.block-editor-page
+    .interface-complementary-area
+    .acf-table
+    .acf-link
+    .link-wrap
+    .link-title {
     @apply p-0;
+}
+
+.scroll-prompt {
+    transition: transform 0.5s ease-in-out;
+    transform: translateX(calc(100% + 1.5rem));
+}
+.scroll-prompt.show {
+    transform: translateX(0);
 }
