@@ -25,7 +25,7 @@ export default function AttributeOption({ attribute, option }) {
 					<img className="w-3 h-3 object-cover" src={option.swatch} alt={option.name}/>
 				</span>
 			)}
-			<span className="block py-2 px-3">{option.name}</span>
+			<span className="block py-2 px-4">{option.name}</span>
 		</button>
 	)
 }

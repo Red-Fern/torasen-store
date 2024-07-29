@@ -284,10 +284,22 @@ footer.wp-block-template-part .aligncenter {
 
 /* Add to cart scroll prompt - product apge */
 .scroll-prompt {
-    @apply fixed bottom-6 right-6 p-6 z-20 bg-white;
+    @apply flex flex-col sm:flex-row fixed bottom-6 right-6 left-6 sm:left-auto p-3 pr-6 z-20 bg-white space-x-4 shadow-2xl; 
+}
+.scroll-prompt .wp-block-post-title {
+    @apply hidden sm:block;
 }
 .scroll-prompt .wp-block-post-featured-image {
-    @apply w-10;
+    @apply hidden sm:block w-16 bg-[#f5f5f4];
+}
+.scroll-prompt .wp-block-post-featured-image img {
+    @apply mix-blend-multiply;
+}
+.scroll-prompt .wp-block-buttons {
+    @apply flex flex-col items-stretch w-full gap-1 sm:flex-row sm:w-auto;
+}
+.scroll-prompt .wp-block-buttons .wp-block-button__link {
+    @apply w-full sm:w-auto;
 }
 
 /* Cart */
