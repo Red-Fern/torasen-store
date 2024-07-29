@@ -70,7 +70,7 @@ export default function Slideshow({ videoUrl }) {
 				{videoUrl && (
 					<button
 						type="button"
-						className="flex gap-3 items-center bg-white px-5 py-2 h-10 hover:bg-gray-50 shadow"
+						className="flex gap-3 items-center bg-white px-5 py-2 h-10 hover:bg-gray-50"
 						onClick={goToVideo}
 					>
 						<span>Video</span>
@@ -80,10 +80,10 @@ export default function Slideshow({ videoUrl }) {
 					</button>
 				)}
 
-				{imageCount > 3 && (
-					<div className="flex divide-x divide-gray-300">
+				{imageCount > 2 && (
+					<div className="flex divide-x divide-gray-200">
 						<button type="button"
-								className="bg-white grid place-items-center w-10 h-10 hover:bg-gray-50 shadow"
+								className="bg-white grid place-items-center w-10 h-10 hover:bg-gray-50"
 								onClick={prevSlide}
 						>
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -92,7 +92,7 @@ export default function Slideshow({ videoUrl }) {
 						</button>
 						<button
 							type="button"
-							className="bg-white grid place-items-center w-10 h-10 hover:bg-gray-50 shadow"
+							className="bg-white grid place-items-center w-10 h-10 hover:bg-gray-50"
 							onClick={nextSlide}
 						>
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
