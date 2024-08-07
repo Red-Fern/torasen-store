@@ -61,8 +61,10 @@ $srcSet = wp_get_attachment_image_srcset( $product->get_image_id(), 'woocommerce
     <?php echo wp_interactivity_data_wp_context([
         'imageUrl' => $imageUrl,
         'originalImageUrl' => $imageUrl,
+        'productName' => $product->get_name(),
         'srcSet' => $srcSet,
         'originalSrcSet' => $srcSet,
+        'originalProductName' => $product->get_name(),
     ]); ?>
     data-wp-init="callbacks.cacheImage"
 >
@@ -100,6 +102,7 @@ $srcSet = wp_get_attachment_image_srcset( $product->get_image_id(), 'woocommerce
                             <swiper-slide class="slide-product-thumbnial" >
                                 <a href="<?php echo $product->get_permalink(); ?>" class="block has-lightest-grey-background-color">
                                     <?php echo $product->get_image('woocommerce_thumbnail', [
+                                        'data-product-name' => $product->get_name(),
                                         'data-wp-on--mouseover' => 'actions.changeImage',
                                         'data-wp-on--mouseout' => 'actions.revertImage',
                                     ]); ?>
@@ -110,6 +113,7 @@ $srcSet = wp_get_attachment_image_srcset( $product->get_image_id(), 'woocommerce
                                 <swiper-slide class="slide-product-thumbnial" >
                                     <a href="<?php echo $rangeProduct->get_permalink(); ?>" class="block has-lightest-grey-background-color">
                                         <?php echo $rangeProduct->get_image('woocommerce_thumbnail', [
+                                            'data-product-name' => $rangeProduct->get_name(),
                                             'data-wp-on--mouseover' => 'actions.changeImage',
                                             'data-wp-on--mouseout' => 'actions.revertImage',
                                         ]); ?>
@@ -121,7 +125,7 @@ $srcSet = wp_get_attachment_image_srcset( $product->get_image_id(), 'woocommerce
 
                     <div class="p-4">
                         <a href="<?php echo $product->get_permalink(); ?>" class="border border-t-0 border-transparent">
-                            <div class="mb-1 font-medium"><?php echo $product->get_name(); ?></div>
+                            <div class="mb-1 font-medium" data-wp-text="context.productName"></div>
 
                             <div class="text-sm">
                                 <?php echo $product->get_price_html(); ?>
