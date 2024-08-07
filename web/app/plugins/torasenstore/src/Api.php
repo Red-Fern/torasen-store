@@ -107,7 +107,6 @@ class Api
         $productCategories = wc_get_product_term_ids($productId, 'product_cat');
 
         $items = wc_get_products([
-            'post__not_in' => [$productId],
             'tax_query' => [
                 [
                     'taxonomy' => 'productrange',
@@ -123,8 +122,24 @@ class Api
             ]
         ]);
 
-        $products = array_map(function ($product) {
-            return (new ProductResource($product))->toArray();
+        usort($items, function ($a, $b) use ($productId) {
+            if ($a->get_id() == $productId) {
+                return -1;
+            }
+            if ($b->get_id() == $productId) {
+                return 1;
+            }
+            return 0;
+        });
+
+        $products = array_map(function ($product) use($productId) {
+            $resource = new ProductResource($product);
+
+            if ($product->get_id() == $productId) {
+                $resource->current();
+            }
+
+            return $resource->toArray();
         }, $items);
 
         wp_send_json([
